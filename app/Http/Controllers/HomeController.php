@@ -13,4 +13,8 @@ class HomeController extends Controller
     public function testview(){
       return view('test');
     }
+    public function testAction(){
+      echo "đây là 1 action trong class HomeController";
+      return redirect()->route("hcm");
+    }
 }
