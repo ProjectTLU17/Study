@@ -30,12 +30,15 @@ Route::get('test-controller','HomeController@testAction');
 Route::get('ho-chi-minh',['as'=>'hcm',function(){
   return "Hồ Chí Minh đẹp lắm các bạn ơi";
 }]);
-route::get('mon-an/bun-bo',function(){
-  echo "Đây là trang bán bún bò";
-});
-route::get('mon-an/bun-mam',function(){
-  echo "Đây là trang bán bún mắm";
-});
-route::get('mon-an/bun-moc',function(){
-  echo "Đây là trang bán bún mọc";
+// group routes
+route::group(['prefix'=>'mon-an'],function(){
+  route::get('bun-bo',function(){
+    echo "Đây là trang bán bún bò";
+  });
+  route::get('bun-mam',function(){
+    echo "Đây là trang bán bún mắm";
+  });
+  route::get('bun-moc',function(){
+    echo "Đây là trang bán bún mọc";
+  });
 });
