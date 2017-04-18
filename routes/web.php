@@ -30,12 +30,34 @@ Route::get('test-controller','HomeController@testAction');
 Route::get('ho-chi-minh',['as'=>'hcm',function(){
   return "Hồ Chí Minh đẹp lắm các bạn ơi";
 }]);
-route::get('mon-an/bun-bo',function(){
-  echo "Đây là trang bán bún bò";
+// group routes
+route::group(['prefix'=>'mon-an'],function(){
+  route::get('bun-bo',function(){
+    echo "Đây là trang bán bún bò";
+  });
+  route::get('bun-mam',function(){
+    echo "Đây là trang bán bún mắm";
+  });
+  route::get('bun-moc',function(){
+    echo "Đây là trang bán bún mọc";
+  });
 });
-route::get('mon-an/bun-mam',function(){
-  echo "Đây là trang bán bún mắm";
+//views
+Route::get('goi-view',function(){
+  return view('sub.sub2.test2');
 });
-route::get('mon-an/bun-moc',function(){
-  echo "Đây là trang bán bún mọc";
+Route::get('goi-layout',function(){
+  return view('sub.sub2.layout');
+});
+View::share('title',['Lập Trình Laravel 5x','2']);
+view::composer(['sub.sub2.layout','sub.sub2.test2'],function($view){
+  return $view->with('thongtin','đây là trang cá nhân');
+});
+Route::get('check-view',function(){
+  if(view()->exists('test')){
+    return "Toonf taij";
+  }
+  else{
+    return "khong";
+  }
 });
