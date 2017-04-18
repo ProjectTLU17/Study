@@ -42,3 +42,22 @@ route::group(['prefix'=>'mon-an'],function(){
     echo "Đây là trang bán bún mọc";
   });
 });
+//views
+Route::get('goi-view',function(){
+  return view('sub.sub2.test2');
+});
+Route::get('goi-layout',function(){
+  return view('sub.sub2.layout');
+});
+View::share('title',['Lập Trình Laravel 5x','2']);
+view::composer(['sub.sub2.layout','sub.sub2.test2'],function($view){
+  return $view->with('thongtin','đây là trang cá nhân');
+});
+Route::get('check-view',function(){
+  if(view()->exists('test')){
+    return "Toonf taij";
+  }
+  else{
+    return "khong";
+  }
+});
