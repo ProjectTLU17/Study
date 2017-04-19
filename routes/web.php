@@ -62,5 +62,5 @@ Route::get('check-view',function(){
   }
 });
 Route::get('goi-master',function(){
-  return view('blade.sub');
+  return view('blade.layout');
 });
