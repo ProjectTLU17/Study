@@ -14,7 +14,12 @@
   </head>
   <body>
       <div id="wrapper">
-        <div id="header"></div>
+        <div id="header">
+          @section('sidebar')
+            Đây là menu
+            
+          @show
+        </div>
         <div id="content">
           @yield('noidung')
         </div>
