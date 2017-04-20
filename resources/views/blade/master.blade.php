@@ -14,10 +14,11 @@
   </head>
   <body>
       <div id="wrapper">
+        @include('blade.merquee',['mar_content'=>'Khóa học lập trình'])
         <div id="header">
           @section('sidebar')
             Đây là menu
-            
+            {{-- comment --}}
           @show
         </div>
         <div id="content">
