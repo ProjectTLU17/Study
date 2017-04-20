@@ -61,3 +61,6 @@ Route::get('check-view',function(){
     return "khong";
   }
 });
+Route::get('goi-master',function(){
+  return view('blade.sub');
+});
