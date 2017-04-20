@@ -64,6 +64,9 @@ Route::get('check-view',function(){
 Route::get('goi-master',function(){
   return view('blade.layout');
 });
+Route::get('goi-master2',function(){
+  return view('blade.sub');
+});
 route::get('go', function()
 {
 
