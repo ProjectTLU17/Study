@@ -67,7 +67,27 @@ Route::get('goi-master',function(){
 Route::get('goi-master2',function(){
   return view('blade.sub');
 });
-route::get('go', function()
-{
+Route::get('url/asset',function(){
+  return asset('css/mystyle.css');
+});
 
+Route::get('full',function(){
+  return URL::full();
+});
+Route::get('url/to',function(){
+  return URL::to('thong-tin',['quoctuan','01649372037'],true);
+});
+Route::get('url/secure',function(){
+  return secure_url('thong-tin',['quoctuan','01649372037']);
+});
+//thêm true hoặc dùng secure_url để trả về https
+//tạo bảng mysql qua laravel check connect đc sql bằng lệnh php artisan migrate
+Route::get('schema/create',function(){
+  Schema::create('Duy',function($table){
+    $table->increments('id');// laravel mặc định chọn khóa chính cho incre
+    $table->string('tenmonhoc');
+    $table->integer('gia');
+    $table->text('ghichu')->nullable();
+    $table->timestamps();
+  });
 });

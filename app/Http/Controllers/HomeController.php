@@ -17,7 +17,7 @@ class HomeController extends Controller
       echo "đây là 1 action trong class HomeController";
       return redirect()->route("hcm");
     }
-    public function checkstring(){
+    /*public function checkstring(){
       $string='a>';
       echo $string ;
       echo "<br>";
@@ -41,4 +41,5 @@ class HomeController extends Controller
         echo 'sai cmnr';
       }
     }
+    */
 }
