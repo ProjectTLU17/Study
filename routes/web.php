@@ -91,3 +91,18 @@ Route::get('schema/create',function(){
     $table->timestamps();
   });
 });
+//rename table
+Route::get('schema/rename',function(){
+  Schema::rename('Duy','Duy2');
+});
+//drop table
+Route::get('schema/drop',function(){
+  Schema::dropIfExists('Duy2');
+});
+//change attributes of table
+//loi chua co doctri thif composer.json fix
+Route::get('schema/change',function(){
+  Schema::table('Duy2',function($table){
+    $table->string('tenmonhoc',250)->change();
+  });
+});
