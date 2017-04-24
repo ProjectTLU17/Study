@@ -20,7 +20,7 @@
       <div class="header">
         @yield('header')
       </div>
-      <div class="content">
+      <div class="main">
         @yield('main')
       </div>
       <div class="footer">
