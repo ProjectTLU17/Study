@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('homepage',function(){
+  return view('homepage');
+});
 Route::get('test',function(){
   echo "được phết này";
 });
@@ -106,3 +109,31 @@ Route::get('schema/change',function(){
     $table->string('tenmonhoc',250)->change();
   });
 });
+//xoa Col
+route::get('schema/drop-col',function(){
+  Schema::table('Duy2',function($table){
+    $table->dropColumn('ghichu');
+    // xóa nhiều cột 1 lúc bằng cách truyền vào 1 mảng theo cấu trúc ['','']
+  });
+});
+Route::get('schema/create/cate',function(){
+  Schema::create('category',function($table){
+    $table->increments('id');// laravel mặc định chọn khóa chính cho incre
+    $table->string('name');
+    $table->timestamps();
+  });
+});
+Route::get('schema/create/product',function(){
+  Schema::create('product',function($table){
+    $table->increments('id');// laravel mặc định chọn khóa chính cho incre
+    $table->string('name');
+    $table->integer('price');
+    $table->integer('cate_id')->unsigned();
+    $table->foreign('cate_id')->references('id')->on('category')->onDelete('cascade');//tạo khóa ngoại và thêm ondelete để có thể xóa dữ liệu bên khóa chính bất kể khóa chính đã là giá trị khóa ngoại nào khác chưa
+    $table->timestamps();
+  });
+});
+Route::get('json', function () {
+    return Response::json(array('body' => View::make('blade.layout')->render()));
+});
+Route::resource('duycon','DuyController',['only'=>'index']);
