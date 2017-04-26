@@ -11,10 +11,11 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "doctrine/dbal": "v2.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "monolog/monolog": "^1.22",
-        "doctrine/dbal": "v2.5"
+        "laravelcollective/html": "^5.3.0",
+        "monolog/monolog": "^1.22"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
