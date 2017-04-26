@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use App\Http\Requests\LoginRequest;
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -36,4 +37,25 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-}
+    public function getLogin(){
+      return view('template.login');
+    }
+    public function postLogin(LoginRequest $request){
+      $authe=['username'=>$request->username,
+              'password'=>$request->password];
+      if (Auth::attempt($authe)) {
+        if(Auth::user()->role=='manager'){
+          return redirect('manager');
+        }
+        else{
+          return redirect('employee');
+        }
+      }
+      else {
+        return redirect('login');
+      }
+    }
+    public function postLogout(){
+      Auth::logout();
+    }
+  }
