@@ -173,11 +173,10 @@ Route::get('query/select/name',function(){
   ->delete(); xóa toàn bộ record của bảng
 */
 //Eloquent ORM
-Route::get('get/product',function(){
-  $product =App\product::all()->toJson(); // muốn đổi kiểu dữ liệu trả về thì thêm ->toArray() hoặc ->toJson()
-    echo "<pre>";
-  print_r($product);
-    echo "</pre>";
+Route::get('get/product1',function(){
+  $product =App\product::all(); // muốn đổi kiểu dữ liệu trả về thì thêm ->toArray() hoặc ->toJson()
+
+  return Response::json($product);
 });
 Route::get('get/product',function(App\product $data){
   $product =$data::all()->toArray(); // muốn đổi kiểu dữ liệu trả về thì thêm ->toArray() hoặc ->toJson()
