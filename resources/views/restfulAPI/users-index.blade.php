@@ -1,7 +1,4 @@
-@extends('template.layouts')
-@section('title','Đăng Nhập')
-@section('header')
-@endsection
+@extends('template.manager')
 @section('main')
   <table class="table table-bordered">
               <thead>
