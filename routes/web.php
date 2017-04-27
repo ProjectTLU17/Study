@@ -12,12 +12,15 @@
 */
 Route::group(['middleware'=>'auth'],function(){
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
+    //route cho manager
     Route::get('',function(){
           return view('template.manager');
     });
     Route::resource('users/api','UsersRAController');
+    Route::resource('users','UsersController');
   });
   Route::group(['prefix'=>'employee'],function(){
+    //route cho nhân viên
     Route::get('',function(){
         return view('template.employee');
     });

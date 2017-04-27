@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Response;
-class UsersRAController extends Controller
+class UsersController extends Controller
 {
     public function index(){
       $users=User::all();
-      return Response::json($users);
+      return view('restfulAPI.users-index',compact('users'));
     }
     public function store(Request $Request){
     $users=new User;
