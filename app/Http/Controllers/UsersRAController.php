@@ -8,6 +8,7 @@ class UsersRAController extends Controller
 {
     public function index(){
       $users=User::all();
+      $api=$users->toJson();
       return view('restfulAPI.users-index',compact('users'));
     }
     public function store(Request $Request){
@@ -17,10 +18,10 @@ class UsersRAController extends Controller
     $users->password=$Request->password;
     $users->role=$Request->role;
     $users->save();
-    return redirect()->route('restful.index');
+    return redirect()->route('restfulAPI.users-index');
   }
   public function create(){
-    return view('restful.add');
+    return view('restfulAPI.users-create');
   }
   public function show($id){
     echo "đây là dòng dữ liệu thứ $id";
@@ -32,16 +33,16 @@ class UsersRAController extends Controller
       $users->password=$Request->password;
       $users->role=$Request->role;
       $users->save();
-      return redirect()->route('restful.index');
+      return redirect()->route('restfulAPI.users-index');
   }
   public function destroy($id){
     $users=User::findorFail($id);
     $users->delete();
-    return redirect()->route('restful.index');
+    return redirect()->route('restfulAPI.users-index');
   }
   public function edit($id){
     $users=User::find($id);
-    return view('restful.edit',compact('users'));
+    return view('restfulAPI.users-edit',compact('users'));
   }
 
 }
