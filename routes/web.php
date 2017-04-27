@@ -11,12 +11,17 @@
 |
 */
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('employee',function(){
-        return view('template.employee');
-    });
-    Route::get('manager',function(){
+  Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
+    Route::get('',function(){
           return view('template.manager');
     });
+    Route::resource('users/api','UsersRAController');
+  });
+  Route::group(['prefix'=>'employee'],function(){
+    Route::get('',function(){
+        return view('template.employee');
+    });
+  });
 });
 Route::get('/',function(){
     return redirect('login');
