@@ -136,8 +136,7 @@ return [
     */
 
     'providers' => [
-        //bootstrap
-        'Bootstrapper\BootstrapperL5ServiceProvider',
+
         /*
          * Laravel Framework Service Providers...
          */
@@ -163,7 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Collective\Html\HtmlServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -173,6 +172,7 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
+        //App\Providers\MacroProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
@@ -224,33 +224,10 @@ return [
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        //bootstrap
-        'Accordion' => 'Bootstrapper\Facades\Accordion',
-      	'Alert' => 'Bootstrapper\Facades\Alert',
-      	'Badge' => 'Bootstrapper\Facades\Badge',
-      	'Breadcrumb' => 'Bootstrapper\Facades\Breadcrumb',
-      	'Button' => 'Bootstrapper\Facades\Button',
-      	'ButtonGroup' => 'Bootstrapper\Facades\ButtonGroup',
-      	'Carousel' => 'Bootstrapper\Facades\Carousel',
-      	'ControlGroup' => 'Bootstrapper\Facades\ControlGroup',
-      	'DropdownButton' => 'Bootstrapper\Facades\DropdownButton',
-      	'Form' => 'Bootstrapper\Facades\Form',
-      	'Helpers' => 'Bootstrapper\Facades\Helpers',
-      	'Icon' => 'Bootstrapper\Facades\Icon',
-      	'InputGroup' => 'Bootstrapper\Facades\InputGroup',
-      	'Image' => 'Bootstrapper\Facades\Image',
-      	'Label' => 'Bootstrapper\Facades\Label',
-      	'MediaObject' => 'Bootstrapper\Facades\MediaObject',
-      	'Modal' => 'Bootstrapper\Facades\Modal',
-      	'Navbar' => 'Bootstrapper\Facades\Navbar',
-      	'Navigation' => 'Bootstrapper\Facades\Navigation',
-      	'Panel' => 'Bootstrapper\Facades\Panel',
-      	'ProgressBar' => 'Bootstrapper\Facades\ProgressBar',
-      	'Tabbable' => 'Bootstrapper\Facades\Tabbable',
-      	'Table' => 'Bootstrapper\Facades\Table',
-      	'Thumbnail' => 'Bootstrapper\Facades\Thumbnail',
     ],
 
 ];
