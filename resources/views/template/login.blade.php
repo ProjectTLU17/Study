@@ -4,13 +4,13 @@
 @endsection
 @section('main')
     <div class="container" style="margin-top:40px;">
-    {!!Form::open(['route'=>'getLogin'])!!}
+      {!! Html::ul($errors->all(), array('class'=>'alert alert-danger errors')) !!}
+    {!!Form::open(['route'=>'login'])!!}
       {!!Form::token()!!}
 	<div class="row">
 		<div class="col-sm-6 col-md-4 col-md-offset-4">
 			<div class="panel panel-default panel-frm">
 				<div class="panel-heading panel-heading-frm">
-
 					<strong> HOME LAND COPORATION </strong>
 				</div>
 				<div class="panel-body">
@@ -18,7 +18,6 @@
 							<div class="row">
 								<div class="col-sm-12 col-md-10  col-md-offset-1 ">
 									<div class="form-group">
-                    {!!$errors->first('username')!!}
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-user"></i>
@@ -27,7 +26,6 @@
 										</div>
 									</div>
 									<div class="form-group">
-                    {!!$errors->first('password')!!}
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-lock"></i>
