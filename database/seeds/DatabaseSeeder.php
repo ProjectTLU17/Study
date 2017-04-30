@@ -76,13 +76,3 @@ class CustomerTableSeeder extends Seeder
         ]);
     }
 }
-class EmployeeTableSeeder extends Seeder
-{
-    public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
-        DB::table('Employee')->insert([
-          ['name'=>'Nguyễn Duy Hoàng Anh','address'=>'Ở đâu còn lâu mới nói','phone'=>'15154182135','email'=>'OcCho@gmail.com'],
-        ]);
-    }
-}

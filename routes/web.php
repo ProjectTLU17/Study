@@ -10,32 +10,34 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware'=>'auth'],function(){
+  //route cho manager
+  Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
+    Route::get('',function(){
+          return view('template.manager');
+    });
+    Route::resource('users/api','UsersRAController',['except' =>'create']);
+    Route::resource('users','UsersController');
+  });
+  //route cho nhân viên
+  Route::group(['prefix'=>'employee'],function(){
+    Route::get('',function(){
+        return view('template.employee');
+    });
+  });
+  //endgroup
+  Route::get('logout',function(){
+    Auth::logout();
+    return redirect('login');
+  });
 });
-Route::get('test',function(){
-  echo "được phết này";
+Route::get('login',['as'=>'login','uses'=>'Auth\LoginController@getLogin']);
+Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
+Event::listen('login', function (){
+    if(Auth::check()){
+        return redirect('manager');
+    }
 });
-Route::get('test2','HomeController@testview');
-Route::get('thong-tin/{hoten}/{sdt}', function($hoten,$sdt){
-  return "Thông tin của bạn là: $hoten với số điện thoại là: $sdt ";
-})->where(['sdt' => '[0-9]{10,11}', 'hoten' => '[a-zA-Z]+']);
-Route::get('show-view',function(){
-  $ten= "duy";
-  $view='Admin';
-  return view('test',compact('ten','view'));
-});
-Route::get('test-controller','HomeController@testAction');
-Route::get('ho-chi-minh',['as'=>'hcm',function(){
-  return "Hồ Chí Minh đẹp lắm các bạn ơi";
-}]);
-route::get('mon-an/bun-bo',function(){
-  echo "Đây là trang bán bún bò";
-});
-route::get('mon-an/bun-mam',function(){
-  echo "Đây là trang bán bún mắm";
-});
-route::get('mon-an/bun-moc',function(){
-  echo "Đây là trang bán bún mọc";
-});
+Route::any('{all?}',function(){
+  return redirect('login');
+})->where('all','(.*)');
