@@ -1,3 +1,6 @@
+@php
+  session_start();
+@endphp
 <!DOCTYPE html>
 <html>
   <head>

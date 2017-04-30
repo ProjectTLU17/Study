@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Response;
+use View;
 class UsersRAController extends Controller
 {
     public function index(){
@@ -18,13 +19,14 @@ class UsersRAController extends Controller
     $users->password=$Request->password;
     $users->role=$Request->role;
     $users->save();
-    return redirect()->route('restfulAPI.users-index');
-  }
-  public function create(){
-    return view('restfulAPI.users-create');
+    return Response()->json(array(
+                'error' => false,
+                'message' =>'Thêm users thành công',
+               ),200);
   }
   public function show($id){
-    echo "đây là dòng dữ liệu thứ $id";
+    $users=User::find($id);
+    return  Response::json($users);
   }
   public function update($id,Request $Request){
       $users=User::find($id);
@@ -33,16 +35,22 @@ class UsersRAController extends Controller
       $users->password=$Request->password;
       $users->role=$Request->role;
       $users->save();
-      return redirect()->route('restfulAPI.users-index');
+      return Response()->json(array(
+                  'error' => false,
+                  'message' =>'Cập nhật users thành công',
+                 ),200);
   }
   public function destroy($id){
     $users=User::findorFail($id);
     $users->delete();
-    return redirect()->route('restfulAPI.users-index');
+    return Response()->json(array(
+                'error' => false,
+                'message' =>'Xóa users thành công',
+               ),200);
   }
   public function edit($id){
     $users=User::find($id);
-    return view('restfulAPI.users-edit',compact('users'));
+    return Response::json($users);
   }
 
 }
