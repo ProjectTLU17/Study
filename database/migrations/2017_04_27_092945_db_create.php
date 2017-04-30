@@ -15,50 +15,50 @@ class DbCreate extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('stock');            
-            $table->string('productname');                       
+            $table->integer('stock')->unsigned();
+            $table->string('name');
         });
         Schema::create('product', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sup_id')->unsigned(); 
-            $table->integer('cate_id')->unsigned();           
+            $table->integer('sup_id')->unsigned();
+            $table->integer('cate_id')->unsigned();
             $table->string('name');
             $table->string('details');
-            $table->float('area');
+            $table->float('area')->nullable();
             $table->string('picture');
-            $table->float('price');
-            $table->integer('status');
+            $table->float('price')->nullable();
+            $table->integer('status')->nullable();
         });
         Schema::create('suplier', function (Blueprint $table) {
-            $table->increments('id');            
-            $table->string('supliername');            
+            $table->increments('id');
+            $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('email');                        
+            $table->string('email');
         });
         Schema::create('customer', function (Blueprint $table) {
-            $table->increments('id');            
-            $table->string('customername');           
+            $table->increments('id');
+            $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('email');                        
+            $table->string('email');
         });
         Schema::create('employee', function (Blueprint $table) {
-            $table->increments('id');            
-            $table->string('employeename');
-            $table->date('birthday');           
+            $table->increments('id');
+            $table->string('name');
+            $table->date('birthday')->nullable();
             $table->string('address');
             $table->string('phone');
-            $table->string('email');                        
-        });         
+            $table->string('email');
+        });
         Schema::create('order', function (Blueprint $table) {
-            $table->increments('id'); 
+            $table->increments('id');
             $table->integer('cus_id')->unsigned();
             $table->integer('emp_id')->unsigned();
-            $table->integer('sup_id')->unsigned();      
-            $table->date('startdate');
-            $table->date('expdate');
-            $table->integer('Status')->unsigned();                 
+            $table->integer('sup_id')->unsigned();
+            $table->date('startdate')->nullable();
+            $table->date('expdate')->nullable();
+            $table->integer('Status')->unsigned();
         });
         Schema::create('orderdetails', function (Blueprint $table) {
             $table->string('details');
@@ -80,23 +80,23 @@ class DbCreate extends Migration
             $table->integer('cate_id',11)->change();
         });*/
         Schema::table('order', function (Blueprint $table) {
-            
+
             $table->foreign('cus_id')->references('id')->on('customer')->onDelete('cascade');
-          
+
             $table->foreign('emp_id')->references('id')->on('employee')->onDelete('cascade');
-            
-            $table->foreign('sup_id')->references('id')->on('suplier')->onDelete('cascade');  
-        });
-        Schema::table('product', function (Blueprint $table) {           
-            
+
             $table->foreign('sup_id')->references('id')->on('suplier')->onDelete('cascade');
-                      
-            $table->foreign('cate_id')->references('id')->on('category')->onDelete('cascade'); 
-        });        
+        });
+        Schema::table('product', function (Blueprint $table) {
+
+            $table->foreign('sup_id')->references('id')->on('suplier')->onDelete('cascade');
+
+            $table->foreign('cate_id')->references('id')->on('category')->onDelete('cascade');
+        });
         Schema::table('orderdetails', function (Blueprint $table) {
-            
+
             $table->foreign('or_id')->references('id')->on('order')->onDelete('cascade');
-            
+
             $table->foreign('pro_id')->references('id')->on('product')->onDelete('cascade');
         });
     }
