@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="css/loginstyle.css">
-    <link rel="shortcut icon" href="/img/favicon.png" />
+    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/loginstyle.css')}}"/>
+    <link rel="shortcut icon" href="img/favicon.png"/>
   </head>
   <body>
     <div class="container">
@@ -18,8 +18,8 @@
         </div>
           {!!Form::open(['route'=>'login'])!!}
           {!!Form::token()!!}
-          <input type="text" name="username" placeholder="Username" required="required" class="input-txt" />
-            <input type="password" name="password" placeholder="Password" required="required" class="input-txt" />
+          <input type="text" name="username" placeholder="Nhập vào tên đăng nhập" required="required" class="input-txt" />
+            <input type="password" name="password" placeholder="Nhập vào mật khẩu" required="required" class="input-txt" />
             <div class="login-footer">
                <a href="#" class="lnk">
                 <span class="icon icon--min">ಠ╭╮ಠ</span>
