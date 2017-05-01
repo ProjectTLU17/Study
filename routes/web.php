@@ -20,10 +20,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('users','UsersController');
   });
   //route cho nhân viên
-  Route::group(['prefix'=>'employee'],function(){
+  Route::group(['prefix'=>'dashbroad'],function(){
     Route::get('',function(){
         return view('template.employee');
     });
+    Route::resource('customers','CustomersController');
+    Route::resource('supliers','SupliersController');
   });
   //endgroup
   Route::get('logout',function(){

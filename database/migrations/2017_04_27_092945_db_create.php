@@ -23,23 +23,22 @@ class DbCreate extends Migration
             $table->integer('sup_id')->unsigned();
             $table->integer('cate_id')->unsigned();
             $table->string('name');
+            $table->string('address');
             $table->string('details');
             $table->float('area')->nullable();
             $table->string('picture');
-            $table->float('price')->nullable();
+            $table->float('price');
             $table->integer('status')->nullable();
         });
         Schema::create('suplier', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('address');
             $table->string('phone');
             $table->string('email');
         });
         Schema::create('customer', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('address');
             $table->string('phone');
             $table->string('email');
         });
@@ -55,37 +54,19 @@ class DbCreate extends Migration
             $table->increments('id');
             $table->integer('cus_id')->unsigned();
             $table->integer('emp_id')->unsigned();
-            $table->integer('sup_id')->unsigned();
+            $table->integer('prodt_id')->unsigned();
+            $table->string('decription');
             $table->date('startdate')->nullable();
             $table->date('expdate')->nullable();
-            $table->integer('Status')->unsigned();
+            $table->integer('status')->unsigned();
         });
-        Schema::create('orderdetails', function (Blueprint $table) {
-            $table->string('details');
-            $table->integer('or_id')->unsigned();
-            $table->integer('pro_id')->unsigned();
-        });
-        //Change default value***DO NOT TOUCH***
-        /*Schema::table('product',function(Blueprint $table){
-        	$table->integer('sup_id',11)->change();
-        	$table->integer('sup_id',11)->change();
-        });
-        Schema::table('order',function(Blueprint $table){
-        	$table->integer('cus_id',11)->change();
-        	$table->integer('emp_id',11)->change();
-        	$table->integer('sup_id',11)->change();
-        });
-        Schema::table('orderdetails', function (Blueprint $table) {
-            $table->integer('or_id',11)->change();
-            $table->integer('cate_id',11)->change();
-        });*/
         Schema::table('order', function (Blueprint $table) {
 
             $table->foreign('cus_id')->references('id')->on('customer')->onDelete('cascade');
 
             $table->foreign('emp_id')->references('id')->on('employee')->onDelete('cascade');
 
-            $table->foreign('sup_id')->references('id')->on('suplier')->onDelete('cascade');
+            $table->foreign('prodt_id')->references('id')->on('product')->onDelete('cascade');
         });
         Schema::table('product', function (Blueprint $table) {
 

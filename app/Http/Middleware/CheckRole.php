@@ -18,7 +18,7 @@ class CheckRole
         if (Auth::check()&&Auth::user()->role=="manager") {
           return $next($request);
         } else {
-          return redirect('employee');
+          return redirect('dashbroad');
         }
     }
 }
