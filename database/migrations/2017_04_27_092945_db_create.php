@@ -74,12 +74,6 @@ class DbCreate extends Migration
 
             $table->foreign('cate_id')->references('id')->on('category')->onDelete('cascade');
         });
-        Schema::table('orderdetails', function (Blueprint $table) {
-
-            $table->foreign('or_id')->references('id')->on('order')->onDelete('cascade');
-
-            $table->foreign('pro_id')->references('id')->on('product')->onDelete('cascade');
-        });
     }
 
     /**
