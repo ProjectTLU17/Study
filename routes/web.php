@@ -11,27 +11,33 @@
 |
 */
 Route::group(['middleware'=>'auth'],function(){
+  //route cho manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
-    //route cho manager
     Route::get('',function(){
           return view('template.manager');
     });
-    Route::resource('users/api','UsersRAController');
+    Route::resource('users/api','UsersRAController',['except' =>'create']);
     Route::resource('users','UsersController');
   });
+  //route cho nhân viên
   Route::group(['prefix'=>'employee'],function(){
-    //route cho nhân viên
     Route::get('',function(){
         return view('template.employee');
     });
   });
-});
-Route::get('/',function(){
+  //endgroup
+  Route::get('logout',function(){
+    Auth::logout();
     return redirect('login');
+  });
 });
-Route::get('login',['as'=>'getLogin','uses'=>'Auth\LoginController@getLogin']);
+Route::get('login',['as'=>'login','uses'=>'Auth\LoginController@getLogin']);
 Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
-Route::get('logout',function(){
-  Auth::logout();
-  return redirect('login');
+Event::listen('login', function (){
+    if(Auth::check()){
+        return redirect('manager');
+    }
 });
+Route::any('{all?}',function(){
+  return redirect('login');
+})->where('all','(.*)');

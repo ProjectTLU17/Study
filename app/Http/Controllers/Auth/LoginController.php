@@ -44,15 +44,11 @@ class LoginController extends Controller
       $authe=['username'=>$request->username,
               'password'=>$request->password];
       if (Auth::attempt($authe)) {
-        if(Auth::user()->role=='manager'){
           return redirect('manager');
         }
-        else{
-          return redirect('employee');
-        }
-      }
       else {
-        return redirect('login');
+        $password_errors='Sai tên tài khoản hoặc mật khẩu';
+        return redirect('login')->withErrors($password_errors);
       }
     }
     public function postLogout(){

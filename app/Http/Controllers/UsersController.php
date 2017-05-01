@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     public function index(){
       $users=User::all();
-      return view('restfulAPI.users-index',compact('users'));
+      return view('manager.users-index',compact('users'));
     }
     public function store(Request $Request){
     $users=new User;
@@ -18,13 +18,14 @@ class UsersController extends Controller
     $users->password=$Request->password;
     $users->role=$Request->role;
     $users->save();
-    return redirect()->route('restfulAPI.users-index');
+    return redirect()->route('manager.users-index');
   }
   public function create(){
-    return view('restfulAPI.users-create');
+    return view('manager.users-create');
   }
   public function show($id){
-    echo "đây là dòng dữ liệu thứ $id";
+    $user=User::find($id);
+    return view('manager.user-details',compact('user'));
   }
   public function update($id,Request $Request){
       $users=User::find($id);
@@ -33,16 +34,16 @@ class UsersController extends Controller
       $users->password=$Request->password;
       $users->role=$Request->role;
       $users->save();
-      return redirect()->route('restfulAPI.users-index');
+      return redirect()->route('manager.users-index');
   }
   public function destroy($id){
     $users=User::findorFail($id);
     $users->delete();
-    return redirect()->route('restfulAPI.users-index');
+    return redirect()->route('manager.users-index');
   }
   public function edit($id){
     $users=User::find($id);
-    return view('restfulAPI.users-edit',compact('users'));
+    return view('manager.users-edit',compact('users'));
   }
 
 }
