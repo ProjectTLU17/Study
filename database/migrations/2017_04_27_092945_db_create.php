@@ -15,8 +15,8 @@ class DbCreate extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('stock')->unsigned();
-            $table->string('name');
+            $table->string('name')->unique();
+            $table->integer('stock')->nullable();
         });
         Schema::create('product', function (Blueprint $table) {
             $table->increments('id');
@@ -25,42 +25,42 @@ class DbCreate extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('details');
-            $table->float('area')->nullable();
             $table->string('picture');
-            $table->float('price');
-            $table->integer('status')->nullable();
+            $table->integer('price');
+            $table->string('status');
         });
         Schema::create('suplier', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('address')->nullable();
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
         });
         Schema::create('customer', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
         });
         Schema::create('employee', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->date('birthday')->nullable();
-            $table->string('address');
+            $table->date('birthday');
+            $table->string('address')->nullable();
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
         });
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('contract', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cus_id')->unsigned();
             $table->integer('emp_id')->unsigned();
             $table->integer('prodt_id')->unsigned();
-            $table->string('decription');
+            $table->string('details');
             $table->date('startdate')->nullable();
             $table->date('expdate')->nullable();
-            $table->integer('status')->unsigned();
+            $table->string('status');
         });
-        Schema::table('order', function (Blueprint $table) {
+        Schema::table('contract', function (Blueprint $table) {
 
             $table->foreign('cus_id')->references('id')->on('customer')->onDelete('cascade');
 
@@ -83,12 +83,12 @@ class DbCreate extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('contract');
+        Schema::dropIfExists('customer');
+        Schema::dropIfExists('employee');
         Schema::dropIfExists('product');
         Schema::dropIfExists('category');
         Schema::dropIfExists('suplier');
-        Schema::dropIfExists('customer');
-        Schema::dropIfExists('employee');
-        Schema::dropIfExists('order');
-        Schema::dropIfExists('orderdetails');
+        Schema::dropIfExists('contract');
     }
 }
