@@ -33,13 +33,8 @@ Route::group(['middleware'=>'auth'],function(){
     return redirect('login');
   });
 });
-Route::get('login',['as'=>'login','uses'=>'Auth\LoginController@getLogin']);
+Route::get('login',['as'=>'login','middleware'=>'AlreadyLogin','uses'=>'Auth\LoginController@getLogin']);
 Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
-Event::listen('login', function (){
-    if(Auth::check()){
-        return redirect('manager');
-    }
-});
 Route::any('{all?}',function(){
   return redirect('login');
 })->where('all','(.*)');
