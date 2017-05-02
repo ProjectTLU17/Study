@@ -43,5 +43,4 @@ class CustomersController extends Controller
     $customers=Customers::find($id);
     return view('dashbroad.customers-edit',compact('customers'));
   }
-
 }

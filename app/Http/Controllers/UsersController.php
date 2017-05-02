@@ -16,6 +16,10 @@ class UsersController extends Controller
     $users->username=$Request->username;
     $users->password=$Request->password;
     $users->role=$Request->role;
+    $employees->birthday=$Request->birthday;
+    $employees->address=$Request->address;
+    $employees->phone=$Request->phone;
+    $employees->email=$Request->email;
     $users->save();
     return redirect()->route('users.index');
   }
@@ -32,6 +36,10 @@ class UsersController extends Controller
       $users->username=$Request->username;
       $users->password=$Request->password;
       $users->role=$Request->role;
+      $employees->birthday=$Request->birthday;
+      $employees->address=$Request->address;
+      $employees->phone=$Request->phone;
+      $employees->email=$Request->email;
       $users->save();
       return redirect()->route('users.index');
   }

@@ -42,14 +42,6 @@ class DbCreate extends Migration
             $table->string('phone');
             $table->string('email')->nullable();
         });
-        Schema::create('employee', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->date('birthday');
-            $table->string('address')->nullable();
-            $table->string('phone');
-            $table->string('email')->nullable();
-        });
         Schema::create('contract', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cus_id')->unsigned();
@@ -64,7 +56,7 @@ class DbCreate extends Migration
 
             $table->foreign('cus_id')->references('id')->on('customer')->onDelete('cascade');
 
-            $table->foreign('emp_id')->references('id')->on('employee')->onDelete('cascade');
+            $table->foreign('emp_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->foreign('prodt_id')->references('id')->on('product')->onDelete('cascade');
         });
@@ -85,7 +77,6 @@ class DbCreate extends Migration
     {
         Schema::dropIfExists('contract');
         Schema::dropIfExists('customer');
-        Schema::dropIfExists('employee');
         Schema::dropIfExists('product');
         Schema::dropIfExists('category');
         Schema::dropIfExists('suplier');
