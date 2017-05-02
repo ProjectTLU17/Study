@@ -14,11 +14,10 @@ class CustomersController extends Controller
     public function store(CustomersRequest $Request){
     $customers=new Customers;
     $customers->name=$Request->name;
-    $customers->address=$Request->address;
     $customers->phone=$Request->phone;
     $customers->email=$Request->email;
     $customers->save();
-    return redirect()->route('dashbroad.customers-index');
+    return redirect()->route('customers.index');
   }
   public function create(){
     return view('dashbroad.customers-create');
@@ -30,16 +29,15 @@ class CustomersController extends Controller
   public function update($id,CustomersRequest $Request){
       $customers=Customers::find($id);
       $customers->name=$Request->name;
-      $customers->address=$Request->address;
       $customers->phone=$Request->phone;
       $customers->email=$Request->email;
       $customers->save();
-      return redirect()->route('dashbroad.customers-index');
+      return redirect()->route('customers.index');
   }
   public function destroy($id){
     $customers=Customers::findorFail($id);
     $customers->delete();
-    return redirect()->route('dashbroad.customers-index');
+    return redirect()->route('customers.index');
   }
   public function edit($id){
     $customers=Customers::find($id);

@@ -14,11 +14,12 @@ class EmployeesController extends Controller
   public function store(EmployeesRequest $Request){
     $employees=new Employees;
     $employees->name=$Request->name;
+    $employees->birthday=$Request->birthday;
     $employees->address=$Request->address;
     $employees->phone=$Request->phone;
     $employees->email=$Request->email;
     $employees->save();
-    return redirect()->route('dashbroad.employees-index');
+    return redirect()->route('employees.index');
   }
   public function create(){
     return view('dashbroad.employees-create');
@@ -30,16 +31,17 @@ class EmployeesController extends Controller
   public function update($id,EmployeesRequest $Request){
       $employees=Employees::find($id);
       $employees->name=$Request->name;
+      $employees->birthday=$Request->birthday;
       $employees->address=$Request->address;
       $employees->phone=$Request->phone;
       $employees->email=$Request->email;
       $employees->save();
-      return redirect()->route('dashbroad.employees-index');
+      return redirect()->route('employees.index');
   }
   public function destroy($id){
     $employees=Employees::findorFail($id);
     $employees->delete();
-    return redirect()->route('dashbroad.employees-index');
+    return redirect()->route('employees.index');
   }
   public function edit($id){
     $employees=Employees::find($id);

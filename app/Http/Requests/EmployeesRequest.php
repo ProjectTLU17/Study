@@ -24,16 +24,18 @@ class EmployeesRequest extends FormRequest
      public function rules()
      {
          return [
-             'name'=>'alpha',
-             'birthday'=>''
-             'address'=>'',
-             'phone'=>'numeric',
+             'name'=>'required|alpha',
+             'birthday'=>'date'
+             'phone'=>'required|numeric',
              'email'=>'email',
          ];
      }
      public function messages(){
        return [
+         'name.required'=>'Vui lòng nhập họ và tên',
          'name.alpha'=>'Tên chỉ bao gồm các kí tự alphabelt',
+         'birthday.date'=>'Trường nhập vào phải là kiểu YYYY/MM/DD',
+         'phone.required'=>'Vui lòng nhập số điện thoại',
          'phone.numeric'=>'Số điện thoại sai định dạng',
          'email.email'=>'Đây không phải là email',
        ];
