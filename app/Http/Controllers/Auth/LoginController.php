@@ -47,8 +47,7 @@ class LoginController extends Controller
           return redirect('manager');
         }
       else {
-        $password_errors='Sai tên tài khoản hoặc mật khẩu';
-        return redirect('login')->withErrors($password_errors);
+        return redirect('login')->withErrors(['passwrong' => 'Sai tên tài khoản hoặc mật khẩu']);
       }
     }
     public function postLogout(){

@@ -24,16 +24,16 @@ class Supliers extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'alpha',
-            'address'=>'',
-            'phone'=>'numeric',
+            'name'=>'required|alpha',
+            'phone'=>'required|numeric',
             'email'=>'email',
         ];
     }
     public function messages(){
       return [
+        'name.required'=>'Vui lòng nhập họ và tên',
         'name.alpha'=>'Tên chỉ bao gồm các kí tự alphabelt',
-        'address'=>'',
+        'phone.required'=>'Vui lòng nhập số điện thoại',
         'phone.numeric'=>'Số điện thoại sai định dạng',
         'email.email'=>'Đây không phải là email',
       ];

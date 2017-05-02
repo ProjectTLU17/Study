@@ -18,7 +18,7 @@ class SupliersController extends Controller
     $supliers->phone=$Request->phone;
     $supliers->email=$Request->email;
     $supliers->save();
-    return redirect()->route('dashbroad.supliers-index');
+    return redirect()->route('supliers.index');
   }
   public function create(){
     return view('dashbroad.supliers-create');
@@ -34,12 +34,12 @@ class SupliersController extends Controller
       $supliers->phone=$Request->phone;
       $supliers->email=$Request->email;
       $supliers->save();
-      return redirect()->route('dashbroad.supliers-index');
+      return redirect()->route('supliers.index');
   }
   public function destroy($id){
     $supliers=Supliers::findorFail($id);
     $supliers->delete();
-    return redirect()->route('dashbroad.supliers-index');
+    return redirect()->route('supliers.index');
   }
   public function edit($id){
     $supliers=Supliers::find($id);

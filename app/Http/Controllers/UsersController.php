@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Response;
 class UsersController extends Controller
 {
     public function index(){
@@ -17,8 +16,12 @@ class UsersController extends Controller
     $users->username=$Request->username;
     $users->password=$Request->password;
     $users->role=$Request->role;
+    $employees->birthday=$Request->birthday;
+    $employees->address=$Request->address;
+    $employees->phone=$Request->phone;
+    $employees->email=$Request->email;
     $users->save();
-    return redirect()->route('manager.users-index');
+    return redirect()->route('users.index');
   }
   public function create(){
     return view('manager.users-create');
@@ -33,13 +36,17 @@ class UsersController extends Controller
       $users->username=$Request->username;
       $users->password=$Request->password;
       $users->role=$Request->role;
+      $employees->birthday=$Request->birthday;
+      $employees->address=$Request->address;
+      $employees->phone=$Request->phone;
+      $employees->email=$Request->email;
       $users->save();
-      return redirect()->route('manager.users-index');
+      return redirect()->route('users.index');
   }
   public function destroy($id){
     $users=User::findorFail($id);
     $users->delete();
-    return redirect()->route('manager.users-index');
+    return redirect()->route('users.index');
   }
   public function edit($id){
     $users=User::find($id);

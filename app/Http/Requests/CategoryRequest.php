@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrdersRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,15 @@ class OrdersRequest extends FormRequest
     public function rules()
     {
         return [
-            ''=>'',
-            ''=>'',
+            'name'=>'required|unique:category,name',
+            'stock'=>'numeric'
         ];
+    }
+    public function messages(){
+      return [
+        'name.required'=>'Vui lòng nhập tên danh mục',
+        'name.unique'=>'Tên danh mục bị trùng',
+        'stock.numeric'=>'Định dạng nhập vào phải là số',
+      ];
     }
 }
