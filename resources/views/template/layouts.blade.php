@@ -1,27 +1,31 @@
-@php
-  session_start();
-@endphp
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <title>@yield('title')</title>
-    <link rel="stylesheet"href="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="" type="image/x-icon"> {{--icon trên tiêu đề trang--}}
-    {{--bootrsap--}}
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+    <link rel="shortcut icon" href="img/favicon.png"/>
   </head>
   <body>
     <div class="container-fluid">
       <div class="header">
-        @yield('header')
+        <ul>
+          <li><a class="active" href="#">Trang chủ</a></li>
+          <li><a href='#'>Cấu hình</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
+              <div class="dropdown-content">
+                <a href="/manager/users">Quản lý tài khoản</a>
+                <a href="#">Quản lý thông tin lô đất</a>
+                <a href="#">Quản lý thông tin sản phẩm</a>
+                <a href="#">Quản lý thông tin chủ đầu tư</a>
+              </div></li>
+          <li><a href="#">Thống kê báo cáo</a></li>
+          <li><a href="#">Thông báo</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
       </div>
       <div class="main">
         @yield('main')
