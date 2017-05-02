@@ -41,25 +41,29 @@ class DatabaseSeeder extends Seeder
         ['name'=>'Mảnh','stock'=>'7'],
         ['name'=>'Villa','stock'=>'11'],
       ]);
-
-      $suplier=suplier::all()->id;
-      $category=category::all()->id;
-        DB::table('product')->insert([
-          ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),,'name'=>'Sản phẩm 1','address'=>'địa chỉ sản phẩm số 1','details'=>'thông tin sản phẩm 1','price'=>'10000001','status'=>'available'],
-          ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 2','address'=>'địa chỉ sản phẩm số 2','details'=>'thông tin sản phẩm 2','price'=>'10000002','status'=>'rented'],
-          ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 3','address'=>'địa chỉ sản phẩm số 3','details'=>'thông tin sản phẩm 3','price'=>'10000003','status'=>'rented'],
-          ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 4','address'=>'địa chỉ sản phẩm số 4','details'=>'thông tin sản phẩm 4','price'=>'10000004','status'=>'sold'],
-          ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 5','address'=>'địa chỉ sản phẩm số 5','details'=>'thông tin sản phẩm 5','price'=>'10000005','status'=>'sold'],
-          ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 6','address'=>'địa chỉ sản phẩm số 6','details'=>'thông tin sản phẩm 6','price'=>'10000006','status'=>'available'],
-        ]);
-      $customer=customer::all()->id;
-      $employee = employee::all()->id;
-      $product=product::all()->id;
-      DB::table('contract')->insert([
-        ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 1','startdate'=>'2017-1-1','status'=>'closed'],
-        ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 2','startdate'=>'2017-1-2','expdate'=>'2017-2-1','status'=>'opened'],
-        ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 3','startdate'=>'2017-1-3','expdate'=>'2017-7-1','status'=>'opened'],
-        ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 4','startdate'=>'2017-1-1','status'=>'closed'],
-      ]);
+      // $faker = Faker::create();
+      // $suplier=suplier::fill('id');
+      // $category=category::fill('id');
+      // foreach(range(1,1) as $index){
+      //   DB::table('product')->insert([
+      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),,'name'=>'Sản phẩm 1','address'=>'địa chỉ sản phẩm số 1','details'=>'thông tin sản phẩm 1','price'=>'10000001','status'=>'available'],
+      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 2','address'=>'địa chỉ sản phẩm số 2','details'=>'thông tin sản phẩm 2','price'=>'10000002','status'=>'rented'],
+      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 3','address'=>'địa chỉ sản phẩm số 3','details'=>'thông tin sản phẩm 3','price'=>'10000003','status'=>'rented'],
+      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 4','address'=>'địa chỉ sản phẩm số 4','details'=>'thông tin sản phẩm 4','price'=>'10000004','status'=>'sold'],
+      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 5','address'=>'địa chỉ sản phẩm số 5','details'=>'thông tin sản phẩm 5','price'=>'10000005','status'=>'sold'],
+      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 6','address'=>'địa chỉ sản phẩm số 6','details'=>'thông tin sản phẩm 6','price'=>'10000006','status'=>'available'],
+      //   ]);
+      // }
+      // $customer=customer::fill('id');
+      // $employee = employee::fill('id');
+      // $product=product::fill('id');
+      // foreach(range(1,1) as $index){
+      //   DB::table('contract')->insert([
+      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 1','startdate'=>'2017-1-1','status'=>'closed'],
+      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 2','startdate'=>'2017-1-2','expdate'=>'2017-2-1','status'=>'opened'],
+      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 3','startdate'=>'2017-1-3','expdate'=>'2017-7-1','status'=>'opened'],
+      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 4','startdate'=>'2017-1-1','status'=>'closed'],
+      //   ]);
+      // }
     }
 }
