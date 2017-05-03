@@ -25,8 +25,8 @@ Route::group(['middleware'=>'auth'],function(){
         return view('template.employee');
     });
     Route::resource('user','UserController',['only' =>['show','edit','update']]);
-    Route::resource('customers','CustomersController');
-    Route::resource('supliers','SupliersController');
+    Route::resource('customer','CustomerController');
+    Route::resource('suplier','SuplierController');
   });
   //endgroup
   Route::get('logout',function(){
