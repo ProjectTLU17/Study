@@ -10,7 +10,7 @@ class UserRAController extends Controller
 {
     public function index(){
       $user=User::all();
-      return Response::json($user);
+      return Response::json(array('body' => View::make('manager.user-index',array('user'=>$user))->render()));
     }
     public function store(Request $Request){
     $user=new User;
