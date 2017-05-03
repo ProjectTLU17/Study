@@ -19,7 +19,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('user/api','UserRAController',['except' =>'create']);
     Route::resource('user','UserController');
   });
-  //route cho nhân viên
+  //route cho tất cả
   Route::group(['prefix'=>'dashbroad'],function(){
     Route::get('',function(){
         return view('template.employee');
@@ -27,6 +27,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('user','UserController',['only' =>['show','edit','update']]);
     Route::resource('customer','CustomerController');
     Route::resource('suplier','SuplierController');
+    Route::resource('category','CategoryController');
+    Route::resource('contract','ContractController');
+    Route::resource('product','ProductController');
   });
   //endgroup
   Route::get('logout',function(){
