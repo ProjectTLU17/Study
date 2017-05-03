@@ -6,51 +6,51 @@ use Illuminate\Http\Request;
 use App\User;
 use Response;
 use View;
-class UsersRAController extends Controller
+class UserRAController extends Controller
 {
     public function index(){
-      $users=User::all();
-      return Response::json($users);
+      $user=User::all();
+      return Response::json($user);
     }
     public function store(Request $Request){
-    $users=new User;
-    $users->name=$Request->name;
-    $users->username=$Request->username;
-    $users->password=$Request->password;
-    $users->role=$Request->role;
-    $users->save();
+    $user=new User;
+    $user->name=$Request->name;
+    $user->username=$Request->username;
+    $user->password=$Request->password;
+    $user->role=$Request->role;
+    $user->save();
     return Response()->json(array(
                 'error' => false,
-                'message' =>'Thêm users thành công',
+                'message' =>'Thêm user thành công',
                ),200);
   }
   public function show($id){
-    $users=User::find($id);
-    return  Response::json($users);
+    $user=User::find($id);
+    return  Response::json($user);
   }
   public function update($id,Request $Request){
-      $users=User::find($id);
-      $users->name=$Request->name;
-      $users->username=$Request->username;
-      $users->password=$Request->password;
-      $users->role=$Request->role;
-      $users->save();
+      $user=User::find($id);
+      $user->name=$Request->name;
+      $user->username=$Request->username;
+      $user->password=$Request->password;
+      $user->role=$Request->role;
+      $user->save();
       return Response()->json(array(
                   'error' => false,
-                  'message' =>'Cập nhật users thành công',
+                  'message' =>'Cập nhật user thành công',
                  ),200);
   }
   public function destroy($id){
-    $users=User::findorFail($id);
-    $users->delete();
+    $user=User::findorFail($id);
+    $user->delete();
     return Response()->json(array(
                 'error' => false,
-                'message' =>'Xóa users thành công',
+                'message' =>'Xóa user thành công',
                ),200);
   }
   public function edit($id){
-    $users=User::find($id);
-    return Response::json($users);
+    $user=User::find($id);
+    return Response::json($user);
   }
 
 }

@@ -4,53 +4,53 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-class UsersController extends Controller
+class UserController extends Controller
 {
     public function index(){
-      $users=User::all();
-      return view('manager.users-index',compact('users'));
+      $user=User::all();
+      return view('manager.user-index',compact('user'));
     }
     public function store(Request $Request){
-    $users=new User;
-    $users->name=$Request->name;
-    $users->username=$Request->username;
-    $users->password=$Request->password;
-    $users->role=$Request->role;
+    $user=new User;
+    $user->name=$Request->name;
+    $user->username=$Request->username;
+    $user->password=$Request->password;
+    $user->role=$Request->role;
     $employees->birthday=$Request->birthday;
     $employees->address=$Request->address;
     $employees->phone=$Request->phone;
     $employees->email=$Request->email;
-    $users->save();
-    return redirect()->route('users.index');
+    $user->save();
+    return redirect()->route('user.index');
   }
   public function create(){
-    return view('manager.users-create');
+    return view('manager.user-create');
   }
   public function show($id){
     $user=User::find($id);
     return view('manager.user-details',compact('user'));
   }
   public function update($id,Request $Request){
-      $users=User::find($id);
-      $users->name=$Request->name;
-      $users->username=$Request->username;
-      $users->password=$Request->password;
-      $users->role=$Request->role;
+      $user=User::find($id);
+      $user->name=$Request->name;
+      $user->username=$Request->username;
+      $user->password=$Request->password;
+      $user->role=$Request->role;
       $employees->birthday=$Request->birthday;
       $employees->address=$Request->address;
       $employees->phone=$Request->phone;
       $employees->email=$Request->email;
-      $users->save();
-      return redirect()->route('users.index');
+      $user->save();
+      return redirect()->route('user.index');
   }
   public function destroy($id){
-    $users=User::findorFail($id);
-    $users->delete();
-    return redirect()->route('users.index');
+    $user=User::findorFail($id);
+    $user->delete();
+    return redirect()->route('user.index');
   }
   public function edit($id){
-    $users=User::find($id);
-    return view('manager.users-edit',compact('users'));
+    $user=User::find($id);
+    return view('manager.user-edit',compact('user'));
   }
 
 }

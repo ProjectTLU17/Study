@@ -17,7 +17,7 @@
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
-                <a href="/manager/users">Quản lý tài khoản</a>
+                <a href="/manager/user">Quản lý tài khoản</a>
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
                 <a href="#">Quản lý thông tin chủ đầu tư</a>

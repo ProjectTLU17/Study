@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supliers extends Model
+class Suplier extends Model
 {
   protected $table='suplier';
   protected $fillable=['name','address','phone','email'];
+  public function product(){
+    return $this->hasMany('App/product');
+  }
 }
