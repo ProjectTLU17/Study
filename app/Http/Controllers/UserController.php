@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\User;
+use App\Http\UserRequest;
 class UserController extends Controller
 {
     public function index(){
       $user=User::all();
       return view('manager.user-index',compact('user'));
     }
-    public function store(Request $Request){
+    public function store(UserRequest $Request){
     $user=new User;
     $user->name=$Request->name;
     $user->username=$Request->username;
@@ -30,7 +31,7 @@ class UserController extends Controller
     $user=User::find($id);
     return view('manager.user-details',compact('user'));
   }
-  public function update($id,Request $Request){
+  public function update($id,UserRequest $Request){
       $user=User::find($id);
       $user->name=$Request->name;
       $user->username=$Request->username;
