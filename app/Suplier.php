@@ -8,7 +8,7 @@ class Suplier extends Model
 {
   protected $table='suplier';
   protected $fillable=['name','address','phone','email'];
-  public function product(){
-    return $this->hasMany('App/product');
+  public function category(){
+    return $this->hasMany('App/Category');
   }
 }

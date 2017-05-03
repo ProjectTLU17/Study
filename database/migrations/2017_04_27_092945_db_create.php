@@ -20,8 +20,8 @@ class DbCreate extends Migration
         });
         Schema::create('product', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sup_id')->unsigned();
-            $table->integer('cate_id')->unsigned();
+            $table->integer('suplier_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->string('name');
             $table->string('address');
             $table->string('details');
@@ -44,9 +44,9 @@ class DbCreate extends Migration
         });
         Schema::create('contract', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cus_id')->unsigned();
-            $table->integer('emp_id')->unsigned();
-            $table->integer('prodt_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->string('details');
             $table->date('startdate')->nullable();
             $table->date('expdate')->nullable();
@@ -54,17 +54,17 @@ class DbCreate extends Migration
         });
         Schema::table('contract', function (Blueprint $table) {
 
-            $table->foreign('cus_id')->references('id')->on('customer')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade');
 
-            $table->foreign('emp_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('user')->onDelete('cascade');
 
-            $table->foreign('prodt_id')->references('id')->on('product')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
         });
         Schema::table('product', function (Blueprint $table) {
 
-            $table->foreign('sup_id')->references('id')->on('suplier')->onDelete('cascade');
+            $table->foreign('suplier_id')->references('id')->on('suplier')->onDelete('cascade');
 
-            $table->foreign('cate_id')->references('id')->on('category')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
         });
     }
 
