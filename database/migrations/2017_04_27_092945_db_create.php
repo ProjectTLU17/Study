@@ -45,7 +45,7 @@ class DbCreate extends Migration
         Schema::create('contract', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('users_id')->unsigned();
             $table->integer('product_id')->unsigned();
             $table->string('details');
             $table->date('startdate')->nullable();
@@ -56,7 +56,7 @@ class DbCreate extends Migration
 
             $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade');
 
-            $table->foreign('employee_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
         });

@@ -16,10 +16,10 @@ class UserController extends Controller
     $user->username=$Request->username;
     $user->password=$Request->password;
     $user->role=$Request->role;
-    $employees->birthday=$Request->birthday;
-    $employees->address=$Request->address;
-    $employees->phone=$Request->phone;
-    $employees->email=$Request->email;
+    $user->birthday=$Request->birthday;
+    $user->address=$Request->address;
+    $user->phone=$Request->phone;
+    $user->email=$Request->email;
     $user->save();
     return redirect()->route('user.index');
   }
@@ -36,10 +36,10 @@ class UserController extends Controller
       $user->username=$Request->username;
       $user->password=$Request->password;
       $user->role=$Request->role;
-      $employees->birthday=$Request->birthday;
-      $employees->address=$Request->address;
-      $employees->phone=$Request->phone;
-      $employees->email=$Request->email;
+      $user->birthday=$Request->birthday;
+      $user->address=$Request->address;
+      $user->phone=$Request->phone;
+      $user->email=$Request->email;
       $user->save();
       return redirect()->route('user.index');
   }
