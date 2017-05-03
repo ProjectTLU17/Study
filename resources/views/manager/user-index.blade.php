@@ -15,7 +15,7 @@
                 @php
                   $stt=0;
                 @endphp
-                @foreach ($users as $person)
+                @foreach ($user as $person)
                   @php
                     $stt++;
                   @endphp
@@ -25,11 +25,11 @@
                   <td>{{$person->username}}</td>
                   <td>{{$person->role}}</td>
                   <th>
-                    {!!Form::open(array('route'=>array('users.destroy',$person->id),'method'=>'DELETE'))!!}
+                    {!!Form::open(array('route'=>array('user.destroy',$person->id),'method'=>'DELETE'))!!}
                       <button onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit" id="delete" class="btn btn-link">Xóa</button>
                     {!!Form::close()!!}
                   </th>
-                  <th><a href="{!!route('users.edit',$person->id)!!}">Sửa</a></th>
+                  <th><a href="{!!route('user.edit',$person->id)!!}">Sửa</a></th>
                 </tr>
                 @endforeach
               </tbody>

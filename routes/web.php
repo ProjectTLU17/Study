@@ -16,15 +16,15 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('',function(){
           return view('template.manager');
     });
-    Route::resource('users/api','UsersRAController',['except' =>'create']);
-    Route::resource('users','UsersController');
+    Route::resource('user/api','UserRAController',['except' =>'create']);
+    Route::resource('user','UserController');
   });
   //route cho nhân viên
   Route::group(['prefix'=>'dashbroad'],function(){
     Route::get('',function(){
         return view('template.employee');
     });
-    Route::resource('users','UsersController',['only' =>['show','edit','update']]);
+    Route::resource('user','UserController',['only' =>['show','edit','update']]);
     Route::resource('customers','CustomersController');
     Route::resource('supliers','SupliersController');
   });
