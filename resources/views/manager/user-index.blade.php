@@ -32,7 +32,7 @@
           {!!Form::close()!!}
         </th>
         <th>
-          <button class="button" href="{!!route('user.edit',$person->id)!!}">Sửa</button>
+          <a class="button" href="{!!route('user.edit',$person->id)!!}">Sửa</a>
         </th>
       </tr>
       @endforeach

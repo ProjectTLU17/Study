@@ -22,13 +22,17 @@
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
+                @if (Auth::check() && Auth::user()->role=="manager")
                 <a href="/manager/user">Quản lý tài khoản</a>
+                @endif
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
                 <a href="#">Quản lý thông tin chủ đầu tư</a>
               </div></li>
           <li><a href="#">Thống kê báo cáo</a></li>
+          @if (Auth::check() && Auth::user()->role=="manager")
           <li><a href="#">Thông báo</a></li>
+          @endif
           <li><a href="/logout">Logout</a></li>
         </ul>
       </div>
