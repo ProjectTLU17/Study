@@ -6,7 +6,12 @@
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
-    <link rel="shortcut icon" href="img/favicon.png"/>
+    <link rel="shortcut icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="{{asset('js/index.js')}}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+      </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+      </script>
   </head>
   <body>
     <div class="container-fluid">
@@ -35,4 +40,12 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+          function xacnhanxoa(msg) {
+              if (window.confirm(msg)) {
+                  return true;
+              }
+              return false;
+          }
+      </script>
 </html>

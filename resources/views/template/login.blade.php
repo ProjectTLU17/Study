@@ -15,7 +15,6 @@
         <div class="errors">
           {{$errors->first('username')}}
           {{$errors->first('password')}}
-          {{$errors->first('passwrong')}}
         </div>
           {!!Form::open(['route'=>'login'])!!}
           {!!Form::token()!!}
