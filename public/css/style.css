@@ -100,3 +100,6 @@ th, td {
     width: 100%;
     cursor: pointer;
 }
+a.button{
+  width: 80%;
+}
