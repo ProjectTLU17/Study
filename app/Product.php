@@ -14,4 +14,7 @@ class Product extends Model
     public function suplier(){
       return $this->belongsTo('App/Suplier');
     }
+    public function contract(){
+      return $this->hasMany('App/Contract');
+    }
 }
