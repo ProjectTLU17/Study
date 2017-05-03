@@ -24,7 +24,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('',function(){
         return view('template.employee');
     });
-    Route::resource('user','UserController',['only' =>['show','edit','update']]);
+    
     Route::resource('customer','CustomerController');
     Route::resource('suplier','SuplierController');
     Route::resource('category','CategoryController');
