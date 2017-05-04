@@ -1,7 +1,7 @@
 @extends('template.layouts')
 @section('title','Edit Form')
 @section('main')
-  {!!Form::open(array('route'=>['user.update',$user->id], 'class'=>'Sign-up-form','method'=>'post'))!!}
+  {!!Form::open(array('route'=>['user.update',$user->id], 'class'=>'Sign-up-form','method'=>'PUT'))!!}
   {!!Form::token()!!}
 
     <fieldset>
