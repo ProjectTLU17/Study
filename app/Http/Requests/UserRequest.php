@@ -29,7 +29,7 @@ class UserRequest extends FormRequest
               'password'=>'required',
               'role'=>'required',
               'birthday'=>'date'
-              'phone'=>'required|numeric',
+              'phone'=>'numeric',
               'email'=>'email',
          ];
      }
@@ -41,7 +41,6 @@ class UserRequest extends FormRequest
          'username.unique'=>'Tên tài khoản đã được sử dụng',
          'password.required'=>'Vui lòng nhập mật khẩu',
          'role.required'=>'Vui lòng nhập chức vụ',
-         'phone.required'=>'Vui lòng nhập số điện thoại',
          'phone.numeric'=>'Số điện thoại sai định dạng',
          'email.email'=>'Đây không phải là email',
        ];

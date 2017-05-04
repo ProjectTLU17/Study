@@ -25,7 +25,7 @@ class DbCreate extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('details');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->integer('price');
             $table->string('status');
         });
