@@ -16,8 +16,25 @@
   <body>
     <div class="container-fluid">
       <div class="header">
+        @if (Auth::check() && Auth::user()->role=="employee")
         <ul>
           <li><a class="active" href="#">Trang chủ</a></li>
+          <li><a href='#'>Cấu hình</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
+              <div class="dropdown-content">
+                <a href="#">Thông tin cá nhân</a>
+                <a href="#">Quản lý thông tin lô đất</a>
+                <a href="#">Quản lý thông tin sản phẩm</a>
+                <a href="#">Quản lý thông tin chủ đầu tư</a>
+              </div></li>
+          <li><a href="#">Thống kê báo cáo</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      @endif
+        @if (Auth::check() && Auth::user()->role=="manager")
+        <ul>
+          <li><a class="active" href="/manager">Trang chủ</a></li>
           <li><a href='#'>Cấu hình</a></li>
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
@@ -31,6 +48,7 @@
           <li><a href="#">Thông báo</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
+      @endif
       </div>
       <div class="main">
         @yield('main')

@@ -10,7 +10,7 @@
         <th>Họ Tên</th>
         <th>Tên tài khoản</th>
         <th>Chức vụ</th>
-        <th><button type="button" class="btn btn-info btn-block" href="#">Thêm</button></th>
+        <th><a type="button" class="button" href="{!!route('user.create')!!}">Thêm</a></th>
       </tr>
     </thead>
     <tbody>
@@ -28,11 +28,11 @@
         <td>{{$person->role}}</td>
         <th>
           {!!Form::open(array('route'=>array('user.destroy',$person->id),'method'=>'DELETE'))!!}
-            <button type="button" class="btn btn-default btn-block" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit" id="delete" class="btn btn-link">Xóa</button>
+            <button class="button" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit" id="delete">Xóa</button>
           {!!Form::close()!!}
         </th>
         <th>
-          <button type="button" class="btn btn-default btn-block" href="{!!route('user.edit',$person->id)!!}">Sửa</button
+          <a class="button" href="{!!route('user.edit',$person->id)!!}">Sửa</a>
         </th>
       </tr>
       @endforeach
