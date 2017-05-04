@@ -30,6 +30,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('category','CategoryController');
     Route::resource('contract','ContractController');
     Route::resource('product','ProductController');
+    
   });
   //endgroup
   Route::get('logout',function(){

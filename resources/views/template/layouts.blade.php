@@ -23,7 +23,7 @@
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
                 @if (Auth::check() && Auth::user()->role=="manager")
-                <a href="/manager/user">Quản lý tài khoản</a>
+                <a href="{!!route('user.index')!!}">Quản lý tài khoản</a>
                 @endif
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
