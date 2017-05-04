@@ -5,11 +5,7 @@
   <form class="Sign-up-form" method="post">
   {!!Form::token()!!}
     <h1>Sign Up</h1>
-@if (count($errors)>0)
-  @foreach ($errors->all() as $element)
-     {!!$element!!}
-  @endforeach
-@endif
+
     <fieldset>
       <legend>Basic info</legend>
       <label for="name">Name:</label>
@@ -34,6 +30,6 @@
         </optgroup>
       </select>
     </fieldset>
-    <button class="button" type="submit" >Sign Up</button>
+    <button class="button" type="submit" href="{}">Sign Up</button>
   {!!Form::close() !!}
 @stop

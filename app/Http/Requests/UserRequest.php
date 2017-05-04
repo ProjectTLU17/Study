@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,35 +23,16 @@ class UserRequest extends FormRequest
      */
      public function rules()
      {
-       switch($this->method())
-    {
-        case 'POST':
-        {
-           return [
-                'name'=>'required',
-                'username'=>'required|unique:users,username',
-                'password'=>'required',
-                'role'=>'required',
-                'birthday'=>'date|nullable',
-                'phone'=>'numeric|nullable',
-                'email'=>'email|nullable',
-           ];
-         }
-         case 'PUT':
-         {
-           return [
-                'name'=>'required',
-                'username'=>'required',
-                'password'=>'required',
-                'role'=>'required',
-                'birthday'=>'date|nullable',
-                'phone'=>'numeric|nullable',
-                'email'=>'email|nullable',
-           ];
-         }
-         default:break;
+         return [
+              'name'=>'required|alpha',
+              'username'=>'required|unique:users,username',
+              'password'=>'required',
+              'role'=>'required',
+              'birthday'=>'date'
+              'phone'=>'numeric',
+              'email'=>'email',
+         ];
      }
-   }
      public function messages(){
        return[
          'name.required'=>'Vui lòng nhập họ và tên',
