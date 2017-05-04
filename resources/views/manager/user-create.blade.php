@@ -1,8 +1,7 @@
 @extends('template.layouts')
 @section('title','Sign Up Form')
 @section('main')
-  {!!Form::open(array('route'=>'user.store', 'class'=>'Sign-up-form'))!!}
-  <form class="Sign-up-form" method="post">
+  {!!Form::open(array('route'=>['user.store'], 'class'=>'Sign-up-form'))!!}
   {!!Form::token()!!}
     <h1>Sign Up</h1>
 
