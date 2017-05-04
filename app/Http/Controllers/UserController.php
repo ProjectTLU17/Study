@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
-
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\User;
 class UserController extends Controller
 {
@@ -11,7 +9,7 @@ class UserController extends Controller
       $user=User::all();
       return view('manager.user-index',compact('user'));
     }
-    public function store(Request $Request){
+    public function store(UserRequest $Request){
     $user=new User;
     $user->name=$Request->name;
     $user->username=$Request->username;
@@ -31,10 +29,9 @@ class UserController extends Controller
     $user=User::find($id);
     return view('manager.user-details',compact('user'));
   }
-  public function update(Request $Request,$id){
+  public function update(UserRequest $Request,$id){
       $user=User::find($id);
       $user->name=$Request->name;
-      $user->username=$Request->username;
       $user->password=$Request->password;
       $user->role=$Request->role;
       $user->birthday=$Request->birthday;
@@ -53,5 +50,4 @@ class UserController extends Controller
     $user=User::find($id);
     return view('manager.user-edit',compact('user'));
   }
-
 }

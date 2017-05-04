@@ -72,7 +72,7 @@ class UserRAController extends Controller
                ),200);
   }
   public function edit($id){
-    $user=User::find($id);
+    $user=User::findorFail($id);
     return response::json([
       'body' => view::make('manager.user-edit', compact('user'))->render(),
       'user' => $user,
