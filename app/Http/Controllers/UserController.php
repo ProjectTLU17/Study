@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use App\User;
-use App\Http\UserRequest;
+use App\Http\Requests\UserRequest;
 class UserController extends Controller
 {
     public function index(){
@@ -31,7 +29,7 @@ class UserController extends Controller
     $user=User::find($id);
     return view('manager.user-details',compact('user'));
   }
-  public function update($id,UserRequest $Request){
+  public function update(UserRequest $Request,$id){
       $user=User::find($id);
       $user->name=$Request->name;
       $user->username=$Request->username;
