@@ -10,7 +10,7 @@
         <th>Họ Tên</th>
         <th>Tên tài khoản</th>
         <th>Chức vụ</th>
-        <th><button type="button" class="button" href="#">Thêm</button></th>
+        <th><a type="button" class="button" href="{!!route('user.create')!!}">Thêm</a></th>
       </tr>
     </thead>
     <tbody>

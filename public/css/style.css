@@ -1,5 +1,10 @@
 @import url('https://fonts.google.com/specimen/Baloo');
 @import url('https://fonts.google.com/specimen/Open+Sans');
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body{
   font-family: 'Open Sans', sans-serif;
 }
@@ -93,13 +98,95 @@ th, td {
     border: none;
     color: white;
     text-align: center;
+    font-size: 18px;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     padding: 10px;
     width: 100%;
     cursor: pointer;
+    border-radius: 3px;
 }
 a.button{
   width: 80%;
+}
+/*---- form ----*/
+.Sign-up-form {
+  max-width: 60%;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+@media screen and (min-width: 480px) {
+
+  form {
+    max-width: 480px;
+  }
+
 }
