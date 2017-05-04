@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 
 
 use Illuminate\Http\Request;
+=======
+use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+>>>>>>> refs/remotes/origin/Back-End
 use App\User;
 class UserController extends Controller
 {
@@ -31,10 +36,13 @@ class UserController extends Controller
     $user=User::find($id);
     return view('manager.user-details',compact('user'));
   }
+<<<<<<< HEAD
   public function update(Request $Request,$id){
+=======
+  public function update(UserRequest $Request,$id){
+>>>>>>> refs/remotes/origin/Back-End
       $user=User::find($id);
       $user->name=$Request->name;
-      $user->username=$Request->username;
       $user->password=$Request->password;
       $user->role=$Request->role;
       $user->birthday=$Request->birthday;
