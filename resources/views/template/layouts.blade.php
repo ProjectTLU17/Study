@@ -23,11 +23,6 @@
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
-<<<<<<< HEAD
-
-                <a href="{!!route('user.index')!!}">Quản lý tài khoản</a>
-                
-=======
                 <a href="#">Thông tin cá nhân</a>
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
@@ -45,7 +40,6 @@
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
                 <a href="/manager/user">Quản lý tài khoản</a>
->>>>>>> refs/remotes/origin/Front-End
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
                 <a href="#">Quản lý thông tin chủ đầu tư</a>
