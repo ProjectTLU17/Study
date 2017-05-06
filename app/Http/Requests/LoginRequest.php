@@ -22,10 +22,23 @@ class LoginRequest extends FormRequest
       */
      public function rules()
      {
-         return [
+       switch ($this->method()) {
+         case 'POST':{
+           return [
              'username'=>'required|exists:users,username',
              'password'=>'required',
-         ];
+           ];
+         }
+         case 'PUT':{
+           return [
+             'username'=>'required|exists:users,username',
+             'password'=>'required',
+           ];
+         }
+         default:
+           # code...
+           break;
+       }
      }
      public function messages(){
        return[
