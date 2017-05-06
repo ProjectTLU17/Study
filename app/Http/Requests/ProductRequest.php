@@ -23,7 +23,9 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+      switch ($this->method()) {
+        case 'POST':{
+          return [
             'sup_id'=>'required|exists:supliers,id',
             'cat_id'=>'required|exists:category,id',
             'name'=>'required',
@@ -31,7 +33,23 @@ class ProductRequest extends FormRequest
             'details'=>'required',
             'price'=>'required|numeric',
             'status'=>'required',
-        ];
+          ];
+        }
+        case 'PUT':{
+          return [
+            'sup_id'=>'required|exists:supliers,id',
+            'cat_id'=>'required|exists:category,id',
+            'name'=>'required',
+            'address'=>'required',
+            'details'=>'required',
+            'price'=>'required|numeric',
+            'status'=>'required',
+          ];
+        }
+        default:
+          # code...
+          break;
+      }
     }
     public function messages(){
       return [

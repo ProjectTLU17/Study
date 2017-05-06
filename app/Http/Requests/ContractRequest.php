@@ -23,15 +23,33 @@ class ContractRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'cus_id'=>'required|exists:customer,id',
+      switch ($this->method()) {
+        case 'POST':{
+          return [
+            'cus_id'=>'required|exists:customer,id',
           'emp_id'=>'required|exists:employee,id',
           'prodt_id'=>'required|exists:product,id',
           'details'=>'required',
           'startdate'=>'required|date',
-          'expdate'=>'date',
+          'expdate'=>'date|nullable',
           'status'=>'required',
         ];
+        }
+        case 'PUT':{
+          return [
+            'cus_id'=>'required|exists:customer,id',
+            'emp_id'=>'required|exists:employee,id',
+            'prodt_id'=>'required|exists:product,id',
+            'details'=>'required',
+            'startdate'=>'required|date',
+            'expdate'=>'date|nullable',
+            'status'=>'required',
+          ];
+        }
+        default:
+          # code...
+          break;
+      }
     }
     public function messages(){
       return [

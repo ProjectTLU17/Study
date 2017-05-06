@@ -23,11 +23,25 @@ class CustomerRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'name'=>'required|alpha',
-          'phone'=>'required|numeric',
-          'email'=>'email',
-        ];
+      switch ($this->method()) {
+        case 'POST':{
+          return [
+            'name'=>'required|alpha',
+            'phone'=>'required|numeric',
+            'email'=>'email|nullable',
+          ];
+        }
+        case 'PUT':{
+          return [
+            'name'=>'required|alpha',
+            'phone'=>'required|numeric',
+            'email'=>'email|nullable',
+          ];
+        }
+        default:
+          # code...
+          break;
+      }
     }
     public function messages(){
       return [
