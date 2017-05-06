@@ -31,6 +31,7 @@ class ProductRequest extends FormRequest
             'name'=>'required',
             'address'=>'required',
             'details'=>'required',
+            'images'=>'required|image'
             'price'=>'required|numeric',
             'status'=>'required',
           ];
@@ -42,6 +43,7 @@ class ProductRequest extends FormRequest
             'name'=>'required',
             'address'=>'required',
             'details'=>'required',
+            'picture'=>'required|image'
             'price'=>'required|numeric',
             'status'=>'required',
           ];

@@ -2,7 +2,11 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-
+use App\User;
+use App\Suplier;
+use App\Product;
+use App\Customer;
+use App\Category;
 class DatabaseSeeder extends Seeder
 {
     public function run()
@@ -16,12 +20,12 @@ class DatabaseSeeder extends Seeder
         ['name'=>'Đặng Trung Kiên','username'=>'kien1995','password'=>Hash::make(12345),'role'=>'employee','birthday'=>'1994-1-1','address'=>'địa chỉ nhà số 1','phone'=>'0123456789','email'=>'e@gmail.com'],
         ['name'=>'Trần Sơn Tùng','username'=>'tung1995','password'=>Hash::make(12345),'role'=>'employee','birthday'=>'1994-1-1','address'=>'địa chỉ nhà số 1','phone'=>'0123456789','email'=>'f@gmail.com']
       ]);
-      foreach(range(1,6) as $index){
+      foreach(range(1,50) as $index){
         DB::table('customer')->insert([
           ['name'=>$faker->name,'phone'=>$faker->phoneNumber,'email'=>$faker->unique()->email],
         ]);
       }
-      foreach(range(1,6) as $index){
+      foreach(range(1,50) as $index){
         DB::table('suplier')->insert([
           ['name'=>$faker->name,'address'=>$faker->address,'phone'=>$faker->unique()->phoneNumber,'email'=>$faker->unique()->email],
         ]);
@@ -33,29 +37,23 @@ class DatabaseSeeder extends Seeder
         ['name'=>'Mảnh','stock'=>'7'],
         ['name'=>'Villa','stock'=>'11'],
       ]);
-      // $faker = Faker::create();
-      // $suplier=suplier::fill('id');
-      // $category=category::fill('id');
-      // foreach(range(1,1) as $index){
-      //   DB::table('product')->insert([
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),,'name'=>'Sản phẩm 1','address'=>'địa chỉ sản phẩm số 1','details'=>'thông tin sản phẩm 1','price'=>'10000001','status'=>'available'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 2','address'=>'địa chỉ sản phẩm số 2','details'=>'thông tin sản phẩm 2','price'=>'10000002','status'=>'rented'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 3','address'=>'địa chỉ sản phẩm số 3','details'=>'thông tin sản phẩm 3','price'=>'10000003','status'=>'rented'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 4','address'=>'địa chỉ sản phẩm số 4','details'=>'thông tin sản phẩm 4','price'=>'10000004','status'=>'sold'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 5','address'=>'địa chỉ sản phẩm số 5','details'=>'thông tin sản phẩm 5','price'=>'10000005','status'=>'sold'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 6','address'=>'địa chỉ sản phẩm số 6','details'=>'thông tin sản phẩm 6','price'=>'10000006','status'=>'available'],
-      //   ]);
-      // }
-      // $customer=customer::fill('id');
-      // $employee = employee::fill('id');
-      // $product=product::fill('id');
-      // foreach(range(1,1) as $index){
-      //   DB::table('contract')->insert([
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 1','startdate'=>'2017-1-1','status'=>'closed'],
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 2','startdate'=>'2017-1-2','expdate'=>'2017-2-1','status'=>'opened'],
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 3','startdate'=>'2017-1-3','expdate'=>'2017-7-1','status'=>'opened'],
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 4','startdate'=>'2017-1-1','status'=>'closed'],
-      //   ]);
-      // }
+      foreach(range(1,10) as $index){
+        DB::table('product')->insert([
+          ['suplier_id'=>Suplier::all()->random()->id,'category_id'=>Category::all()->random()->id,'name'=>$faker->name,'address'=>$faker->address,'details'=>$faker->text(190),'images'=>'phong.jpg','price'=>'10000001','status'=>'available'],
+          ['suplier_id'=>Suplier::all()->random()->id,'category_id'=>Category::all()->random()->id,'name'=>$faker->name,'address'=>$faker->address,'details'=>$faker->text(190),'images'=>'phong.jpg','price'=>'100000002','status'=>'rented'],
+          ['suplier_id'=>Suplier::all()->random()->id,'category_id'=>Category::all()->random()->id,'name'=>$faker->name,'address'=>$faker->address,'details'=>$faker->text(190),'images'=>'phong.jpg','price'=>'10000003','status'=>'rented'],
+          ['suplier_id'=>Suplier::all()->random()->id,'category_id'=>Category::all()->random()->id,'name'=>$faker->name,'address'=>$faker->address,'details'=>$faker->text(190),'images'=>'phong.jpg','price'=>'10000004','status'=>'sold'],
+          ['suplier_id'=>Suplier::all()->random()->id,'category_id'=>Category::all()->random()->id,'name'=>$faker->name,'address'=>$faker->address,'details'=>$faker->text(190),'images'=>'phong.jpg','price'=>'1000000005','status'=>'sold'],
+          ['suplier_id'=>Suplier::all()->random()->id,'category_id'=>Category::all()->random()->id,'name'=>$faker->name,'address'=>$faker->address,'details'=>$faker->text(190),'images'=>'phong.jpg','price'=>'10000006','status'=>'available'],
+        ]);
+      }
+      foreach(range(1,15) as $index){
+        DB::table('contract')->insert([
+          ['customer_id'=>Customer::all()->random()->id,'users_id'=>User::all()->random()->id,'product_id'=>Product::where('status','=','sold')->get()->random()->id,'details'=>$faker->text(190),'startdate'=>'2017-1-1','expdate'=>NULL,'status'=>'closed'],
+          ['customer_id'=>Customer::all()->random()->id,'users_id'=>User::all()->random()->id,'product_id'=>Product::where('status','=','rented')->get()->random()->id,'details'=>$faker->text(190),'startdate'=>'2017-1-2','expdate'=>'2017-2-1','status'=>'opened'],
+          ['customer_id'=>Customer::all()->random()->id,'users_id'=>User::all()->random()->id,'product_id'=>Product::where('status','=','rented')->get()->random()->id,'details'=>$faker->text(190),'startdate'=>'2017-1-3','expdate'=>'2017-7-1','status'=>'opened'],
+          ['customer_id'=>Customer::all()->random()->id,'users_id'=>User::all()->random()->id,'product_id'=>Product::where('status','=','available')->get()->random()->id,'details'=>$faker->text(190),'startdate'=>'2017-1-1','expdate'=>NULL,'status'=>'closed'],
+        ]);
+      }
     }
 }

@@ -10,16 +10,19 @@ class ProductController extends Controller
     return view('dashbroad.product-index',compact('product'));
   }
   public function store(ProductRequest $Request){
+    $img_name=$Request->file('img')->getClientOriginalName();
     $product=new Product;
     $product->sup_id=$Request->sup_id;
     $product->cate_id=$Request->cate_id;
     $product->name=$Request->name;
     $product->address=$Request->address;
     $product->details=$Request->details;
-    $product->picture=$Request->picture;
+    $product->images=$img_name;
     $product->price=$Request->price;
     $product->status=$Request->status;
     $product->save();
+    $des='upload/images';
+    $Request->file('images')->move($des,$img_name);
     return redirect()->route('product.index');
   }
   public function create(){
@@ -31,15 +34,18 @@ class ProductController extends Controller
   }
   public function update($id,ProductRequest $Request){
       $product=Product::find($id);
+      $img_name=$Request->file('img')->getClientOriginalName();
       $product->sup_id=$Request->sup_id;
       $product->cate_id=$Request->cate_id;
       $product->name=$Request->name;
       $product->address=$Request->address;
       $product->details=$Request->details;
-      $product->picture=$Request->picture;
+      $product->images=$img_name;
       $product->price=$Request->price;
       $product->status=$Request->status;
       $product->save();
+      $des='upload/images';
+      $Request->file('images')->move($des,$img_name);
       return redirect()->route('product.index');
   }
   public function destroy($id){
