@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-md-12">
           <a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-          <a class="navbar-brand" href="index.html">HomeLand Coperator</a>
+          <a class="navbar-brand">HomeLand Coperator</a>
         </div>
       </div>
     </div>
@@ -42,7 +42,8 @@
           @foreach ($product as $item)
             <div class="item">
               <div class="animate-box">
-                <a href="{!!route('product.show', $item->id)!!}" class="image-popup fh5co-board-img" title="{!!$item->name!!}"><img src="#" alt="404"></a>
+                <a href="{!!route('product.show', $item->id)!!}" class="image-popup fh5co-board-img"><img src="upload/images/{!!$item->images!!}" alt="404"></a>
+                <div class="fh5co-desc">{!!$item->details!!}</div>
               </div>
             </div>
           @endforeach
