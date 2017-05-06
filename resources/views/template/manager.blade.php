@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang ="eng">
 <head>
-
     <meta charset="utf-8">
-    <title>Manager</title>
+    <title>Thống kê</title>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
     <link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
@@ -16,21 +15,18 @@
           <div class="w3-top">
             <div class="w3-bar w3-black w3-card-2">
               <a href="employee" class="w3-bar-item w3-button w3-padding-large ">Trang chủ</a>
-              <a href="manager" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Thống kế</a>
-              <a href="logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+              <a href="logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Logout</a>
             </div>
           </div>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Tổng quan<small> Bảng thống kê</small>
+                            <small>Thống kê dữ liệu</small>
                         </h1>
                     </div>
                 </div>
                 <!-- /.row -->
-
-
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">

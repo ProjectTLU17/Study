@@ -33,12 +33,19 @@
       <ul>
         <li class="active"><a href="/">Trang chủ</a></li>
         <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
+        @if (Auth::user()->role=='manager')
+        <li><a href="{!!route('user.index')!!}">Quản lí tài khoản</a></li>
+        @endif
         <li><a href="{!!route('product.index')!!}">Quản lý thông tin sản phẩm</a></li>
         <li><a href="#">Quản lý thông tin lô đất</a></li>
         <li><a href="#">Quản lý thông tin chủ đầu tư</a></li>
-        <li><a href="#">Làm hợp đồng</a></li>
-        <li><a href="#">Tạo báo cáo thống kê</a></li>
-        <li><a href="logout">Logout</a></li>
+        <li><a href="#">Hợp đồng</a></li>
+        @if (Auth::user()->role=='manager')
+        <li><a href="{!!route('statistic')!!}">Bảng thống kê dữ liệu</a></li>
+        @else
+          <li><a href="#">Tạo báo cáo thống kê</a></li>
+        @endif
+        <li><a href="{!!route('logout')!!}">Logout</a></li>
       </ul>
       <h3 class="fh5co-lead">Mạng xã hội</h3>
       <p class="fh5co-social-icons">
@@ -93,5 +100,13 @@
       <script src="{{asset('js/salvattore.min.js')}}"></script>
       <!-- Main JS -->
       <script src="{{asset('js/main.js')}}"></script>
+      <script type="text/javascript">
+              function xacnhanxoa(msg) {
+                  if (window.confirm(msg)) {
+                      return true;
+                  }
+                  return false;
+              }
+          </script>
   </body>
 </html>
