@@ -1,5 +1,5 @@
 @extends('template.menubar-employee')
-@section('title','Nhân viên')
+@section('title','Trang Chủ')
 @section('main')
   <div id="fh5co-offcanvass">
     <a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i></a>
@@ -12,6 +12,7 @@
       <li><a href="#">Quản lý thông tin chủ đầu tư</a></li>
       <li><a href="#">Làm hợp đồng</a></li>
       <li><a href="#">Tạo báo cáo thống kê</a></li>
+      <li><a href="logout">Logout</a></li>
     </ul>
     <h3 class="fh5co-lead">Mạng xã hội</h3>
     <p class="fh5co-social-icons">
@@ -54,7 +55,6 @@
 
 
   <footer id="fh5co-footer">
-
     <div class="container">
       <div class="row row-padded">
         <div class="col-md-12 text-center">
@@ -65,7 +65,6 @@
             <a href="#"><i class="icon-dribbble"></i></a>
             <a href="#"><i class="icon-youtube"></i></a>
           </p>
-          <p><small>&copy; Hydrogen Free HTML5 Template. All Rights Reserved. <br>Designed by: <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> | Images by: <a href="http://pexels.com" target="_blank">Pexels</a> </small></p>
         </div>
       </div>
     </div>
