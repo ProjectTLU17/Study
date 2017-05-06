@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang ="eng">
 <head>
-
     <meta charset="utf-8">
+<<<<<<< HEAD
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thống kê dữ liệu</title>
+=======
+  
+>>>>>>> refs/remotes/origin/Front-End
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
     <link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
@@ -18,21 +21,22 @@
           <div class="w3-top">
             <div class="w3-bar w3-black w3-card-2">
               <a href="employee" class="w3-bar-item w3-button w3-padding-large ">Trang chủ</a>
-              <a href="manager" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Thống kế</a>
-              <a href="logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+              <a href="logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Logout</a>
             </div>
           </div>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
+<<<<<<< HEAD
                             Thống kê tổng quan dữ liệu hoạt động</small>
+=======
+                            <small>Thống kê dữ liệu</small>
+>>>>>>> refs/remotes/origin/Front-End
                         </h1>
                     </div>
                 </div>
                 <!-- /.row -->
-
-
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">
