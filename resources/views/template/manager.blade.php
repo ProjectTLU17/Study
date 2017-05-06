@@ -14,7 +14,7 @@
         <div class="panel-heading" style="background-color:#d1d1d1;">
           <div class="row">
             <div class="col-xs-4">
-              <img src="/images/all.png" style="width:100%;">
+              <img src="images/all.png" style="width:100%;">
             </div>
             <div class="col-xs-8 text-right">
                 <h1>26</h1>
@@ -37,7 +37,7 @@
           <div class="panel-heading" style="background-color:#d1d1d1;">
             <div class="row">
               <div class="col-xs-4">
-                <img src="/images/available.png" style="width:100%;">
+                <img src="images/available.png" style="width:100%;">
               </div>
               <div class="col-xs-8 text-right">
                   <h1>12</h1>
@@ -59,7 +59,7 @@
                         <div class="panel-heading" style="background-color:#d1d1d1;">
                             <div class="row">
                                 <div class="col-xs-4">
-                                  <img src="/images/rent.png" style="width:100%;">
+                                  <img src="images/rent.png" style="width:100%;">
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <h1>124</h1>
@@ -81,7 +81,7 @@
                         <div class="panel-heading" style="background-color:#d1d1d1;">
                             <div class="row">
                                 <div class="col-xs-4">
-                                  <img src="/images/sold.png" style="width:100%;">
+                                  <img src="images/sold.png" style="width:100%;">
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <h1>13</h1>
@@ -254,4 +254,15 @@
               </div>
               <!-- /.row -->
           </div>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- gzris Charts JavaScript -->
+  <script src="js/plugins/morris/raphael.min.js"></script>
+  <script src="js/plugins/morris/morris.min.js"></script>
+  <script src="js/plugins/morris/morris-data.js"></script>
 @stop

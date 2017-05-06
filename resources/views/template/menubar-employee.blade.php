@@ -100,12 +100,6 @@
       <script src="{{asset('js/salvattore.min.js')}}"></script>
       <!-- Main JS -->
       <script src="{{asset('js/main.js')}}"></script>
-      <!-- jQuery -->
-      <script src="js/jquery.js"></script>
-      <!-- gzris Charts JavaScript -->
-      <script src="{{asset('js/plugins/morris/raphael.min.js')}}"></script>
-      <script src="{{asset('js/plugins/morris/morris.min.js')}}"></script>
-      <script src="{{asset('js/plugins/morris/morris-data.js')}}"></script>
       <script type="text/javascript">
               function xacnhanxoa(msg) {
                   if (window.confirm(msg)) {
