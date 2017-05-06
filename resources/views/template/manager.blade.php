@@ -2,13 +2,9 @@
 <html lang ="eng">
 <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thống kê dữ liệu</title>
-=======
-  
->>>>>>> refs/remotes/origin/Front-End
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
     <link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
@@ -28,11 +24,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-<<<<<<< HEAD
-                            Thống kê tổng quan dữ liệu hoạt động</small>
-=======
                             <small>Thống kê dữ liệu</small>
->>>>>>> refs/remotes/origin/Front-End
                         </h1>
                     </div>
                 </div>
