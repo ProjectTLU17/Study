@@ -13,8 +13,12 @@
 Route::group(['middleware'=>'auth'],function(){
   //route cho manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
-    Route::get('',function(){
-          return view('template.manager');
+    Route::get('',function(App\Product $data){
+        $product=$data::select('id','details','images')->get();
+        return view('template.employee',compact('product'));
+    });
+    Route::get('statistic',function(){
+      return view('template.manager');
     });
     Route::resource('user/api','UserRAController');
     Route::resource('user','UserController');
