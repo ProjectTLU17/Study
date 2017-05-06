@@ -14,7 +14,7 @@ Route::group(['middleware'=>'auth'],function(){
   //route cho manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
     Route::get('',function(){
-          return view('template.employee');
+          return redirect('/dashbroad');;
     });
     Route::get('statistic',['as'=>'statistic',function(){
           return view('template.manager');
