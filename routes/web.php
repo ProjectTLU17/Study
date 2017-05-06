@@ -13,7 +13,10 @@
 Route::group(['middleware'=>'auth'],function(){
   //route cho manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
-    Route::get('',['as'=>'statistic',function(){
+    Route::get('',function(){
+          return view('template.employee');
+    });
+    Route::get('statistic',['as'=>'statistic',function(){
           return view('template.manager');
     }]);
     Route::resource('user/api','UserRAController');
