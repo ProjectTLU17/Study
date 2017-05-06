@@ -15,18 +15,9 @@
         <div id="page-wrapper">
           <div class="w3-top">
             <div class="w3-bar w3-black w3-card-2">
-              <a href="#" class="w3-bar-item w3-button w3-padding-large">TRANG CHỦ</a>
-              <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CẤU HÌNH</a>
-              <div class="w3-dropdown-hover w3-hide-small">
-                <button class="w3-padding-large w3-button" title="More">QUẢN LÝ <i class="fa fa-caret-down"></i></button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                  <a href="#" class="w3-bar-item w3-button">QUẢN LÝ THÔNG TIN LÔ ĐẤT</a>
-                  <a href="#" class="w3-bar-item w3-button">QUẢN LÝ THÔNG TIN SẢN PHẨM</a>
-                  <a href="#" class="w3-bar-item w3-button">QUẢN LÝ THÔNG TIN CHỦ ĐẦU TƯ</a>
-                </div>
-              </div>
-              <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THỐNG KÊ BÁO CÁO</a>
-              <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
+              <a href="employee" class="w3-bar-item w3-button w3-padding-large ">Trang chủ</a>
+              <a href="manager" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Thống kế</a>
+              <a href="logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGOUT</a>
             </div>
           </div>
                 <!-- Page Heading -->
