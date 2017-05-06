@@ -5,10 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('title')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   <!-- Google Webfonts -->
   <link href="{{asset('http://fonts.googleapis.com/css?family=Roboto:400,300,100,500')}}" rel='stylesheet' type='text/css'>
@@ -61,9 +60,9 @@
       </div>
     </header>
     <!-- END .header -->
-
+    <div class="container">
       @yield('main')
-
+    </div>
     <footer id="fh5co-footer">
       <div class="container">
         <div class="row row-padded">
