@@ -34,7 +34,7 @@
       <ul>
         <li class="active"><a href="/">Trang chủ</a></li>
         <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
-        <li><a href="#">Quản lý thông tin sản phẩm</a></li>
+        <li><a href="{!!route('product.index')!!}">Quản lý thông tin sản phẩm</a></li>
         <li><a href="#">Quản lý thông tin lô đất</a></li>
         <li><a href="#">Quản lý thông tin chủ đầu tư</a></li>
         <li><a href="#">Làm hợp đồng</a></li>
