@@ -22,7 +22,8 @@ Route::group(['middleware'=>'auth'],function(){
   //route cho tất cả
   Route::group(['prefix'=>'dashbroad'],function(){
     Route::get('',function(){
-        return view('template.employee');
+        $product=Product::select('id','name','images')->get();
+        return view('template.employee',compact('product'));
     });
     Route::resource('user','UserController',['only' =>['show','edit','update']]);
     Route::resource('customer','CustomerController');
@@ -30,7 +31,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('category','CategoryController');
     Route::resource('contract','ContractController');
     Route::resource('product','ProductController');
-    
+
   });
   //endgroup
   Route::get('logout',function(){

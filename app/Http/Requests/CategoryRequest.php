@@ -23,10 +23,23 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+      switch ($this->method()) {
+        case 'POST':{
+          return [
             'name'=>'required|unique:category,name',
-            'stock'=>'numeric'
-        ];
+            'stock'=>'numeric|nullable',
+          ];
+        }
+        case 'PUT':{
+          return [
+            'name'=>'required|unique:category,name',
+            'stock'=>'numeric|nullable',
+          ];
+        }
+        default:
+          # code...
+          break;
+      }
     }
     public function messages(){
       return [
