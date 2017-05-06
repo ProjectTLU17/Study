@@ -18,12 +18,12 @@
       <div class="header">
         @if (Auth::check() && Auth::user()->role=="employee")
         <ul>
-          <li><a class="active" href="#">Trang chủ</a></li>
+          <li><a class="active" href="/">Trang chủ</a></li>
           <li><a href='#'>Cấu hình</a></li>
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
-                <a href="#">Thông tin cá nhân</a>
+                <a href="{!!route('user.show',Auth::user()->id)!!}">Thông tin cá nhân</a>
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
                 <a href="#">Quản lý thông tin chủ đầu tư</a>
@@ -39,7 +39,8 @@
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Quản lý</a>
               <div class="dropdown-content">
-                <a href="/manager/user">Quản lý tài khoản</a>
+                <a href="{!!route('user.index')!!}">Quản lý tài khoản</a>
+                <a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a>
                 <a href="#">Quản lý thông tin lô đất</a>
                 <a href="#">Quản lý thông tin sản phẩm</a>
                 <a href="#">Quản lý thông tin chủ đầu tư</a>
