@@ -5,20 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('title')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
   <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-  <meta name="author" content="FREEHTML5.CO" />
-
-  <!-- Facebook and Twitter integration -->
-  <meta property="og:title" content=""/>
-  <meta property="og:image" content=""/>
-  <meta property="og:url" content=""/>
-  <meta property="og:site_name" content=""/>
-  <meta property="og:description" content=""/>
-  <meta name="twitter:title" content="" />
-  <meta name="twitter:image" content="" />
-  <meta name="twitter:url" content="" />
-  <meta name="twitter:card" content="" />
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <link rel="shortcut icon" href="images/favicon.png">
@@ -38,12 +25,74 @@
   <!-- Theme Style -->
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <!-- Modernizr JS -->
-  <script src="js/modernizr-2.6.2.min.js"></script>
-
+  <script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
   </head>
   <body>
-    <div>
-      @yield('main')
+    <div id="fh5co-offcanvass">
+      <a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i></a>
+      <h1 class="fh5co-logo"><a class="navbar-brand">Các chức năng chính</a></h1>
+      <ul>
+        <li class="active"><a href="/">Trang chủ</a></li>
+        <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
+        <li><a href="#">Quản lý thông tin sản phẩm</a></li>
+        <li><a href="#">Quản lý thông tin lô đất</a></li>
+        <li><a href="#">Quản lý thông tin chủ đầu tư</a></li>
+        <li><a href="#">Làm hợp đồng</a></li>
+        <li><a href="#">Tạo báo cáo thống kê</a></li>
+        <li><a href="logout">Logout</a></li>
+      </ul>
+      <h3 class="fh5co-lead">Mạng xã hội</h3>
+      <p class="fh5co-social-icons">
+        <a href="#"><i class="icon-twitter"></i></a>
+        <a href="#"><i class="icon-facebook"></i></a>
+        <a href="#"><i class="icon-instagram"></i></a>
+        <a href="#"><i class="icon-dribbble"></i></a>
+        <a href="#"><i class="icon-youtube"></i></a>
+      </p>
     </div>
+    <header id="fh5co-header" role="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <a href=# class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
+            <a class="navbar-brand">HomeLand Coperation</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- END .header -->
+
+      @yield('main')
+
+    <footer id="fh5co-footer">
+      <div class="container">
+        <div class="row row-padded">
+          <div class="col-md-12 text-center">
+            <p class="fh5co-social-icons">
+              <a href="#"><i class="icon-twitter"></i></a>
+              <a href="#"><i class="icon-facebook"></i></a>
+              <a href="#"><i class="icon-instagram"></i></a>
+              <a href="#"><i class="icon-dribbble"></i></a>
+              <a href="#"><i class="icon-youtube"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+      <!-- jQuery -->
+      <script src="{{asset('js/jquery.min.js')}}"></script>
+      <!-- jQuery Easing -->
+      <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
+      <!-- Bootstrap -->
+      <script src="{{asset('js/bootstrap.min.js')}}"></script>
+      <!-- Waypoints -->
+      <script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
+      <!-- Magnific Popup -->
+      <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+      <!-- Salvattore -->
+      <script src="{{asset('js/salvattore.min.js')}}"></script>
+      <!-- Main JS -->
+      <script src="{{asset('js/main.js')}}"></script>
   </body>
 </html>
