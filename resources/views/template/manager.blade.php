@@ -14,7 +14,7 @@
         <div class="panel-heading" style="background-color:#d1d1d1;">
           <div class="row">
             <div class="col-xs-4">
-              <img src="images/all.png" style="width:100%;">
+              <img src="{{asset('images/all.png')}}" style="width:100%;">
             </div>
             <div class="col-xs-8 text-right">
                 <h1>26</h1>
@@ -37,7 +37,7 @@
           <div class="panel-heading" style="background-color:#d1d1d1;">
             <div class="row">
               <div class="col-xs-4">
-                <img src="images/available.png" style="width:100%;">
+                <img src="{{asset('images/available.png')}}" style="width:100%;">
               </div>
               <div class="col-xs-8 text-right">
                   <h1>12</h1>
@@ -54,19 +54,20 @@
               </a>
           </div>
       </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" style="background-color:#d1d1d1;">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                  <img src="images/rent.png" style="width:100%;">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <h1>124</h1>
-                                    <div>Số sản phẩm đã thuê</div>
-                                </div>
-                            </div>
-                        </div>
+
+      <div class="col-lg-3 col-md-6">
+          <div class="panel panel-default">
+              <div class="panel-heading" style="background-color:#d1d1d1;">
+                  <div class="row">
+                      <div class="col-xs-4">
+                        <img src="{{asset('images/rent.png')}}" style="width:100%;">
+                      </div>
+                      <div class="col-xs-8 text-right">
+                          <h1>124</h1>
+                          <div>Số sản phẩm đã thuê</div>
+                      </div>
+                  </div>
+              </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">Xem chi tiết</span>
@@ -81,7 +82,7 @@
                         <div class="panel-heading" style="background-color:#d1d1d1;">
                             <div class="row">
                                 <div class="col-xs-4">
-                                  <img src="images/sold.png" style="width:100%;">
+                                  <img src="{{asset('images/sold.png')}}" style="width:100%;">
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <h1>13</h1>
@@ -256,13 +257,13 @@
           </div>
 
   <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <script src="{{asset('js/jquery.js')}}"></script>
 
   <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
   <!-- gzris Charts JavaScript -->
-  <script src="js/plugins/morris/raphael.min.js"></script>
-  <script src="js/plugins/morris/morris.min.js"></script>
-  <script src="js/plugins/morris/morris-data.js"></script>
+  <script src="{{asset('js/plugins/morris/raphael.min.js')}}"></script>
+  <script src="{{asset('js/plugins/morris/morris.min.js')}}"></script>
+  <script src="{{asset('js/plugins/morris/morris-data.js')}}"></script>
 @stop

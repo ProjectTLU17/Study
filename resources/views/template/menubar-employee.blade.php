@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="shortcut icon" href="{{asset('images/favicon.png')}}">
 
   <!-- Google Webfonts -->
   <link href="{{asset('http://fonts.googleapis.com/css?family=Roboto:400,300,100,500')}}" rel='stylesheet' type='text/css'>
