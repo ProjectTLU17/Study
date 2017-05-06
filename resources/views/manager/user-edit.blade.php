@@ -9,9 +9,9 @@
       <label for="name">Name:</label>
       <input type="text" name="name" value="{!!$user->name!!}" required="required">
       <label for="name">Tên tài khoản:</label>
-      <input type="text" name="username" value="{!!$user->username!!}"required="required">
+      <input type="text" name="username" value="{!!$user->username!!}"required="required" disabled>
       <label for="password">Password:</label>
-      <input type="password" name="password" value="{!!$user->password!!}" required="required">
+      <input type="password" name="password" value="{!!$user->password!!}" required="required" disabled>
       <label for="name">Birthday:</label>
       <input type="date" name="birthday" value="{!!$user->birthday!!}">
       <label for="name">Address:</label>
@@ -24,7 +24,7 @@
       <select name="role">
         <optgroup label="Role">
           <option value="manager">Manager</option>
-          <option value="employee">Employee</option>
+          <option value="employee" selected="selected">Employee</option>
         </optgroup>
       </select>
     </fieldset>
