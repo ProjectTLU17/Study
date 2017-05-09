@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table='product';
-    protected $fillable=['sup_id','cate_id','name','address','details','picture','price','status'];
-    public function suplier(){
-      return $this->belongsTo('App/Suplier');
-    }
+    protected $fillable=['sup_id','cate_id','name','address','details','images','price','status'];
     public function suplier(){
       return $this->belongsTo('App/Suplier');
     }

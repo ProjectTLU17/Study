@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests\SuplierRequest;
 use App\Suplier;
@@ -45,5 +43,4 @@ class SuplierController extends Controller
     $suplier=Suplier::find($id);
     return view('dashbroad.suplier-edit',compact('suplier'));
   }
-
 }

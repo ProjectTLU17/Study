@@ -5,7 +5,7 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/loginstyle.css')}}"/>
-    <link rel="shortcut icon" href="img/favicon.png"/>
+    <link rel="shortcut icon" href="images/favicon.png"/>
   </head>
   <body>
     <div class="container">

@@ -1,35 +1,61 @@
-@extends('template.layouts')
-@section('title','Sign Up Form')
+@extends('template.menubar-employee')
+@section('title','Tạo tài khoản')
 @section('main')
-  {!!Form::open(array('route'=>'user.store', 'class'=>'Sign-up-form'))!!}
-  <form class="Sign-up-form" method="post">
+  {!!Form::open(array('route'=>['user.store'], 'class'=>'form-horizontal'))!!}
   {!!Form::token()!!}
-    <h1>Sign Up</h1>
-
-    <fieldset>
-      <legend>Basic info</legend>
-      <label for="name">Name:</label>
-      <input type="text" name="name" required="required">
-      <label for="name">Tên tài khoản:</label>
-      <input type="text" name="username" required="required">
-      <label for="password">Password:</label>
-      <input type="password" name="password" required="required">
-      <label for="name">Birthday:</label>
-      <input type="date" name="birthday">
-      <label for="name">Address:</label>
-      <input type="text" name="address">
-      <label for="name">Phone:</label>
-      <input type="text" name="phone">
-      <label for="mail">Email:</label>
-      <input type="email" name="email">
-      <label for="job">Job Role:</label>
-      <select name="role">
-        <optgroup label="Role">
-          <option value="manager">Manager</option>
-          <option value="employee">Employee</option>
-        </optgroup>
-      </select>
-    </fieldset>
-    <button class="button" type="submit" href="{}">Sign Up</button>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Họ và tên: </label>
+        <div class="col-sm-10">
+          <input class="form-control" name="name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="username">Tên đăng nhập: </label>
+        <div class="col-sm-10">
+          <input class="form-control" name="username" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="password">Mật khẩu: </label>
+        <div class="col-sm-10">
+          <input class="form-control" type="password" name="password" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="role">Job Role: </label>
+        <div class="col-sm-10">
+          <label class="radio-inline"><input type="radio" name="role" value="manager">Manager</label>
+          <label class="radio-inline"><input type="radio" name="role" value="employee" checked>Employee</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="birthday">Birthday: </label>
+        <div class="col-sm-10">
+          <input class="form-control" type="date" name="birthday"  >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="address">Address: </label>
+        <div class="col-sm-10">
+          <input class="form-control" name="address"  >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="phone">Telephone: </label>
+        <div class="col-sm-10">
+          <input class="form-control" name="phone" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email: </label>
+        <div class="col-sm-10">
+          <input class="form-control" name="email" >
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <button class="btn pull-right" type="submit">Thêm mới</button>
+        </div>
+      </div>
   {!!Form::close() !!}
 @stop

@@ -1,8 +1,6 @@
-@extends('template.layouts')
+@extends('template.menubar-employee')
 @section('title','Quản Lý Tài Khoản')
 @section('main')
-
-<div class="container">
   <table class="table">
     <thead>
       <tr>
@@ -10,7 +8,7 @@
         <th>Họ Tên</th>
         <th>Tên tài khoản</th>
         <th>Chức vụ</th>
-        <th><a type="button" class="button" href="{!!route('user.create')!!}">Thêm</a></th>
+        <th><a type="button" class="btn-link" style="color:blue;" href="{!!route('user.create')!!}">Thêm</a></th>
       </tr>
     </thead>
     <tbody>
@@ -28,15 +26,14 @@
         <td>{{$person->role}}</td>
         <th>
           {!!Form::open(array('route'=>array('user.destroy',$person->id),'method'=>'DELETE'))!!}
-            <button class="button" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit" id="delete">Xóa</button>
+            <button class="btn-link " onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit">Xóa</button>
           {!!Form::close()!!}
         </th>
         <th>
-          <a class="button" href="{!!route('user.edit',$person->id)!!}">Sửa</a>
+          <a class="btn-link" style="color:black;" href="{!!route('user.edit',$person->id)!!}">Sửa</a>
         </th>
       </tr>
       @endforeach
     </tbody>
   </table>
-</div>
 @stop
