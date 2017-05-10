@@ -13,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,15 +23,35 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+      switch ($this->method()) {
+        case 'POST':{
+          return [
             'sup_id'=>'required|exists:supliers,id',
             'cat_id'=>'required|exists:category,id',
             'name'=>'required',
             'address'=>'required',
             'details'=>'required',
+            'images'=>'required|image'
             'price'=>'required|numeric',
             'status'=>'required',
-        ];
+          ];
+        }
+        case 'PUT':{
+          return [
+            'sup_id'=>'required|exists:supliers,id',
+            'cat_id'=>'required|exists:category,id',
+            'name'=>'required',
+            'address'=>'required',
+            'details'=>'required',
+            'picture'=>'required|image'
+            'price'=>'required|numeric',
+            'status'=>'required',
+          ];
+        }
+        default:
+          # code...
+          break;
+      }
     }
     public function messages(){
       return [

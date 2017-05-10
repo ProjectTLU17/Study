@@ -1,6 +1,5 @@
-<?php $role="employee"?>
-@extends('template.layouts')
-@section('title','Nhân viên')
+@extends('template.menubar-employee')
+@section('title','Trang Chủ')
 @section('main')
-
-@endsection
+  <img src="images/0.jpg" style="width:100%;"/>
+@stop

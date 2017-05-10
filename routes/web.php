@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +13,15 @@
 Route::group(['middleware'=>'auth'],function(){
   //route cho manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
+    Route::get('statistic',function(){
+      return view('template.manager');
+	});
     Route::get('',function(){
-          return view('template.manager');
+          return redirect('/dashbroad');;
     });
+    Route::get('statistic',['as'=>'statistic',function(){
+          return view('template.manager');
+    }]);
     Route::resource('user/api','UserRAController');
     Route::resource('user','UserController');
   });
@@ -24,7 +30,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('',function(){
         return view('template.employee');
     });
-    Route::resource('user','UserController',['only' =>['show','edit','update']]);
+    Route::resource('user','UserController',['only' =>['show']]);
     Route::resource('customer','CustomerController');
     Route::resource('suplier','SuplierController');
     Route::resource('category','CategoryController');
@@ -33,10 +39,10 @@ Route::group(['middleware'=>'auth'],function(){
 
   });
   //endgroup
-  Route::get('logout',function(){
+  Route::get('logout',['as'=>'logout',function(){
     Auth::logout();
     return redirect('login');
-  });
+  }]);
 });
 Route::get('login',['as'=>'login','middleware'=>'AlreadyLogin','uses'=>'Auth\LoginController@getLogin']);
 Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);

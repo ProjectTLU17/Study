@@ -41,12 +41,8 @@ class UserRequest extends FormRequest
          {
            return [
                 'name'=>'required',
-                'username'=>'required',
                 'password'=>'required',
                 'role'=>'required',
-                'birthday'=>'date|nullable',
-                'phone'=>'numeric|nullable',
-                'email'=>'email|nullable',
            ];
          }
          default:break;
