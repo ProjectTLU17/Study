@@ -30,23 +30,35 @@
     <div id="fh5co-offcanvass">
       <a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i></a>
       <h1 class="fh5co-logo"><a class="navbar-brand">Các chức năng chính</a></h1>
-      <ul>
-        <li class="active"><a href="/">Trang chủ</a></li>
-        <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
-        @if (Auth::user()->role=='manager')
-        <li><a href="{!!route('user.index')!!}">Quản lí tài khoản</a></li>
-        @endif
-        <li><a href="{!!route('product.index')!!}">Quản lý thông tin sản phẩm</a></li>
-        <li><a href="#">Quản lý thông tin lô đất</a></li>
-        <li><a href="#">Quản lý thông tin chủ đầu tư</a></li>
-        <li><a href="#">Hợp đồng</a></li>
-        @if (Auth::user()->role=='manager')
-        <li><a href="{!!route('statistic')!!}">Bảng thống kê dữ liệu</a></li>
-        @else
-          <li><a href="#">Tạo báo cáo thống kê</a></li>
-        @endif
-        <li><a href="{!!route('logout')!!}">Logout</a></li>
-      </ul>
+      @if (Auth::user()->role=='manager')
+        <ul>
+          <li class="active"><a href="/">Trang chủ</a></li>
+          <li><a href="#">Cấu hình hệ thống</a></li>
+          <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
+          <li><a href="{!!route('user.index')!!}">Tài khoản</a></li>
+          <li><a href="#">Dự án</a></li>
+          <li><a href="#">Lô sản phẩm</a></li>
+          <li><a href="{!!route('product.index')!!}">Sản phẩm</a></li>
+          <li><a href="#">Khách hàng</a></li>
+          <li><a href="#">Hợp đồng</a></li>
+          <li><a href="{!!route('statistic')!!}">Thống kê dữ liệu</a></li>
+          <li><a href="#">Thông báo</a></li>
+          <li><a href="{!!route('logout')!!}">Đăng xuất</a></li>
+        </ul>
+      @else
+        <ul>
+          <li class="active"><a href="/">Trang chủ</a></li>
+          <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
+          <li><a href="#">Dự án</a></li>
+          <li><a href="#">Lô sản phẩm</a></li>
+          <li><a href="{!!route('product.index')!!}">Sản phẩm</a></li>
+          <li><a href="#">Khách hàng</a></li>
+          <li><a href="#">Hợp đồng</a></li>
+          <li><a href="#">Báo cáo thống kê</a></li>
+          <li><a href="{!!route('logout')!!}">Đăng xuất</a></li>
+        </ul>
+      @endif
+
       <h3 class="fh5co-lead">Mạng xã hội</h3>
       <p class="fh5co-social-icons">
         <a href="#"><i class="icon-twitter"></i></a>
