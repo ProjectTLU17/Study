@@ -2,6 +2,14 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Carbon\Carbon as Carbon;
+use App\User;
+use App\Suplier;
+use App\Product;
+use App\Customer;
+use App\Category;
+use App\Project;
+use App\Land;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,12 +26,17 @@ class DatabaseSeeder extends Seeder
       ]);
       foreach(range(1,6) as $index){
         DB::table('customer')->insert([
-          ['name'=>$faker->name,'phone'=>$faker->phoneNumber,'email'=>$faker->unique()->email],
+          [ 'name'=>$faker->name,
+            'phone'=>$faker->phoneNumber,
+            'email'=>$faker->unique()->email],
         ]);
       }
       foreach(range(1,6) as $index){
         DB::table('suplier')->insert([
-          ['name'=>$faker->name,'address'=>$faker->address,'phone'=>$faker->unique()->phoneNumber,'email'=>$faker->unique()->email],
+          ['name'=>$faker->name,
+          'address'=>$faker->address,
+          'phone'=>$faker->unique()->phoneNumber,
+          'email'=>$faker->unique()->email],
         ]);
       }
       DB::table('category')->insert([
@@ -33,29 +46,44 @@ class DatabaseSeeder extends Seeder
         ['name'=>'Mảnh','stock'=>'7'],
         ['name'=>'Villa','stock'=>'11'],
       ]);
-      // $faker = Faker::create();
-      // $suplier=suplier::fill('id');
-      // $category=category::fill('id');
-      // foreach(range(1,1) as $index){
-      //   DB::table('product')->insert([
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),,'name'=>'Sản phẩm 1','address'=>'địa chỉ sản phẩm số 1','details'=>'thông tin sản phẩm 1','price'=>'10000001','status'=>'available'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 2','address'=>'địa chỉ sản phẩm số 2','details'=>'thông tin sản phẩm 2','price'=>'10000002','status'=>'rented'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 3','address'=>'địa chỉ sản phẩm số 3','details'=>'thông tin sản phẩm 3','price'=>'10000003','status'=>'rented'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 4','address'=>'địa chỉ sản phẩm số 4','details'=>'thông tin sản phẩm 4','price'=>'10000004','status'=>'sold'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 5','address'=>'địa chỉ sản phẩm số 5','details'=>'thông tin sản phẩm 5','price'=>'10000005','status'=>'sold'],
-      //     ['sup_id'=>$faker->randomElement($suplier),'cate_id'=>$faker->randomElement($category),'name'=>'Sản phẩm 6','address'=>'địa chỉ sản phẩm số 6','details'=>'thông tin sản phẩm 6','price'=>'10000006','status'=>'available'],
-      //   ]);
-      // }
-      // $customer=customer::fill('id');
-      // $employee = employee::fill('id');
-      // $product=product::fill('id');
-      // foreach(range(1,1) as $index){
-      //   DB::table('contract')->insert([
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 1','startdate'=>'2017-1-1','status'=>'closed'],
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 2','startdate'=>'2017-1-2','expdate'=>'2017-2-1','status'=>'opened'],
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 3','startdate'=>'2017-1-3','expdate'=>'2017-7-1','status'=>'opened'],
-      //     ['cus_id'=>$faker->randomElement($customer),'emp_id'=>$faker->randomElement($employee),'prodt_id'=>$faker->randomElement($product),'details'=>'Thông tin đơn hàng 4','startdate'=>'2017-1-1','status'=>'closed'],
-      //   ]);
-      // }
+      foreach(range(1,6) as $index){
+        $date=Carbon::create(2017,5,10,0,0,0);
+        DB::table('project')->insert([
+          ['name'=>'Dự án số '.$index,
+          'startdate'=>$date->format('Y-m-d H:i:s'),
+          'expdate'=>$date->addWeeks(rand(1,52))->format('Y-m-d H:i:s')],
+        ]);
+      }
+      $project = Project::fill('id');
+      foreach(range(1,6) as $index){
+        DB::table('land')->insert([
+          ['project_id'=>$faker->randomElement($project),
+          'Name'=>'Lô đất số'.rand(1,50),
+          'stock'=>rand(1,10)],
+        ]);
+      }
+      $faker = Faker::create();
+      $suplier=Suplier::fill('id');
+      $category=Fategory::fill('id');
+      $land='land'::fill('id');
+      foreach(range(1,6) as $index){
+      DB::table('product')->insert([
+          ['sup_id'=>$faker->rand(1,6),
+           'cate_id'=>$faker->randomElement($category),
+           'land_id'=>$faker->randomElement($land),
+           'name'=>'Sản phẩm số'.$index,
+           'address'=>'địa chỉ sản phẩm số '.$index,
+           'details'=>'thông tin sản phẩm '.$index,
+           'price'=>rand(1,10)*10000000,
+           'status'=>rand(0,1)],
+         ]);
+      }
+      $product = Product::fill('id');
+      foreach(range(1,6) as $index){
+        DB::table('images')->insert([
+          ['name'=>$index.'.jpg',
+          'product_id'=>$faker->randomElement($product)],
+         ]);
+      }
     }
 }
