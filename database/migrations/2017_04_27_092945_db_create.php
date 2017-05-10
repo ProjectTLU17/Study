@@ -85,7 +85,6 @@ class DbCreate extends Migration
       Schema::table('land', function (Blueprint $table) {
         $table->foreign('project_id')->references('id')->on('project')->onDelete('cascade');
       });
-
     }
 
     /**

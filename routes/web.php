@@ -27,9 +27,8 @@ Route::group(['middleware'=>'auth'],function(){
   });
   //route cho tất cả
   Route::group(['prefix'=>'dashbroad'],function(){
-    Route::get('',function(App\Product $data){
-        $product=$data::select('id','details','images')->get();
-        return view('template.employee',compact('product'));
+    Route::get('',function(){
+        return view('template.employee');
     });
     Route::resource('user','UserController',['only' =>['show']]);
     Route::resource('customer','CustomerController');

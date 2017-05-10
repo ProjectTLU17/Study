@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contract extends Model
 {
     protected $table='contract';
-    protected $fillable=['cus_id','emp_id','prodt_id','details','startdate','expdate','status'];
+    protected $fillable=['customer_id','users_id','product_id','decription','startdate','expdate','status'];
     public function product(){
       return $this->belongsTo('App/Product');
     }
