@@ -121,7 +121,7 @@
                   <div class="col-lg-4">
                       <div class="panel panel-default">
                           <div class="panel-heading">
-                              <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Biểu đồ bịa ra</h3>
+                              <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Biểu đồ sản phẩm</h3>
                           </div>
                           <div class="panel-body">
                               <div id="morris-donut-chart"></div>
@@ -135,7 +135,7 @@
                   <div class="col-lg-4">
                       <div class="panel panel-default">
                           <div class="panel-heading">
-                              <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Bảng công việc</h3>
+                              <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i>Bảng cập nhật trạng thái</h3>
                           </div>
                           <div class="panel-body">
                               <div class="list-group">
@@ -258,9 +258,6 @@
 
   <!-- jQuery -->
   <script src="{{asset('js/jquery.js')}}"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
   <!-- gzris Charts JavaScript -->
   <script src="{{asset('js/plugins/morris/raphael.min.js')}}"></script>
