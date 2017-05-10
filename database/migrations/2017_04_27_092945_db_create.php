@@ -27,6 +27,7 @@ class DbCreate extends Migration
       Schema::create('category',function(Blueprint $table){
         $table->increments('id');
         $table->string('name');
+        $table->integer('stock')->nullable();
       });
       Schema::create('land', function (Blueprint $table) {
         $table->increments('id');
