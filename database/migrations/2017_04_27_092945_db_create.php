@@ -13,15 +13,21 @@ class DbCreate extends Migration
      */
     public function up()
     {
-      Schema::create('plot', function (Blueprint $table) {
+      Schema::create('product', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('suplier_id')->unsigned();
         $table->integer('land_id')->unsigned();
+        $table->integer('category_id')->unsigned();
         $table->string('name');
         $table->string('address');
         $table->string('decription')->nullable();
         $table->integer('price');
         $table->string('status');
+      });
+      Schema::create('category',function(Blueprint $table){
+        $table->increments('id');
+        $table->string('name');
+        $table->integer('stock')->nullable();
       });
       Schema::create('land', function (Blueprint $table) {
         $table->increments('id');
@@ -38,8 +44,8 @@ class DbCreate extends Migration
       });
       Schema::create('images',function(Blueprint $table){
         $table->increments('id');
-        $table->integer('plot_id')->unsigned();
-        $table->string('link');
+        $table->integer('product_id')->unsigned();
+        $table->string('name');
       });
       Schema::create('customer', function (Blueprint $table) {
         $table->increments('id');
@@ -58,7 +64,7 @@ class DbCreate extends Migration
         $table->increments('id');
         $table->integer('customer_id')->unsigned();
         $table->integer('users_id')->unsigned();
-        $table->integer('plot_id')->unsigned();
+        $table->integer('product_id')->unsigned();
         $table->string('decription');
         $table->date('startdate')->nullable();
         $table->date('expdate')->nullable();
@@ -67,14 +73,15 @@ class DbCreate extends Migration
       Schema::table('contract', function (Blueprint $table) {
         $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade');
         $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-        $table->foreign('plot_id')->references('id')->on('plot')->onDelete('cascade');
+        $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
       });
-      Schema::table('plot', function (Blueprint $table) {
+      Schema::table('product', function (Blueprint $table) {
         $table->foreign('suplier_id')->references('id')->on('suplier')->onDelete('cascade');
         $table->foreign('land_id')->references('id')->on('land')->onDelete('cascade');
+        $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
       });
       Schema::table('images', function (Blueprint $table) {
-        $table->foreign('plot_id')->references('id')->on('plot')->onDelete('cascade');
+        $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
       });
       Schema::table('land', function (Blueprint $table) {
         $table->foreign('project_id')->references('id')->on('project')->onDelete('cascade');
@@ -90,7 +97,8 @@ class DbCreate extends Migration
     {
       Schema::dropIfExists('images');
       Schema::dropIfExists('contract');
-      Schema::dropIfExists('plot');
+      Schema::dropIfExists('product');
+      Schema::dropIfExists('category');
       Schema::dropIfExists('customer');
       Schema::dropIfExists('suplier');
       Schema::dropIfExists('land');
