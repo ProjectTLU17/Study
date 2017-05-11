@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
       foreach(range(1,6) as $index){
         DB::table('images')->insert([
           ['name'=>$index.'.jpg',
-          'product_id'=>$faker->numberBetween(1,6)],
+          'product_id'=>$index],
          ]);
       }
       //Seed table contract

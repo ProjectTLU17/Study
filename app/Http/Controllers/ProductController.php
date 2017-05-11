@@ -3,14 +3,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Product;
+use App\Images;
 class ProductController extends Controller
 {
   public function index(){
-    $product=Product::all();
+    $product=Product::with('images')->get();
+
     return view('dashbroad.product-index',compact('product'));
   }
   public function store(ProductRequest $Request){
-    $img_name=$Request->file('img')->getClientOriginalName();
+    $img_name=$Request->file('images')->getClientOriginalName();
     $product=new Product;
     $product->sup_id=$Request->sup_id;
     $product->cate_id=$Request->cate_id;

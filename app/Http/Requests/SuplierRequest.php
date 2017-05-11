@@ -27,6 +27,7 @@ class SuplierRequest extends FormRequest
         case 'POST': {
           return [
             'name'=>'required',
+            'address'=>'nullable',
             'phone'=>'required|numeric',
             'email'=>'email|nullable',
           ];
@@ -34,6 +35,7 @@ class SuplierRequest extends FormRequest
         case 'PUT':{
           return[
             'name'=>'required',
+            'address'=>'nullable',
             'phone'=>'required|numeric',
             'email'=>'email|nullable',
           ];
