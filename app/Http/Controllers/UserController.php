@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\User;
+use Hash;
 class UserController extends Controller
 {
     public function index(){
@@ -13,7 +14,7 @@ class UserController extends Controller
     $user=new User;
     $user->name=$Request->name;
     $user->username=$Request->username;
-    $user->password=$Request->password;
+    $user->password=Hash::make($Request->password);
     $user->role=$Request->role;
     $user->birthday=$Request->birthday;
     $user->address=$Request->address;
@@ -32,7 +33,7 @@ class UserController extends Controller
   public function update(UserRequest $Request,$id){
       $user=User::find($id);
       $user->name=$Request->name;
-      $user->password=$Request->password;
+      $user->password=Hash::make($Request->password);
       $user->role=$Request->role;
       $user->birthday=$Request->birthday;
       $user->address=$Request->address;

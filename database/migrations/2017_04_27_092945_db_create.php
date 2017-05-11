@@ -27,6 +27,7 @@ class DbCreate extends Migration
       Schema::create('category',function(Blueprint $table){
         $table->increments('id');
         $table->string('name');
+        $table->integer('stock')->nullable();
       });
       Schema::create('land', function (Blueprint $table) {
         $table->increments('id');
@@ -85,7 +86,6 @@ class DbCreate extends Migration
       Schema::table('land', function (Blueprint $table) {
         $table->foreign('project_id')->references('id')->on('project')->onDelete('cascade');
       });
-
     }
 
     /**
