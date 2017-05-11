@@ -4,7 +4,7 @@
   <!-- Page Content -->
       <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Biệt thự <a href="#" type="button" class="btn btn-warning pull-right">Thêm mới</a></h1>
+            <h1 class="page-header">Biệt thự <a href="{!!route('product.create')!!}" type="button" class="btn btn-warning pull-right">Thêm mới</a></h1>
         </div>
 
         @foreach ($product as $item)
@@ -13,11 +13,15 @@
               <a class="thumbnail"><img class="img-responsive" src="/upload/images/{!!$item->images!!}" alt="404"></a>
               <a type="button" class="btn btn-info">Xem</a>
               <a type="button" class="btn btn-success">Sửa</a>
-              <a type="button" class="btn btn-danger" href="{!!route('product.destroy', $item->id)!!}">Xóa</a>
-            </div>
+              {!!Form::open(array('route'=>array('product.destroy',$item->id),'method'=>'DELETE'))!!}
+                <button type="submit" class="btn btn-danger" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
+              {!!Form::close()!!}            </div>
           </div>
           @endforeach
         </div>
+
+
+
         <div class="row">
           <div class="col-lg-12">
               <h1 class="page-header">Căn hộ<a href="#" type="button" class="btn btn-warning pull-right">Thêm mới</a></h1>
@@ -29,11 +33,16 @@
                 <a class="thumbnail"><img class="img-responsive" src="/upload/images/{!!$item->images!!}" alt="404"></a>
                 <a type="button" class="btn btn-info">Xem</a>
                 <a type="button" class="btn btn-success">Sửa</a>
-                <a type="button" class="btn btn-danger" href="{!!route('product.destroy', $item->id)!!}">Xóa</a>
+                {!!Form::open(array('route'=>array('product.destroy',$item->id),'method'=>'DELETE'))!!}
+                  <button type="submit" class="btn btn-danger" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
+                {!!Form::close()!!}
               </div>
             </div>
             @endforeach
           </div>
+
+
+
           <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Nhà liền kề <a href="#" type="button" class="btn btn-warning pull-right">Thêm mới</a></h1>
@@ -45,7 +54,9 @@
                   <a class="thumbnail"><img class="img-responsive" src="/upload/images/{!!$item->images!!}" alt="404"></a>
                   <a type="button" class="btn btn-info">Xem</a>
                   <a type="button" class="btn btn-success">Sửa</a>
-                  <a type="button" class="btn btn-danger" href="{!!route('product.destroy', $item->id)!!}">Xóa</a>
+                  {!!Form::open(array('route'=>array('product.destroy',$item->id),'method'=>'DELETE'))!!}
+                    <button type="submit" class="btn btn-danger" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
+                  {!!Form::close()!!}
                 </div>
               </div>
               @endforeach
@@ -61,9 +72,11 @@
                     <a class="thumbnail"><img class="img-responsive" src="/upload/images/{!!$item->images!!}" alt="404"></a>
                     <a type="button" class="btn btn-info">Xem</a>
                     <a type="button" class="btn btn-success">Sửa</a>
-                    <a type="button" class="btn btn-danger" href="{!!route('product.destroy', $item->id)!!}">Xóa</a>
+                    {!!Form::open(array('route'=>array('product.destroy',$item->id),'method'=>'DELETE'))!!}
+                      <button type="submit" class="btn btn-danger" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
+                    {!!Form::close()!!}
                   </div>
                 </div>
                 @endforeach
               </div>
-@endsection
+@stop

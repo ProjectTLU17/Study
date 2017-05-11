@@ -39,7 +39,7 @@
           <li><a href="#">Dự án</a></li>
           <li><a href="#">Lô sản phẩm</a></li>
           <li><a href="{!!route('product.index')!!}">Sản phẩm</a></li>
-          <li><a href="#">Khách hàng</a></li>
+          <li><a href="{!!route('customer.index')!!}">Khách hàng</a></li>
           <li><a href="#">Hợp đồng</a></li>
           <li><a href="{!!route('statistic')!!}">Thống kê dữ liệu</a></li>
           <li><a href="#">Thông báo</a></li>
