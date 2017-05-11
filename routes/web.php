@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,9 @@
 Route::group(['middleware'=>'auth'],function(){
   //route cho manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
+    Route::get('statistic',function(){
+      return view('template.manager');
+	});
     Route::get('',function(){
           return redirect('/dashbroad');;
     });
