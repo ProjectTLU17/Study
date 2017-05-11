@@ -26,11 +26,12 @@ class ProductRequest extends FormRequest
       switch ($this->method()) {
         case 'POST':{
           return [
-            'sup_id'=>'required|exists:supliers,id',
-            'cat_id'=>'required|exists:category,id',
+            'suplier_id'=>'required|exists:supliers,id',
+            'category_id'=>'required|exists:category,id',
+            'land_id'=>'required|exists:land,id',
             'name'=>'required',
             'address'=>'required',
-            'details'=>'required',
+            'decription'=>'required',
             'images'=>'required|image'
             'price'=>'required|numeric',
             'status'=>'required',
@@ -38,8 +39,9 @@ class ProductRequest extends FormRequest
         }
         case 'PUT':{
           return [
-            'sup_id'=>'required|exists:supliers,id',
-            'cat_id'=>'required|exists:category,id',
+            'suplier_id'=>'required|exists:supliers,id',
+            'category_id'=>'required|exists:category,id',
+            'land_id'=>'required|exists:land,id',
             'name'=>'required',
             'address'=>'required',
             'details'=>'required',
@@ -55,10 +57,12 @@ class ProductRequest extends FormRequest
     }
     public function messages(){
       return [
-        'sup_id.required'=>'Chưa chọn nhà cung cấp',
-        'sup_id.exists'=>'ID không có trong Cơ sở dữ liệu',
-        'cat_id.required'=>'Chưa chọn danh mục',
-        'cat_id.exists'=>'ID không có trong Cơ sở dữ liệu',
+        'suplier_id.required'=>'Chưa chọn nhà cung cấp',
+        'suplier_id.exists'=>'ID không có trong Cơ sở dữ liệu',
+        'land_id.required'=>'Chưa chọn lô',
+        'land_id.exists'=>'ID không có trong Cơ sở dữ liệu',
+        'category_id.required'=>'Chưa chọn danh mục',
+        'category_id.exists'=>'ID không có trong Cơ sở dữ liệu',
         'name.required'=>'Vui lòng nhập tên sản phẩm',
         'address.required'=>'Vui lòng nhập địa chỉ',
         'details.required'=>'Vui lòng nhập thông tin mô tả',
