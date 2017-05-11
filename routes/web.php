@@ -11,7 +11,7 @@
 |
 */
 Route::group(['middleware'=>'auth'],function(){
-  //route cho manager
+  //route for manager
   Route::group(['prefix'=>'manager','middleware'=>'CheckRole'],function(){
     Route::get('statistic',function(){
       return view('template.manager');
@@ -25,27 +25,39 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('user/api','UserRAController');
     Route::resource('user','UserController');
   });
-  //route cho tất cả
+  //endgroup
+  ////////////////////////////////////////////////////////////////////////////
+  //route for all role
   Route::group(['prefix'=>'dashbroad'],function(){
     Route::get('',function(){
         return view('template.employee');
     });
+    //route restful Controller start
     Route::resource('user','UserController',['only' =>['show']]);
-    Route::resource('customer','CustomerController');
     Route::resource('suplier','SuplierController');
-    Route::resource('category','CategoryController');
-    Route::resource('contract','ContractController');
+    Route::resource('project','ProjectController');
     Route::resource('product','ProductController');
-
+    Route::resource('land','LandController');
+    Route::resource('images','ImagesController');
+    Route::resource('customer','CustomerController');
+    Route::resource('contract','ContractController');
+    Route::resource('category','CategoryController');
+    //route restful Controller end
   });
   //endgroup
+  ////////////////////////////////////////////////////////////////////////////
+  //logout route
   Route::get('logout',['as'=>'logout',function(){
     Auth::logout();
     return redirect('login');
   }]);
 });
+//out middleware
+//////////////////////////////////////////////////////////////////////////////////
+//route login
 Route::get('login',['as'=>'login','middleware'=>'AlreadyLogin','uses'=>'Auth\LoginController@getLogin']);
 Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
+//route redirect any non-define route to login route
 Route::any('{all?}',function(){
   return redirect('login');
 })->where('all','(.*)');

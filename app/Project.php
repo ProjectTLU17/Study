@@ -10,4 +10,5 @@ class Project extends Model
   protected $fillable=['name','decription','startdate','expdate'];
   public function land(){
     return $this->hasMany('App/Land');
+  }
 }
