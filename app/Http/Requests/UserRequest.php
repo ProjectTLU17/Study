@@ -33,6 +33,7 @@ class UserRequest extends FormRequest
                 'password'=>'required',
                 'role'=>'required',
                 'birthday'=>'date|nullable',
+                'phone'=>'nullable',
                 'phone'=>'numeric|nullable',
                 'email'=>'email|nullable',
            ];
