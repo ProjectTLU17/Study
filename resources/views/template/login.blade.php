@@ -15,11 +15,13 @@
         <div class="errors">
           {{$errors->first('username')}}
           {{$errors->first('password')}}
+          {{$errors->first('passwrong')}}
         </div>
           {!!Form::open(['route'=>'login'])!!}
           {!!Form::token()!!}
           <input type="text" name="username" placeholder="Nhập vào tên đăng nhập" required="required" class="input-txt" />
             <input type="password" name="password" placeholder="Nhập vào mật khẩu" required="required" class="input-txt" />
+
             <div class="login-footer">
                <a href="#" class="lnk">
                 <span class="icon icon--min">ಠ╭╮ಠ</span>

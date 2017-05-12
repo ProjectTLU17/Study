@@ -11,8 +11,7 @@ use Input;
 class ProductController extends Controller
 {
   public function index(){
-    $product=Product::with('images')->get();
-
+    $product=Product::with(['images','land','suplier'])->get();
     return view('dashbroad.product-index',compact('product'));
   }
   public function store(ProductRequest $Request){
@@ -22,10 +21,11 @@ class ProductController extends Controller
     $product->land_id=$Request->land_id;
     $product->name=$Request->name;
     $product->address=$Request->address;
-    $product->details=$Request->details;
+    $product->decription=$Request->decription;
     $product->price=$Request->price;
     $product->status=$Request->status;
     $product->save();
+    //cách viết khác để thử $product=Product::create($Request->all());
     //xử lý thêm ảnh
     $product_id=$product->id;
     if (count($Request->fimages)>0) {
@@ -49,7 +49,7 @@ class ProductController extends Controller
     return view('dashbroad.product-create',compact(['category','land','suplier']));
   }
   public function show($id){
-    $product=Product::find($id);
+    $product=Product::find($id)->with(['images','land','suplier'])->get();
     return view('dashbroad.product-details',compact('product'));
   }
   public function update($id,ProductRequest $Request){
