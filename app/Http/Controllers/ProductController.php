@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Product;
+use App\Land;
+use App\Category;
 use App\Http\Controllers\ImagesController;
 use Input;
 class ProductController extends Controller
@@ -14,8 +16,9 @@ class ProductController extends Controller
   }
   public function store(ProductRequest $Request){
     $product=new Product;
-    $product->sup_id=$Request->sup_id;
-    $product->cate_id=$Request->cate_id;
+    $product->suplier_id=$Request->suplier_id;
+    $product->category_id=$Request->category_id;
+    $product->land_id=$Request->land_id;
     $product->name=$Request->name;
     $product->address=$Request->address;
     $product->details=$Request->details;
@@ -30,8 +33,8 @@ class ProductController extends Controller
         $img_name=$image->getClientOriginalName();
         $image->move($des,$img_name);
         Images::create([
-          'product_id'=>$product_id;
-          'name'=>$img_name;
+          'product_id'=>$product_id,
+          'name'=>$img_name,
         ]);
       }
     }
@@ -39,7 +42,9 @@ class ProductController extends Controller
     return redirect()->route('product.show',$product_id);
   }
   public function create(){
-    return view('dashbroad.product-create');
+    $category=Category::all();
+    $land=Land::all();
+    return view('dashbroad.product-create',compact(['category','land']));
   }
   public function show($id){
     $product=Product::find($id);
