@@ -32,30 +32,38 @@
       </div>
     </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-3" for="description">Mô tả: </label>
-        <div class="col-md-9">
-          <input class="form-control" name="description">
-        </div>
+    <div class="form-group">
+      <label class="control-label col-md-3" for="description">Mô tả: </label>
+      <div class="col-md-9">
+        <input class="form-control" name="description">
       </div>
+    </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-3" for="price">Giá: </label>
-        <div class="col-sm-9">
-          <input class="form-control" type="date" name="price">
-        </div>
+    <div class="form-group">
+      <div class="col-md-2"></div>
+      <label class="control-label col-md-1" for="price">Giá: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="numberic" name="price">
       </div>
+      <label class="control-label col-md-1" for="status">Status:</label>
+      <div class="col-md-4">
+        <select class="form-control">
+          <option value="">Rent</option>
+          <option value="">Buy</option>
+          <option value="">Sold</option>
+        </select>
+      </div>
+    </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-3" for="status">Trạng thái: </label>
-        <div class="col-md-9">
-          <select class="form-control">
-            <option value="">Rent</option>
-            <option value="">Buy</option>
-            <option value="">Sold</option>
-          </select>
+    <div class="form-group">
+      <div class="col-md-3"></div>
+        <div class="col-md-7">
+          <input class="form-control" name="link">
         </div>
-      </div>
+        <div class="col-md-2">
+          <button class="btn btn-block">Upload</button>
+        </div>
+    </div>
 
       <div class="form-group">
         <div class="col-sm-12">
