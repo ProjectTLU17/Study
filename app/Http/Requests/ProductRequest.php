@@ -32,7 +32,7 @@ class ProductRequest extends FormRequest
             'name'=>'required',
             'address'=>'required',
             'decription'=>'required',
-            'images'=>'required|image'
+            'images'=>'required|image',
             'price'=>'required|numeric',
             'status'=>'required',
           ];
@@ -44,8 +44,8 @@ class ProductRequest extends FormRequest
             'land_id'=>'required|exists:land,id',
             'name'=>'required',
             'address'=>'required',
-            'details'=>'required',
-            'picture'=>'required|image'
+            'decription'=>'required',
+            'images'=>'required|image',
             'price'=>'required|numeric',
             'status'=>'required',
           ];
@@ -65,7 +65,7 @@ class ProductRequest extends FormRequest
         'category_id.exists'=>'ID không có trong Cơ sở dữ liệu',
         'name.required'=>'Vui lòng nhập tên sản phẩm',
         'address.required'=>'Vui lòng nhập địa chỉ',
-        'details.required'=>'Vui lòng nhập thông tin mô tả',
+        'decription.required'=>'Vui lòng nhập thông tin mô tả',
         'price.required'=>'Vui lòng nhập giá sản phẩm',
         'price.numeric'=>'Giá phải là số',
         'status.required'=>'Vui lòng nhập trạng thái sản phẩm',
