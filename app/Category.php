@@ -10,6 +10,6 @@ class Category extends Model
     protected $fillable=['name','stock'];
     public $timestamps=false;
     public function product(){
-      return $this->hasMany('App/Product');
+      return $this->hasMany('App\Product');
     }
 }

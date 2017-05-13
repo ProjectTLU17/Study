@@ -8,25 +8,16 @@ use App\Category;
 use App\Project;
 use App\Suplier;
 use App\Images;
-use Input;
 class ProductController extends Controller
 {
   public function index(){
-    $product=Product::with(['images','land','suplier'])->get();
-    return view('dashbroad.product-index',compact('product'));
+    // $product=Product::with(['images','land','suplier','category'])->get();
+    // return view('dashbroad.product-index',compact('product'));
+    $category=category::with('product')->get();
+    return view('dashbroad.product-index',compact('category'));
   }
   public function store(ProductRequest $Request){
-    $product=new Product;
-    $product->suplier_id=$Request->suplier_id;
-    $product->category_id=$Request->category_id;
-    $product->land_id=$Request->land_id;
-    $product->name=$Request->name;
-    $product->address=$Request->address;
-    $product->decription=$Request->decription;
-    $product->price=$Request->price;
-    $product->status=$Request->status;
-    $product->save();
-    //cách viết khác để thử $product=Product::create($Request->all());
+    $product=Product::create($Request->all());
     //xử lý thêm ảnh
     $product_id=$product->id;
     if (count($Request->fimages)>0) {
@@ -55,23 +46,37 @@ class ProductController extends Controller
   }
   public function update($id,ProductRequest $Request){
       $product=Product::find($id);
-      $img_name=$Request->file('img')->getClientOriginalName();
-      $product->sup_id=$Request->sup_id;
-      $product->cate_id=$Request->cate_id;
+      $product->suplier_id=$Request->suplier_id;
+      $product->category_id=$Request->category_id;
+      $product->land_id=$Request->land_id;
       $product->name=$Request->name;
       $product->address=$Request->address;
-      $product->details=$Request->details;
-      $product->images=$img_name;
+      $product->decription=$Request->decription;
       $product->price=$Request->price;
       $product->status=$Request->status;
       $product->save();
-      $des='upload/images';
-      $Request->file('images')->move($des,$img_name);
-      return redirect()->route('product.index');
+      //xử lý thêm ảnh
+      $product_id=$product->id;
+      if (count($Request->fimages)>0) {
+        $des='upload/images';
+        foreach ($Request->fimages as $image) {
+          $img_name=$image->getClientOriginalName();
+          $image->move($des,$img_name);
+          Images::create([
+            'product_id'=>$product_id,
+            'name'=>$img_name,
+          ]);
+        }
+      }
+      //kết thúc xử lý thêm ảnh
+      return redirect()->route('product.show',$product_id);
   }
   public function destroy($id){
     $product=Product::findorFail($id);
-    File::delete('upload/images/'.$product->images);
+    foreach ($product->images as $img) {
+      unlink('upload/images/'.$img->name);
+    }
+    $images=Images::where('product_id',$product->id)->delete();
     $product->delete();
     return redirect()->route('product.index');
   }
