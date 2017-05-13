@@ -1,6 +1,15 @@
 @extends('template.menubar-employee')
 @section('title','Thêm mới sản phẩm')
 @section('main')
+  <div class="errors">
+    {{$errors->first('suplier_id')}}
+    {{$errors->first('category_id')}}
+    {{$errors->first('name')}}
+    {{$errors->first('address')}}
+    {{$errors->first('decription')}}
+    {{$errors->first('price')}}
+    {{$errors->first('status')}}
+  </div>
   {!!Form::open(array('route'=>['product.store'], 'class'=>'form-horizontal','enctype'=>'multipart/form-data'))!!}
   {!!Form::token()!!}
     <div class="form-group">
@@ -14,34 +23,27 @@
           </optgroup>
         </select>
       </div>
-      <label class="control-label col-md-2">Dự án:</label>
+      <label class="control-label col-md-2">Nhà cung cấp:</label>
       <div class="col-md-2">
-        <select id="firstselect" class="form-control" name="project_id">
-          <optgroup label="Lô sản phẩm" >
-            @foreach ($project as $item_proj)
-              <option value="{{$item_proj->id}}">{{$item_proj->name}}</option>
+        <select class="form-control" name="suplier_id">
+          <optgroup label="Chọn dự án" >
+            @foreach ($suplier as $isuplier)
+              <option value="{{$isuplier->id}}">{{$isuplier->name}}</option>
             @endforeach
           </optgroup>
         </select>
       </div>
       <label class="control-label col-md-2">Lô:</label>
       <div class="col-md-2">
-        <select id="secondselect" class="form-control" name="land_id">
-          {{$item_proj->land->id}}
+        <select class="form-control" name="land_id">
+          @foreach ($project as $item_proj)
+            <optgroup label="{!!$item_proj->name!!}">
+              @foreach ($item_proj->land as $land)
+                <option value="{{$land->id}}">{{$land->name}}</option>
+              @endforeach
+            </optgroup>
+          @endforeach
         </select>
-        {{-- xử lý dropdown-menu 2 --}}
-        <script>
-          project = {{ $project->toJson() }};
-          $("#firstselect").change(function() {
-            id = $(this).val();
-            land = $.grep(project, function(e){ return e.id == id; });
-            html = '';
-            $.each(land, function(id, values) {
-              html = html + '<option value="' + values['id'] + ">" + values['name'] + '</option>';
-            });
-            $('#secondselect').html(html);
-          });
-        </script>
       </div>
     </div>
 
@@ -60,9 +62,9 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label col-md-3" for="description">Mô tả: </label>
+      <label class="control-label col-md-3" for="decription">Mô tả: </label>
       <div class="col-md-9">
-        <input class="form-control" name="description">
+        <input class="form-control" name="decription">
       </div>
     </div>
 
@@ -74,7 +76,7 @@
       </div>
       <label class="control-label col-md-1" for="status">Status:</label>
       <div class="col-md-4">
-        <select class="form-control">
+        <select class="form-control" name="status">
           <option value="rent">Rent</option>
           <option value="buy">Buy</option>
           <option value="sold">Sold</option>
@@ -94,5 +96,4 @@
         </div>
       </div>
   {!!Form::close() !!}
-
 @stop

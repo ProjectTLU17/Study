@@ -8,6 +8,7 @@ class Land extends Model
 {
   protected $table='land';
   protected $fillable=['project_id','name','stock'];
+  public $timestamps=false;
   public function product(){
     return $this->hasMany('App\Product');
   }
