@@ -1,15 +1,6 @@
 @extends('template.menubar-employee')
 @section('title','Thêm mới sản phẩm')
 @section('main')
-  <div class="errors">
-    {{$errors->first('suplier_id')}}
-    {{$errors->first('category_id')}}
-    {{$errors->first('name')}}
-    {{$errors->first('address')}}
-    {{$errors->first('decription')}}
-    {{$errors->first('price')}}
-    {{$errors->first('status')}}
-  </div>
   {!!Form::open(array('route'=>['product.store'], 'class'=>'form-horizontal','enctype'=>'multipart/form-data'))!!}
   {!!Form::token()!!}
     <div class="form-group">
