@@ -8,8 +8,6 @@ use App\Category;
 use App\Project;
 use App\Suplier;
 use App\Images;
-use File;
-use Input;
 class ProductController extends Controller
 {
   public function index(){
@@ -48,7 +46,6 @@ class ProductController extends Controller
   }
   public function update($id,ProductRequest $Request){
       $product=Product::find($id);
-      $img_name=$Request->file('img')->getClientOriginalName();
       $product->suplier_id=$Request->suplier_id;
       $product->category_id=$Request->category_id;
       $product->land_id=$Request->land_id;
@@ -58,9 +55,21 @@ class ProductController extends Controller
       $product->price=$Request->price;
       $product->status=$Request->status;
       $product->save();
-      $des='upload/images';
-      $Request->file('images')->move($des,$img_name);
-      return redirect()->route('product.index');
+      //xử lý thêm ảnh
+      $product_id=$product->id;
+      if (count($Request->fimages)>0) {
+        $des='upload/images';
+        foreach ($Request->fimages as $image) {
+          $img_name=$image->getClientOriginalName();
+          $image->move($des,$img_name);
+          Images::create([
+            'product_id'=>$product_id,
+            'name'=>$img_name,
+          ]);
+        }
+      }
+      //kết thúc xử lý thêm ảnh
+      return redirect()->route('product.show',$product_id);
   }
   public function destroy($id){
     $product=Product::findorFail($id);
