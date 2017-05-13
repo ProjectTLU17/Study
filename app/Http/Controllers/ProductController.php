@@ -5,6 +5,7 @@ use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\Land;
 use App\Category;
+use App\Project;
 use App\Suplier;
 use App\Http\Controllers\ImagesController;
 use Input;
@@ -44,9 +45,9 @@ class ProductController extends Controller
   }
   public function create(){
     $category=Category::all();
-    $land=Land::all();
+    $project=Project::with('land')->get();
     $suplier=Suplier::all();
-    return view('dashbroad.product-create',compact(['category','land','suplier']));
+    return view('dashbroad.product-create',compact(['category','project','suplier']));
   }
   public function show($id){
     $product=Product::find($id)->with(['images','land','suplier'])->get();
