@@ -6,30 +6,42 @@
     <div class="form-group">
       <label class="control-label col-md-2" for="typecategory">Loại sản phẩm: </label>
       <div class="col-md-2">
-        <select class="form-control">
-          <optgroup label="Loại sản phẩm" name="category_id">
-            <option value="">Lô đất</option>
-            <option value="">Biệt thự</option>
-            <option value="">Nhà liền kề</option>
-            <option value="">Căn hộ</option>
-          </optgroup>
-        </select>
-      </div>
-      <label class="control-label col-md-2">Lô:</label>
-      <div class="col-md-2">
-        <select class="form-control">
-          <optgroup label="Lô sản phẩm" name="land">
-            <option value="">#</option>
+        <select class="form-control" name="category_id">
+          <optgroup label="Loại sản phẩm" >
+            @foreach ($category as $item_cate)
+              <option value="{{$item_cate->id}}">{{$item_cate->name}}</option>
+            @endforeach
           </optgroup>
         </select>
       </div>
       <label class="control-label col-md-2">Dự án:</label>
       <div class="col-md-2">
-        <select class="form-control">
-          <optgroup label="Dự án">
-            <option value="">#</option>
+        <select id="firstselect" class="form-control" name="project_id">
+          <optgroup label="Lô sản phẩm" >
+            @foreach ($project as $item_proj)
+              <option value="{{$item_proj->id}}">{{$item_proj->name}}</option>
+            @endforeach
           </optgroup>
         </select>
+      </div>
+      <label class="control-label col-md-2">Lô:</label>
+      <div class="col-md-2">
+        <select id="secondselect" class="form-control" name="land_id">
+          {{$item_proj->land->id}}
+        </select>
+        {{-- xử lý dropdown-menu 2 --}}
+        <script>
+          project = {{ $project->toJson() }};
+          $("#firstselect").change(function() {
+            id = $(this).val();
+            land = $.grep(project, function(e){ return e.id == id; });
+            html = '';
+            $.each(land, function(id, values) {
+              html = html + '<option value="' + values['id'] + ">" + values['name'] + '</option>';
+            });
+            $('#secondselect').html(html);
+          });
+        </script>
       </div>
     </div>
 
@@ -70,9 +82,9 @@
       </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-md-3" for="price">Ảnh Đại Diện: </label>
+        <label class="control-label col-md-3" for="price">Ảnh Sản phẩm: </label>
         <div class="col-md-9">
-          <input class="form-control" type="file" name="fimages[]" multiple/>
+          <input  type="file" name="fimages[]" multiple/>
         </div>
     </div>
 
@@ -82,4 +94,5 @@
         </div>
       </div>
   {!!Form::close() !!}
+
 @stop
