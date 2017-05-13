@@ -7,7 +7,7 @@ use App\Land;
 use App\Category;
 use App\Project;
 use App\Suplier;
-use App\Http\Controllers\ImagesController;
+use App\Images;
 use Input;
 class ProductController extends Controller
 {
@@ -50,7 +50,7 @@ class ProductController extends Controller
     return view('dashbroad.product-create',compact(['category','project','suplier']));
   }
   public function show($id){
-    $product=Product::find($id)->with(['images','land','suplier'])->get();
+    $product=Product::with(['images','land','suplier'])->find($id)->first();
     return view('dashbroad.product-details',compact('product'));
   }
   public function update($id,ProductRequest $Request){

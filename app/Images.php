@@ -8,6 +8,7 @@ class Images extends Model
 {
     protected $table='images';
     protected $fillable = ['product_id','name'];
+    public $timestamps=false;
     public function product(){
       return $this->belongsTo('App\Product');
     }
