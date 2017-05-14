@@ -47,7 +47,7 @@ class ProductController extends Controller
     $product=Product::with(['images','land','suplier'])->where('id',$id)->first();
     return view('dashbroad.product-details',compact('product'));
   }
-  public function update($id,ProductRequest $Request){
+  public function update(ProductRequest $Request,$id){
       $product=Product::find($id);
       $product->suplier_id=$Request->suplier_id;
       $product->category_id=$Request->category_id;
@@ -84,7 +84,9 @@ class ProductController extends Controller
     return redirect()->route('product.index');
   }
   public function edit($id){
-    $product=Product::find($id);
-    return view('dashbroad.product-edit',compact('product'));
+    $project=Project::with('land')->get();
+    $suplier=Suplier::all();
+    $product=Product::with(['images','land','suplier','category'])->where('id',$id)->first();
+    return view('dashbroad.product-edit',compact(['category','project','suplier','product']));
   }
 }
