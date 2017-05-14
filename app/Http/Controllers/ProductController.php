@@ -41,7 +41,7 @@ class ProductController extends Controller
     return view('dashbroad.product-create',compact(['category','project','suplier']));
   }
   public function show($id){
-    $product=Product::with(['images','land','suplier'])->find($id)->first();
+    $product=Product::with(['images','land','suplier'])->where('id',$id)->first();
     return view('dashbroad.product-details',compact('product'));
   }
   public function update($id,ProductRequest $Request){

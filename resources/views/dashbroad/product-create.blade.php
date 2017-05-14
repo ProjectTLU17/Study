@@ -41,14 +41,14 @@
     <div class="form-group">
       <label class="control-label col-md-3" for="name">Tên sản phẩm: </label>
       <div class="col-md-9">
-        <input class="form-control" name="name">
+        <input class="form-control" name="name" required>
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-md-3" for="address">Địa chỉ: </label>
       <div class="col-md-9">
-        <input class="form-control" name="address" >
+        <input class="form-control" name="address" required>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
       <div class="col-md-2"></div>
       <label class="control-label col-md-1" for="price">Giá: </label>
       <div class="col-sm-4">
-        <input class="form-control" type="numberic" name="price">
+        <input class="form-control" type="numberic" name="price" required>
       </div>
       <label class="control-label col-md-1" for="status">Status:</label>
       <div class="col-md-4">
@@ -77,7 +77,7 @@
     <div class="form-group">
         <label class="control-label col-md-3" for="price">Ảnh Sản phẩm: </label>
         <div class="col-md-9">
-          <input  type="file" name="fimages[]" multiple/>
+          <input class="btn" type="file" name="fimages[]" multiple>
         </div>
     </div>
 
