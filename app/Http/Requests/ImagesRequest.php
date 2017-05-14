@@ -24,12 +24,12 @@ class ImagesRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'image',
+            'fimages'=>'image',
         ];
     }
     public function messages(){
       return[
-        'name.image'=>'File phải là ảnh dạng (jpeg,png,bmp,gif,svg)',
+        'fimages.image'=>'File phải là ảnh dạng (jpeg,png,bmp,gif,svg)',
       ];
     }
 }
