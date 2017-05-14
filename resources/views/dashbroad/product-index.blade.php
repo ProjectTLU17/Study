@@ -2,9 +2,11 @@
 @section('title','Quản lý sản phẩm bất động sản')
 @section('main')
   <!-- Page Content -->
-        <div class="col-lg-12">
-            <a href="{!!route('product.create')!!}" type="button" class="btn btn-warning pull-right">Thêm mới</a>
-        </div>
+
+      <div class="col-lg-12">
+          <a href="{!!route('product.create')!!}" type="button" class="btn btn-warning pull-right">Thêm mới</a>
+      </div>
+
         @foreach ($category as $item_cate)
           <div class="row">
             @if (!$item_cate->product->isEmpty())
