@@ -32,7 +32,7 @@ class ProductRequest extends FormRequest
             'name'=>'required',
             'address'=>'required',
             'decription'=>'required',
-            'price'=>'required',
+            'price'=>'required|numeric',
             'status'=>'required',
           ];
         }
@@ -44,7 +44,7 @@ class ProductRequest extends FormRequest
             'name'=>'required',
             'address'=>'required',
             'decription'=>'required',
-            'price'=>'required',
+            'price'=>'required|numeric',
             'status'=>'required',
           ];
         }
@@ -62,6 +62,7 @@ class ProductRequest extends FormRequest
         'address.required'=>'Vui lòng nhập địa chỉ',
         'decription.required'=>'Vui lòng nhập thông tin mô tả',
         'price.required'=>'Vui lòng nhập giá sản phẩm',
+        'price.numeric'=>'Giá tiền phải là số',
         'status.required'=>'Vui lòng nhập trạng thái sản phẩm',
       ];
     }
