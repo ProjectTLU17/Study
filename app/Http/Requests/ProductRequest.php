@@ -26,26 +26,24 @@ class ProductRequest extends FormRequest
       switch ($this->method()) {
         case 'POST':{
           return [
-            'suplier_id'=>'required|exists:supliers,id',
-            'category_id'=>'required|exists:category,id',
-            'land_id'=>'required|exists:land,id',
+            'suplier_id'=>'required',
+            'category_id'=>'required',
+            'land_id'=>'required',
             'name'=>'required',
             'address'=>'required',
             'decription'=>'required',
-            'images'=>'required|image'
             'price'=>'required|numeric',
             'status'=>'required',
           ];
         }
         case 'PUT':{
           return [
-            'suplier_id'=>'required|exists:supliers,id',
-            'category_id'=>'required|exists:category,id',
-            'land_id'=>'required|exists:land,id',
+            'suplier_id'=>'required',
+            'category_id'=>'required',
+            'land_id'=>'required',
             'name'=>'required',
             'address'=>'required',
-            'details'=>'required',
-            'picture'=>'required|image'
+            'decription'=>'required',
             'price'=>'required|numeric',
             'status'=>'required',
           ];
@@ -58,16 +56,13 @@ class ProductRequest extends FormRequest
     public function messages(){
       return [
         'suplier_id.required'=>'Chưa chọn nhà cung cấp',
-        'suplier_id.exists'=>'ID không có trong Cơ sở dữ liệu',
         'land_id.required'=>'Chưa chọn lô',
-        'land_id.exists'=>'ID không có trong Cơ sở dữ liệu',
         'category_id.required'=>'Chưa chọn danh mục',
-        'category_id.exists'=>'ID không có trong Cơ sở dữ liệu',
         'name.required'=>'Vui lòng nhập tên sản phẩm',
         'address.required'=>'Vui lòng nhập địa chỉ',
-        'details.required'=>'Vui lòng nhập thông tin mô tả',
+        'decription.required'=>'Vui lòng nhập thông tin mô tả',
         'price.required'=>'Vui lòng nhập giá sản phẩm',
-        'price.numeric'=>'Giá phải là số',
+        'price.numeric'=>'Giá tiền phải là số',
         'status.required'=>'Vui lòng nhập trạng thái sản phẩm',
       ];
     }
