@@ -1,6 +1,12 @@
 @extends('template.menubar-employee')
 @section('title','Thông tin chi tiết sản phẩm')
 @section('main')
+  <div class="col-md-12">
+    {!!Form::open(array('route'=>array('product.destroy',$product->id),'method'=>'DELETE'))!!}
+      <button type="submit" class="btn btn-danger pull-right" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
+    {!!Form::close()!!}
+  </div>
+
   <div class="row" style="padding-bottom:20px;">
     <div class="col-md-6 item-photo">
         <img style="max-width:100%;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/>

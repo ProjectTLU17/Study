@@ -45,6 +45,7 @@
         </tbody>
       </table>
     </div>
+
     <div id="customer-create" class="tab-pane fade">
       {!!Form::open(array('route'=>['customer.store'], 'class'=>'form-horizontal'))!!}
       {!!Form::token()!!}
