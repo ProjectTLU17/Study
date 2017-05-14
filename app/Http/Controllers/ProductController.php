@@ -10,6 +10,9 @@ use App\Suplier;
 use App\Images;
 class ProductController extends Controller
 {
+  public function uploadimg(ImagesController $img){
+    return $img->store();
+  }
   public function index(){
     // $product=Product::with(['images','land','suplier','category'])->get();
     // return view('dashbroad.product-index',compact('product'));
