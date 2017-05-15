@@ -19,7 +19,11 @@
       <select class="form-control" name="suplier_id">
         <optgroup label="Chọn dự án" >
           @foreach ($suplier as $isuplier)
-            <option value="{{$isuplier->id}}">{{$isuplier->name}}</option>
+            @if ($isuplier->id==$product->suplier_id)
+              <option value="{{$isuplier->id}}" selected>{{$product->suplier->name}}</option>
+            @else
+              <option value="{{$isuplier->id}}">{{$isuplier->name}}</option>
+            @endif
           @endforeach
         </optgroup>
       </select>
@@ -29,7 +33,11 @@
         @foreach ($project as $item_proj)
           <optgroup label="{!!$item_proj->name!!}">
             @foreach ($item_proj->land as $land)
-              <option value="{{$land->id}}">{{$land->name}}</option>
+              @if ($land->id==$product->land_id)
+                <option value="{{$land->id}}"selected>{{$product->land->name}}</option>
+              @else
+                <option value="{{$land->id}}">{{$land->name}}</option>
+              @endif
             @endforeach
           </optgroup>
         @endforeach
@@ -43,9 +51,10 @@
 
       <h6 class="title-price"><small>Trạng thái: </small></h6>
       <select class="form-control" name="status">
-        <option value="rent">Rent</option>
-        <option value="buy">Buy</option>
-        <option value="sold">Sold</option>
+
+        <option value="rent" @if ($product->status=='rent') print 'selected'; @endif>Rent</option>
+        <option value="buy" @if ($product->status=='buy') print 'selected'; @endif>Buy</option>
+        <option value="sold" @if ($product->status=='sold') print 'selected'; @endif>Sold</option>
       </select>
 
       <h6 class="title-price"><small>Mô tả: </small></h6>
