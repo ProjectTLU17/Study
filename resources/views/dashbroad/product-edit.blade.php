@@ -51,10 +51,19 @@
 
       <h6 class="title-price"><small>Trạng thái: </small></h6>
       <select class="form-control" name="status">
-
-        <option value="rent" @if ($product->status=='rent') print 'selected'; @endif>Rent</option>
-        <option value="buy" @if ($product->status=='buy') print 'selected'; @endif>Buy</option>
-        <option value="sold" @if ($product->status=='sold') print 'selected'; @endif>Sold</option>
+        @if ($product->status==='Đang cho thuê')
+          <option value="Đang cho thuê" selected >Đang cho thuê</option>
+          <option value="Chưa bán" >Chưa bán</option>
+          <option value="Đã bán" >Đã bán</option>
+          @elseif ($product->status==='Chưa bán')
+            <option value="Đang cho thuê"  >Đang cho thuê</option>
+            <option value="Chưa bán" selected>Chưa bán</option>
+            <option value="Đã bán" >Đã bán</option>
+            @else
+              <option value="Đang cho thuê"  >Đang cho thuê</option>
+              <option value="Chưa bán" >Chưa bán</option>
+              <option value="Đã bán" selected>Đã bán</option>
+        @endif
       </select>
 
       <h6 class="title-price"><small>Mô tả: </small></h6>
