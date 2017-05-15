@@ -9,7 +9,7 @@ use App\Project;
 use App\Suplier;
 use App\Images;
 use Response;
-class ProductController extends Controller
+class ProductRAController extends Controller
 {
   public function uploadimg(ImagesController $img){
     return $img->store();
@@ -18,7 +18,8 @@ class ProductController extends Controller
     // $product=Product::with(['images','land','suplier','category'])->get();
     // return view('dashbroad.product-index',compact('product'));
     $category=category::with('product')->get();
-    return view('dashbroad.product-index',compact('category'));
+    //return view('dashbroad.product-index',compact('category'));
+    return response::json($category);
   }
   public function store(ProductRequest $Request){
     $product=Product::create($Request->all());
@@ -46,7 +47,7 @@ class ProductController extends Controller
   }
   public function show($id){
     $product=Product::with(['images','land','suplier'])->where('id',$id)->first();
-    return view('dashbroad.product-details',compact('product'));
+    return response::json($product);
   }
   public function update(ProductRequest $Request,$id){
       $product=Product::find($id);
@@ -73,7 +74,10 @@ class ProductController extends Controller
         }
       }
       //kết thúc xử lý thêm ảnh
-      return redirect()->route('product.show',$product_id);
+      return Response::json(array(
+                  'error' => false,
+                  'message' =>'Cập nhật user thành công',
+                 ),200);
   }
   public function destroy($id){
     $product=Product::findorFail($id);
@@ -82,12 +86,15 @@ class ProductController extends Controller
     }
     $images=Images::where('product_id',$product->id)->delete();
     $product->delete();
-    return redirect()->route('product.index');
+    return Response::json(array(
+                'error' => false,
+                'message' =>'Xóa user thành công',
+               ),200);
   }
   public function edit($id){
     $project=Project::with('land')->get();
     $suplier=Suplier::all();
     $product=Product::with(['images','land','suplier','category'])->where('id',$id)->first();
-    return view('dashbroad.product-edit',compact(['category','project','suplier','product']));
+    return Respone::json([$product,$suplier,$project]);
   }
 }

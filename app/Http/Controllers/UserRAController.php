@@ -12,11 +12,11 @@ class UserRAController extends Controller
     public function index(){
       $user=User::all();
       //return Response::json(array('body' => View::make('manager.user-index',array('user'=>$user))->render()));
-      //return Response::json($user);
-      return response::json([
-          'body' => view::make('manager.user-index', compact('user'))->render(),
-          'user' => $user,
-      ]);
+      return Response::json($user);
+      // return response::json([
+      //     'body' => view::make('manager.user-index', compact('user'))->render(),
+      //     'user' => $user,
+      // ]);
     }
     public function store(UserRequest $Request){
     $user=new User;

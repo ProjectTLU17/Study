@@ -23,6 +23,7 @@ Route::group(['middleware'=>'auth'],function(){
           return view('template.manager');
     }]);
     Route::resource('user/api','UserRAController');
+    Route::resource('product/api','ProductRAController');
     Route::resource('user','UserController');
   });
   //endgroup

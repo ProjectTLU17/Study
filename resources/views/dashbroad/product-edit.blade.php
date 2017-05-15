@@ -19,7 +19,11 @@
       <select class="form-control" name="suplier_id">
         <optgroup label="Chọn dự án" >
           @foreach ($suplier as $isuplier)
-            <option value="{{$isuplier->id}}">{{$isuplier->name}}</option>
+            @if ($isuplier->id==$product->suplier_id)
+              <option value="{{$isuplier->id}}" selected>{{$product->suplier->name}}</option>
+            @else
+              <option value="{{$isuplier->id}}">{{$isuplier->name}}</option>
+            @endif
           @endforeach
         </optgroup>
       </select>
@@ -29,7 +33,11 @@
         @foreach ($project as $item_proj)
           <optgroup label="{!!$item_proj->name!!}">
             @foreach ($item_proj->land as $land)
-              <option value="{{$land->id}}">{{$land->name}}</option>
+              @if ($land->id==$product->land_id)
+                <option value="{{$land->id}}"selected>{{$product->land->name}}</option>
+              @else
+                <option value="{{$land->id}}">{{$land->name}}</option>
+              @endif
             @endforeach
           </optgroup>
         @endforeach
@@ -43,9 +51,19 @@
 
       <h6 class="title-price"><small>Trạng thái: </small></h6>
       <select class="form-control" name="status">
-        <option value="rent">Rent</option>
-        <option value="buy">Buy</option>
-        <option value="sold">Sold</option>
+        @if ($product->status==='Đang cho thuê')
+          <option value="Đang cho thuê" selected >Đang cho thuê</option>
+          <option value="Chưa bán" >Chưa bán</option>
+          <option value="Đã bán" >Đã bán</option>
+          @elseif ($product->status==='Chưa bán')
+            <option value="Đang cho thuê"  >Đang cho thuê</option>
+            <option value="Chưa bán" selected>Chưa bán</option>
+            <option value="Đã bán" >Đã bán</option>
+            @else
+              <option value="Đang cho thuê"  >Đang cho thuê</option>
+              <option value="Chưa bán" >Chưa bán</option>
+              <option value="Đã bán" selected>Đã bán</option>
+        @endif
       </select>
 
       <h6 class="title-price"><small>Mô tả: </small></h6>
