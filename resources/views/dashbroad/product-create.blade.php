@@ -4,6 +4,11 @@
   {!!Form::open(array('route'=>['product.store'], 'class'=>'form-horizontal','enctype'=>'multipart/form-data'))!!}
   {!!Form::token()!!}
     <div class="form-group">
+      <div class="alert text-center">
+        @foreach ($errors->all() as $error)
+          <p style="color:red">{!!$error!!}</p>
+        @endforeach
+      </div>
       <label class="control-label col-md-2" for="typecategory">Loại sản phẩm: </label>
       <div class="col-md-2">
         <select class="form-control" name="category_id">
@@ -41,14 +46,14 @@
     <div class="form-group">
       <label class="control-label col-md-3" for="name">Tên sản phẩm: </label>
       <div class="col-md-9">
-        <input class="form-control" name="name" required>
+        <input class="form-control" name="name">
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-md-3" for="address">Địa chỉ: </label>
       <div class="col-md-9">
-        <input class="form-control" name="address" required>
+        <input class="form-control" name="address">
       </div>
     </div>
 
@@ -63,7 +68,7 @@
       <div class="col-md-2"></div>
       <label class="control-label col-md-1" for="price">Giá: </label>
       <div class="col-sm-4">
-        <input class="form-control" type="numberic" name="price" required>
+        <input class="form-control" type="numberic" name="price">
       </div>
       <label class="control-label col-md-1" for="status">Status:</label>
       <div class="col-md-4">

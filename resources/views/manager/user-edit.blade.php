@@ -1,8 +1,10 @@
 @extends('template.menubar-employee')
 @section('title','Sửa thông tin thành viên')
 @section('main')
+
   {!!Form::open(array('route'=>['user.update',$user->id], 'class'=>'form-horizontal','method'=>'PUT'))!!}
   {!!Form::token()!!}
+  
       <div class="form-group">
         <label class="control-label col-sm-2" for="name">Họ và tên: </label>
         <div class="col-sm-10">
