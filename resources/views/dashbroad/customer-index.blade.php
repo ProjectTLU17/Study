@@ -5,6 +5,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#customer-index">Danh sách khách hàng</a></li>
     <li><a data-toggle="tab" href="#customer-create">Thêm mới khách hàng</a></li>
+
   </ul>
 
   <div class="tab-content" style="padding-top:50px;">
@@ -37,7 +38,7 @@
               {!!Form::close()!!}
             </th>
             <th>
-              <a class="btn-link" style="color:black;" href="{!!route('customer.edit',$person->id)!!}">Sửa</a>
+              <a class="btn-link" style="color:black;"  href="{!!route('customer.edit',$person->id)!!}">Sửa</a>
             </th>
           </tr>
           @endforeach

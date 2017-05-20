@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
       //Seed table User---------------------------------------------------------
       $faker = Faker::create();
       DB::table('users')->insert([
-        ['name'=>'Lương Đức Duy','username'=>'duyluong1994','password'=>Hash::make(12345),'role'=>'manager','birthday'=>'1994-1-1','address'=>'địa chỉ nhà số 1','phone'=>'0123456789','email'=>'a@gmail.com'],
+        ['name'=>'Lương Đức Duy','username'=>'duyluong1994','password'=>Hash::make(12345),'role'=>'manager','birthday'=>'1994-1-1','phone'=>'0123456789','email'=>'a@gmail.com'],
         ['name'=>'Vũ Đàm Khánh','username'=>'khanhvudam1995','password'=>Hash::make(12345),'role'=>'employee','birthday'=>'1994-1-1','address'=>'địa chỉ nhà số 1','phone'=>'0123456789','email'=>'b@gmail.com'],
         ['name'=>'Nguyễn Đình Phong','username'=>'phongnguyen1995','password'=>Hash::make(12345),'role'=>'manager','birthday'=>'1994-1-1','address'=>'địa chỉ nhà số 1','phone'=>'0123456789','email'=>'c@gmail.com'],
         ['name'=>'Nguyễn Duy Hoang Anh','username'=>'hoanganh1995','password'=>Hash::make(12345),'role'=>'employee','birthday'=>'1994-1-1','address'=>'địa chỉ nhà số 1','phone'=>'0123456789','email'=>'d@gmail.com'],
@@ -68,30 +68,6 @@ class DatabaseSeeder extends Seeder
           'project_id'=>$faker->numberBetween(1,10)],
         ]);
       }
-      //OLD CODE *** DO NOT TOUCH-----------------------------------------------
-      //$suplier=Suplier::fill('id');
-      //$category=Category::fill('id');
-      //$land='land'::fill('id');
-      /*$string = array(
-        'Đã bán',
-        'Chưa bán',
-      );
-      */
-      //Seed table Product
-      /*foreach(range(1,6) as $index){
-      //$startindex=array_rand($string);
-       DB::table('product')->insert([
-          ['suplier_id'=>$faker->numberBetween(1,5),
-           'category_id'=>$faker->numberBetween(1,5),
-           'land_id'=>$faker->numberBetween(1,6),
-           'name'=>'Sản phẩm số'.$index,
-           'address'=>'địa chỉ sản phẩm số '.$index,
-           'decription'=>'thông tin sản phẩm '.$index,
-           'price'=>$faker->numberBetween(1,1000000000),
-           'status'=>rand(0,1) ? 'Đã bán': 'Chưa bán'],
-         ]);
-      }*/
-      //------------------------------------------------------------------------
       //Product seed multi-option-----------------------------------------------
       foreach(range(1,10) as $index){
       //$startindex=array_rand($string);
@@ -105,7 +81,7 @@ class DatabaseSeeder extends Seeder
            'category_id'=>$faker->numberBetween(1,5),
            'land_id'=>$faker->numberBetween(1,10),
            'name'=>'Sản phẩm số'.$index,
-           'address'=>'địa chỉ sản phẩm số '.$index,
+           'address_id'=>$index,
            'decription'=>'thông tin sản phẩm '.$index,
            'price'=>$faker->numberBetween(1,1000000000),
            'status'=>$strings[$indexs]],

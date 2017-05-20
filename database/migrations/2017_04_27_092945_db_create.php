@@ -13,13 +13,27 @@ class DbCreate extends Migration
      */
     public function up()
     {
+      Schema::create('city',function(Blueprint $table){
+        $table->increments('id');
+        $table->string('name');
+      });
+      Schema::create('district',function(Blueprint $table){
+        $table->increments('id');
+        $table->string('name');
+        $table->integer('city_id')->unsigned();
+      });
+      Schema::create('address',function(Blueprint $table){
+        $table->increments('id');
+        $table->string('name');
+        $table->integer('district_id')->unsigned();
+      });
       Schema::create('product', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('suplier_id')->unsigned();
         $table->integer('land_id')->unsigned();
         $table->integer('category_id')->unsigned();
         $table->string('name');
-        $table->string('address');
+        $table->integer('address_id')->unsigned();
         $table->string('decription')->nullable();
         $table->integer('price');
         $table->string('status');
@@ -79,12 +93,19 @@ class DbCreate extends Migration
         $table->foreign('suplier_id')->references('id')->on('suplier')->onDelete('cascade');
         $table->foreign('land_id')->references('id')->on('land')->onDelete('cascade');
         $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
+        $table->foreign('address_id')->references('id')->on('address')->onDelete('cascade');
       });
       Schema::table('images', function (Blueprint $table) {
         $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
       });
       Schema::table('land', function (Blueprint $table) {
         $table->foreign('project_id')->references('id')->on('project')->onDelete('cascade');
+      });
+      Schema::table('district', function (Blueprint $table) {
+        $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade');
+      });
+      Schema::table('address', function (Blueprint $table) {
+        $table->foreign('district_id')->references('id')->on('district')->onDelete('cascade');
       });
     }
 
@@ -103,5 +124,8 @@ class DbCreate extends Migration
       Schema::dropIfExists('suplier');
       Schema::dropIfExists('land');
       Schema::dropIfExists('project');
+      Schema::dropIfExists('address');
+      Schema::dropIfExists('district');
+      Schema::dropIfExists('city');
     }
 }
