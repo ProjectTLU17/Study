@@ -10,6 +10,6 @@ class Customer extends Model
     protected $fillable=['name','phone','email'];
     public $timestamps=false;
     public function contract(){
-      return $this->hasMany('App/Contract');
+      return $this->hasMany('App\Contract');
     }
 }

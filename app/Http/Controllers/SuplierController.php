@@ -10,37 +10,26 @@ class SuplierController extends Controller
       return view('dashbroad.suplier-index',compact('suplier'));
     }
     public function store(SuplierRequest $Request){
-    $suplier=new Suplier;
-    $suplier->name=$Request->name;
-    $suplier->address=$Request->address;
-    $suplier->phone=$Request->phone;
-    $suplier->email=$Request->email;
-    $suplier->save();
-    return redirect()->route('suplier.index');
-  }
-  public function create(){
-    return view('dashbroad.suplier-create');
-  }
-  public function show($id){
-    $suplier=Suplier::find($id);
-    return view('dashbroad.suplier-details',compact('suplier'));
-  }
-  public function update($id,SuplierRequest $Request){
-      $suplier=Suplier::find($id);
-      $suplier->name=$Request->name;
-      $suplier->address=$Request->address;
-      $suplier->phone=$Request->phone;
-      $suplier->email=$Request->email;
-      $suplier->save();
+      Suplier::create($Request->all());
       return redirect()->route('suplier.index');
-  }
-  public function destroy($id){
-    $suplier=Suplier::findorFail($id);
-    $suplier->delete();
-    return redirect()->route('suplier.index');
-  }
-  public function edit($id){
-    $suplier=Suplier::find($id);
-    return view('dashbroad.suplier-edit',compact('suplier'));
-  }
+    }
+    public function create(){
+      return view('dashbroad.suplier-create');
+    }
+    public function show($id){
+        $suplier=Suplier::find($id);
+      return view('dashbroad.suplier-details',compact('suplier'));
+    }
+    public function update($id,SuplierRequest $Request){
+          Suplier::updateOrCreate(['id'=>$id],$Request->all());
+        return redirect()->route('suplier.index');
+    }
+    public function destroy($id){
+        Suplier::destroy($id);
+      return redirect()->route('suplier.index');
+    }
+    public function edit($id){
+        $suplier=Suplier::with('product')->where('id',$id)->first();
+      return view('dashbroad.suplier-edit',compact('suplier'));
+    }
 }
