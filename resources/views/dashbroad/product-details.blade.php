@@ -10,7 +10,9 @@
 
   <div class="row" style="padding-bottom:20px;">
     <div class="col-md-6 item-photo">
-        <img class="img-thumbnail" style="max-width:100%;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/>
+      <ul style="list-style:none;">
+        <li><img class="img-thumbnail" style="max-width:100%;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/></li>
+      </ul>
     </div>
     <div class="col-md-6" style="padding-left:50px;">
       <h6 class="title-price"><small>Tên sản phẩm: </small></h6>
