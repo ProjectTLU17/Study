@@ -13,32 +13,40 @@ class DbCreate extends Migration
      */
     public function up()
     {
+      // Schema::create('province',function(Blueprint $table){
+      //   $table->increments('id');
+      //   $table->string('name');
+      // });
+      // Schema::create('address',function(Blueprint $table){
+      //   $table->increments('id');
+      //   $table->string('name');
+      //   $table->integer('province_id')->unsigned();
+      // });
       Schema::create('product', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('suplier_id')->unsigned();
         $table->integer('land_id')->unsigned();
         $table->integer('category_id')->unsigned();
         $table->string('name');
-        $table->string('address');
-        $table->string('decription')->nullable();
-        $table->integer('price');
+        $table->mediumText('address')->nullable();
+        $table->longText('decription')->nullable();
+        $table->bigInteger('price');
         $table->string('status');
       });
       Schema::create('category',function(Blueprint $table){
         $table->increments('id');
         $table->string('name');
-        $table->integer('stock')->nullable();
       });
       Schema::create('land', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('project_id')->unsigned();
         $table->string('name');
-        $table->integer('stock')->nullable();
+        $table->longText('decription')->nullable();
       });
       Schema::create('project',function(Blueprint $table){
         $table->increments('id');
         $table->string('name')->unique();
-        $table->string('decription')->nullable();
+        $table->longText('decription')->nullable();
         $table->date('startdate')->nullable();
         $table->date('expdate')->nullable();
       });
@@ -56,7 +64,7 @@ class DbCreate extends Migration
       Schema::create('suplier', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
-        $table->string('address')->nullable();
+        $table->mediumText('address')->nullable();
         $table->string('phone');
         $table->string('email')->nullable();
       });
@@ -65,7 +73,7 @@ class DbCreate extends Migration
         $table->integer('customer_id')->unsigned();
         $table->integer('users_id')->unsigned();
         $table->integer('product_id')->unsigned();
-        $table->string('decription');
+        $table->longText('decription');
         $table->date('startdate')->nullable();
         $table->date('expdate')->nullable();
         $table->string('status');

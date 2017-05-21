@@ -49,16 +49,7 @@ class ProductController extends Controller
     return view('dashbroad.product-details',compact('product'));
   }
   public function update(ProductRequest $Request,$id){
-      $product=Product::find($id);
-      $product->suplier_id=$Request->suplier_id;
-      $product->category_id=$Request->category_id;
-      $product->land_id=$Request->land_id;
-      $product->name=$Request->name;
-      $product->address=$Request->address;
-      $product->decription=$Request->decription;
-      $product->price=$Request->price;
-      $product->status=$Request->status;
-      $product->save();
+      Product::updateOrCreate(['id'=>$id],$Request->all());
       //xử lý thêm ảnh
       $product_id=$product->id;
       if (count($Request->fimages)>0) {

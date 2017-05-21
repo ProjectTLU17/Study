@@ -13,7 +13,7 @@ class LandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,14 +28,12 @@ class LandRequest extends FormRequest
            return [
              'project_id'=>'required|exists:project,id',
              'name'=>'required|unique:category,name',
-             'stock'=>'numeric|nullable',
            ];
          }
          case 'PUT':{
            return [
              'project_id'=>'required|exists:project,id',
-             'name'=>'required|unique:category,name',
-             'stock'=>'numeric|nullable',
+             'name'=>'required',
            ];
          }
          default:
@@ -49,7 +47,6 @@ class LandRequest extends FormRequest
          'project_id.exists'=>'Mã dự án không tồn tại',
          'name.required'=>'Vui lòng nhập tên danh mục',
          'name.unique'=>'Tên danh mục bị trùng',
-         'stock.numeric'=>'Định dạng nhập vào phải là số',
        ];
      }
 }
