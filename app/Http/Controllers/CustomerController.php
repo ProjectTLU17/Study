@@ -26,7 +26,7 @@ class CustomerController extends Controller
     $customer=Customer::find($id);
     return view('dashbroad.customer-details',compact('customer'));
   }
-  public function update($id,CustomerRequest $Request){
+  public function update(CustomerRequest $Request,$id){
       $customer=Customer::find($id);
       $customer->name=$Request->name;
       $customer->phone=$Request->phone;
