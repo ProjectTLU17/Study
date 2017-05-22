@@ -1,10 +1,10 @@
 @extends('template.menubar-employee')
-@section('title','Chỉnh sửa thông tin khách hàng')
+@section('title','Thông tin khách hàng')
 @section('main')
 
   <ul class="nav nav-tabs">
     <li ><a  href="{!!route('customer.index')!!}">Danh sách khách hàng</a></li>
-    <li class="active"><a href="#customer-edit">Chỉnh sửa thông tin khách hàng</a></li>
+    <li class="active"><a href="#customer-edit">Thông tin khách hàng</a></li>
   </ul>
   <div class="tab-content" style="padding-top:50px;">
     <div>

@@ -71,9 +71,9 @@ class DatabaseSeeder extends Seeder
 
       //Seed table Land---------------------------------------------------------
         DB::table('land')->insert([
-          ['name'=>'Lô C27X1 Nam Trung Yên ','project_id'=>'1'],
-          ['name'=>'Lô Hải Đăng 1 ','project_id'=>'1'],
-          ['name'=>'Lô Hoàng Hải ','project_id'=>'1'],
+          ['name'=>'Lô C27X1 Nam Trung Yên ','project_id'=>'1','decription'=>'Đặt tại trung tâm đô thị Nam Trung Yên với tầm nhìn quang cảnh thành phố'],
+          ['name'=>'Lô Hải Đăng 1 ','project_id'=>'1','decription'=>'Lô đặt tại ngoại ô Hà Nội với khung cảnh đồng quê thiên nhiên nên thơ và đẹp đẽ'],
+          ['name'=>'Lô Hoàng Hải ','project_id'=>'1','decription'=>'Tầm nhìn trải dài ra biển thuộc tiêu chí Vip 1'],
         ]);
       //Product seed multi-option-----------------------------------------------
        DB::table('product')->insert([
