@@ -20,9 +20,9 @@
         </ol>
         <!-- Wrapper for slides -->
 
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="width:auto;">
             <div class="item active">
-              <img class="img-responsive" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/>
+              <img style="width:auto;height:500px;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404" />
             </div>
             @php
               $imgInt=0;
@@ -35,7 +35,7 @@
                 @endphp
               @endif
             <div class="item">
-              <img class="img-thumbnail" style="width:100%;" src="/upload/images/{!!$item->name or '#'!!}" alt="404"/>
+              <img style="width:auto;height:500px;" src="/upload/images/{!!$item->name or '#'!!}" alt="404"/>
             </div>
             @endforeach
         </div>
