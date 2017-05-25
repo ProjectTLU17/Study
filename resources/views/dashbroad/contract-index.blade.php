@@ -40,7 +40,7 @@
             <th style="text-align:center;"><h6>{!!$item->decription!!}</h6></th>
             <th style="text-align:center;"><h6>{!!$item->status!!}</h6></th>
             <th>
-              {!!Form::open(array('route'=>array('land.destroy',$item->id),'method'=>'DELETE'))!!}
+              {!!Form::open(array('route'=>array('contract.destroy',$item->id),'method'=>'DELETE'))!!}
                 <button class="btn-link " onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit">Xóa</button>
               {!!Form::close()!!}
             </th>
@@ -52,11 +52,11 @@
         </tbody>
       </table>
     </div>
-  </div>
-  <div id="contract-buyrent" class="tab-pane fade in">
-  </div>
-  <div id="contract-sell" class="tab-pane fade in">
-  </div>
-  <div id="contract-restore" class="tab-pane fade in">
+    <div id="contract-buyrent" class="tab-pane fade in">
+    </div>
+    <div id="contract-sell" class="tab-pane fade in">
+    </div>
+    <div id="contract-restore" class="tab-pane fade in">
+    </div>
   </div>
 @stop
