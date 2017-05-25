@@ -77,10 +77,10 @@ class DatabaseSeeder extends Seeder
         ]);
       //Product seed multi-option-----------------------------------------------
        DB::table('product')->insert([
-          ['suplier_id'=>'1','category_id'=>'5','land_id'=>'1','name'=>'Skepter House','address'=>'','decription'=>'This is a villa near callifornia state, with a large space of land and out far luxury furniture, this villa is perfect for those who want an extremly comfort and convenient but still nice and flawless. Feature 1 great living room for whole family can stay together and enjoy moment, 2 bed room with most comfort and relax funiture offer you a nice sleeping experience, 3 bath room with high quality build and 24/7 automatic warn up system, no more waiting for warm water. Extremly flexible and morden kitchen with everythings you need. This also offer front side pool and back yard pool for more convinent and party all day long','price'=>'5500000000','status'=>'available'],
-          ['suplier_id'=>'2','category_id'=>'5','land_id'=>'1','name'=>'Hall Center','address'=>'','decription'=>'•	Decription: located in middle callifornia state, feature you the best experience of homeland. Including 1 living room with built-in quality, 3 bed room with extremly comfortable, 2 bath room with luxury style offer you a good moment when bathing, automatic heating avaliable. Feature 1 front yard pools and 1 roof top with beautifull views and pool for sun bathing.','price'=>'6000000000','status'=>'available'],
-          ['suplier_id'=>'3','category_id'=>'5','land_id'=>'1','name'=>'The king home villa','address'=>'','decription'=>'right in the midle of a luxury street this is a real place for someone who wish to live like a king. With 240m2 areas you already can call your home is a palace, feature 1 great hall as living room for meeting and family moment, a good constuct made it real royal form. Up to 5 bed room for a royal family with the most quality furniture. A large pool for maximun of 20 people beyond party, royal class kitchen, made this really a palace for the king.','price'=>'2200000000','status'=>'available'],
-          ['suplier_id'=>'4','category_id'=>'5','land_id'=>'1','name'=>'The two towers villa','address'=>'','decription'=>'this villa is perfect for family who want to live in comfort but close. Feature 2 seperatation areas with mostly same as other. With 2 living room, 6 bed room, 4 bath room, 2 kitchen divided into 2 areas this is a real good home for mother farther and children family','price'=>'5000000000','status'=>'available'],
+          ['suplier_id'=>'1','category_id'=>'5','land_id'=>'1','name'=>'Skepter House','address'=>'','decription'=>'This is a villa near callifornia state, with a large space of land and out far luxury furniture, this villa is perfect for those who want an extremly comfort and convenient but still nice and flawless. Feature 1 great living room for whole family can stay together and enjoy moment, 2 bed room with most comfort and relax funiture offer you a nice sleeping experience, 3 bath room with high quality build and 24/7 automatic warn up system, no more waiting for warm water. Extremly flexible and morden kitchen with everythings you need. This also offer front side pool and back yard pool for more convinent and party all day long','price'=>'5500000000','status'=>'sold'],
+          ['suplier_id'=>'2','category_id'=>'5','land_id'=>'1','name'=>'Hall Center','address'=>'','decription'=>'•	Decription: located in middle callifornia state, feature you the best experience of homeland. Including 1 living room with built-in quality, 3 bed room with extremly comfortable, 2 bath room with luxury style offer you a good moment when bathing, automatic heating avaliable. Feature 1 front yard pools and 1 roof top with beautifull views and pool for sun bathing.','price'=>'6000000000','status'=>'pending'],
+          ['suplier_id'=>'3','category_id'=>'5','land_id'=>'1','name'=>'The king home villa','address'=>'','decription'=>'right in the midle of a luxury street this is a real place for someone who wish to live like a king. With 240m2 areas you already can call your home is a palace, feature 1 great hall as living room for meeting and family moment, a good constuct made it real royal form. Up to 5 bed room for a royal family with the most quality furniture. A large pool for maximun of 20 people beyond party, royal class kitchen, made this really a palace for the king.','price'=>'2200000000','status'=>'rent'],
+          ['suplier_id'=>'4','category_id'=>'5','land_id'=>'1','name'=>'The two towers villa','address'=>'','decription'=>'this villa is perfect for family who want to live in comfort but close. Feature 2 seperatation areas with mostly same as other. With 2 living room, 6 bed room, 4 bath room, 2 kitchen divided into 2 areas this is a real good home for mother farther and children family','price'=>'5000000000','status'=>'pending'],
           ['suplier_id'=>'5','category_id'=>'5','land_id'=>'1','name'=>'Concepted House','address'=>'','decription'=>': this villa is perfect for family who want to live in comfort but close. Feature 2 seperatation areas with mostly same as other. With 2 living room, 6 bed room, 4 bath room, 2 kitchen divided into 2 areas this is a real good home for mother farther and children family.','price'=>'2300000000','status'=>'available'],
           ['suplier_id'=>'6','category_id'=>'2','land_id'=>'2','name'=>'Charming House of Lore','address'=>'','decription'=>'Charming 3\2 home located in the heart of Checotah Large living room, separate den w\wood burning stove. Kitchen has wonderful window to view the beautiful back yard. Large master bedroom w\ 2 closets. Covered porch. Covered Patio.Carport & storage bldg','price'=>'5500000000','status'=>'available'],
           ['suplier_id'=>'7','category_id'=>'2','land_id'=>'2','name'=>'Old Trees','address'=>'','decription'=>'2-STALL BOAT DOCK WITH THIS ONE! Boat dock has a 12ft slip & 10ft slip. The detail in this home is to much to mention w/ hand crafted wood work. Metal roof in process of being completed, large patio & walk to Lake Eufaula. Subject to a 5% buyers premium.','price'=>'7800000000','status'=>'available'],
@@ -112,22 +112,45 @@ class DatabaseSeeder extends Seeder
           ['name'=>'sp15_1.jpg','product_id'=>'15'],['name'=>'sp15_2.jpg','product_id'=>'15'],['name'=>'sp15_3.jpg','product_id'=>'15'],['name'=>'sp15_4.jpg','product_id'=>'15'],['name'=>'sp15_5.jpg','product_id'=>'15'],
          ]);
       //Seed table contract-----------------------------------------------------
-      foreach(range(1,10) as $index){
-        $strings = array(
-          'Đang thực hiện',
-          'Đang chờ phê duyệt',
-          'Đã Hoàn Thành',);
-         $indexs = array_rand($strings);
+
         $date=Carbon::create(2017,5,10,0,0,0);
-        DB::table('contract')->insert([
-          ['customer_id'=>$faker->unique()->numberBetween(1,10),
-          'users_id'=>$faker->numberBetween(1,6),
-          'product_id'=>$faker->numberBetween(1,10),
-          'decription'=>'Thông tin hợp đồng sô '.$index,
-          'startdate'=>$date->format('Y-m-d H:i:s'),
-          'expdate'=>$date->addWeeks($faker->numberBetween(1,100))->format('Y-m-d H:i:s'),
-          'status'=>$strings[$indexs]]
-         ]);
-      }
+      DB::table('contract')->insert([
+        ['name'=>'Hợp đồng thuê The king home villa',
+        'type'=>'rent',
+        'customer_id'=>$faker->unique()->numberBetween(1,15),
+        'users_id'=>$faker->numberBetween(1,6),
+        'product_id'=>'3',
+        'decription'=>'cho gia đình thuê full tiện nghi trong nhà cùng dịch vụ dọn dẹp vệ sinh',
+        'startdate'=>$date->format('Y-m-d H:i:s'),
+        'expdate'=>$date->addWeeks($faker->numberBetween(1,100))->format('Y-m-d H:i:s'),
+        'status'=>'Hoạt động'],
+        ['name'=>'Hợp đồng thuê The two towers villa',
+        'type'=>'restore',
+        'customer_id'=>$faker->unique()->numberBetween(1,15),
+        'users_id'=>$faker->numberBetween(1,6),
+        'product_id'=>'4',
+        'decription'=>'cho gia đình thuê full tiện nghi trong nhà cùng dịch vụ dọn dẹp vệ sinh',
+        'startdate'=>$date->format('Y-m-d H:i:s'),
+        'expdate'=>$date->addWeeks($faker->numberBetween(1,100))->format('Y-m-d H:i:s'),
+        'status'=>'Chờ phê duyệt'],
+        ['name'=>'Hợp đồng bán Skepter House',
+        'type'=>'sell',
+        'customer_id'=>$faker->unique()->numberBetween(1,15),
+        'users_id'=>$faker->numberBetween(1,6),
+        'product_id'=>'1',
+        'decription'=>'Bán nguyên căn không có nội thất',
+        'startdate'=>$date->format('Y-m-d H:i:s'),
+        'expdate'=>'1900-1-1',
+        'status'=>'Hoàn Thành'],
+        ['name'=>'Hợp đồng bán Hall Center',
+        'type'=>'sell',
+        'customer_id'=>$faker->unique()->numberBetween(1,15),
+        'users_id'=>$faker->numberBetween(1,6),
+        'product_id'=>'2',
+        'decription'=>'cho gia đình mua full tiện nghi trong nhà cùng dịch vụ dọn dẹp vệ sinh',
+        'startdate'=>$date->format('Y-m-d H:i:s'),
+        'expdate'=>'1900-1-1',
+        'status'=>'Chờ phê duyệt'],
+      ]);
     }
 }

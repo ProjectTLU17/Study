@@ -70,6 +70,8 @@ class DbCreate extends Migration
       });
       Schema::create('contract', function (Blueprint $table) {
         $table->increments('id');
+        $table->string('name');
+        $table->string('type')->nullable();
         $table->integer('customer_id')->unsigned();
         $table->integer('users_id')->unsigned();
         $table->integer('product_id')->unsigned();
