@@ -1,13 +1,11 @@
 @extends('template.menubar-employee')
 @section('title','Thêm mới hợp đồng')
 @section('main')
-
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#contract-buy">Hợp đồng mua bất động sản</a></li>
-    <li><a data-toggle="tab" href="#contract-rent">Hợp đồng thuê bất động sản</a></li>
-    <li><a data-toggle="tab" href="#contract-sell">Hợp đồng bán bất động sản</a></li>
+    <li class="active"><a data-toggle="tab" href="#contract-buy">Thu hồi bất động sản</a></li>
+    <li><a data-toggle="tab" href="#contract-rent">Thuê bất động sản</a></li>
+    <li><a data-toggle="tab" href="#contract-sell">Bán bất động sản</a></li>
   </ul>
-
   <div class="tab-content" style="padding-top:50px;">
     <div id="contract-buy" class="tab-pane fade in active">
       {!!Form::open(array('route'=>['contract.store'], 'class'=>'form-horizontal'))!!}
@@ -18,6 +16,7 @@
       <div class="row contract-row">
         <div class="form-group">
           <div class="col-md-4">
+
             <label class="control-label" for="id">Mã hợp đồng: </label>
             <input class="form-control" name="id" disabled>
           </div>
@@ -91,47 +90,60 @@
         <div class="form-group">
           <div class="col-md-4">
             <label class="control-label" for="id">Mã hợp đồng: </label>
-            <input class="form-control" name="id" disabled>
+            <input class="form-control" name="id" disabled placeholder="Auto generate">
           </div>
           <div class="col-md-4">
             <label class="control-label" for="name">Tên hợp đồng: </label>
             <input class="form-control" name="name">
           </div>
+          <div class="col-md-4" hidden>
+            <input class="form-control" name="type" value="rent">
+          </div>
           <div class="col-md-4">
-            <label class="control-label" for="suplier">Nhà cung cấp: </label>
-            <input class="form-control" name="suplier">
+            <label class="control-label" for="customer">Khách hàng: </label>
+            <select class="form-control" name="customer_id">
+              <optgroup label="Khách hàng">
+                @foreach ($customer as $element)
+                  <option value={!!$element->id!!}>{!!$element->name!!}</option>
+                @endforeach
+              </optgroup>
+            </select>
           </div>
         </div>
       </div>
       <div class="row contract-row">
         <div class="form-group">
-          <div class="col-md-4">
-            <label class="control-label" for="customer">Khách hàng người thuê: </label>
-            <input class="form-control" name="customer">
-          </div>
-          <div class="col-md-4">
-            <label class="control-label" for="employee">Nhân viên làm hợp đồng: </label>
-            <input class="form-control" name="employee">
-          </div>
           <div class="col-md-4">
             <label class="control-label" for="product">Sản phẩm: </label>
-            <input class="form-control" name="product">
+            <select class="form-control" name="product_id">
+              <optgroup label="Sản phẩm">
+                @foreach ($product as $element)
+                  @if ($element->status=='available')
+                    <option value={!!$element->id!!}>{!!$element->name!!}</option>
+                  @endif
+                @endforeach
+              </optgroup>
+            </select>
           </div>
-        </div>
-      </div>
-      <div class="row contract-row">
-        <div class="form-group">
           <div class="col-md-4">
             <label class="control-label" for="startdate">Ngày bắt đầu: </label>
-            <input type="date" class="form-control" name="startdate">
+            <input type="date" class="form-control" name="startdate" >
           </div>
           <div class="col-md-4">
             <label class="control-label" for="enddate">Ngày kết thúc: </label>
-            <input type="date" class="form-control" name="endate">
+            <input type="date" class="form-control" name="expdate">
           </div>
-          <div class="col-md-4">
-            <label class="control-label" for="price">Giá thuê hàng tháng: </label>
-            <input type="numberic" class="form-control" name="price" placeholder="" disabled>
+        </div>
+      </div>
+      <div class="row contract-row">
+        <div class="form-group">
+          <div class="col-md-4" hidden>
+            <label class="control-label" for="status">Trạng thái: </label>
+            <input  class="form-control" name="status" value="pending">
+          </div>
+          <div class="col-md-4" hidden>
+            <label class="control-label" for="users_id">Trạng thái: </label>
+            <input  class="form-control" name="users_id" value={!!Auth::user()->id!!}>
           </div>
         </div>
       </div>
@@ -163,7 +175,7 @@
         <div class="form-group">
           <div class="col-md-4">
             <label class="control-label" for="id">Mã hợp đồng: </label>
-            <input class="form-control" name="id" disabled>
+            <input class="form-control" name="id" disabled placeholder="Auto generate">
           </div>
           <div class="col-md-4">
             <label class="control-label" for="name">Tên hợp đồng: </label>
@@ -171,30 +183,45 @@
           </div>
           <div class="col-md-4">
             <label class="control-label" for="type">Tên sản phẩm: </label>
-            <input class="form-control" name="type">
+            <select class="form-control" name="product_id">
+              <optgroup label="Sản phẩm">
+                @foreach ($product as $element)
+                  @if ($element->status=='available')
+                    <option value={!!$element->id!!}>{!!$element->name!!}</option>
+                  @endif
+                @endforeach
+              </optgroup>
+            </select>
           </div>
         </div>
       </div>
       <div class="row contract-row">
         <div class="form-group">
           <div class="col-md-4">
-            <label class="control-label" for="customer">Khách hàng người bán: </label>
-            <input class="form-control" name="customer">
+            <label class="control-label" for="customer">Khách hàng: </label>
+            <select class="form-control" name="customer_id">
+              <optgroup label="Khách hàng">
+                @foreach ($customer as $element)
+                  <option value={!!$element->id!!}>{!!$element->name!!}</option>
+                @endforeach
+              </optgroup>
+            </select>
           </div>
-          <div class="col-md-4">
-            <label class="control-label" for="employee">Nhân viên làm hợp đồng: </label>
-            <input class="form-control" name="employee">
+          <div class="col-md-4" hidden>
+            <label class="control-label" for="status">Trạng thái: </label>
+            <input  class="form-control" name="status" value="pending">
+            <input class="form-control" name="type" value="sell">
           </div>
-          <div class="col-md-4">
-            <label class="control-label" for="price">Định giá sản phẩm: </label>
-            <input class="form-control" name="price">
+          <div class="col-md-4" hidden>
+            <label class="control-label" for="users_id">Trạng thái: </label>
+            <input  class="form-control" name="users_id" value={!!Auth::user()->id!!}>
           </div>
         </div>
       </div>
       <div class="row contract-row">
         <div class="form-group">
           <div class="col-md-6">
-            <label class="control-label" for="startdate">Ngày bán: </label>
+            <label class="control-label" for="startdate">Ngày làm hợp đồng: </label>
             <input type="date" class="form-control" name="startdate">
           </div>
         </div>

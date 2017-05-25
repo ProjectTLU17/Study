@@ -123,7 +123,7 @@ class DatabaseSeeder extends Seeder
         'decription'=>'cho gia đình thuê full tiện nghi trong nhà cùng dịch vụ dọn dẹp vệ sinh',
         'startdate'=>$date->format('Y-m-d H:i:s'),
         'expdate'=>$date->addWeeks($faker->numberBetween(1,100))->format('Y-m-d H:i:s'),
-        'status'=>'Hoạt động'],
+        'status'=>'active'],
         ['name'=>'Hợp đồng thuê The two towers villa',
         'type'=>'restore',
         'customer_id'=>$faker->unique()->numberBetween(1,15),
@@ -132,7 +132,7 @@ class DatabaseSeeder extends Seeder
         'decription'=>'cho gia đình thuê full tiện nghi trong nhà cùng dịch vụ dọn dẹp vệ sinh',
         'startdate'=>$date->format('Y-m-d H:i:s'),
         'expdate'=>$date->addWeeks($faker->numberBetween(1,100))->format('Y-m-d H:i:s'),
-        'status'=>'Chờ phê duyệt'],
+        'status'=>'pending'],
         ['name'=>'Hợp đồng bán Skepter House',
         'type'=>'sell',
         'customer_id'=>$faker->unique()->numberBetween(1,15),
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
         'decription'=>'Bán nguyên căn không có nội thất',
         'startdate'=>$date->format('Y-m-d H:i:s'),
         'expdate'=>'1900-1-1',
-        'status'=>'Hoàn Thành'],
+        'status'=>'done'],
         ['name'=>'Hợp đồng bán Hall Center',
         'type'=>'sell',
         'customer_id'=>$faker->unique()->numberBetween(1,15),
@@ -150,7 +150,7 @@ class DatabaseSeeder extends Seeder
         'decription'=>'cho gia đình mua full tiện nghi trong nhà cùng dịch vụ dọn dẹp vệ sinh',
         'startdate'=>$date->format('Y-m-d H:i:s'),
         'expdate'=>'1900-1-1',
-        'status'=>'Chờ phê duyệt'],
+        'status'=>'pending'],
       ]);
     }
 }

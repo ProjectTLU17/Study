@@ -13,7 +13,7 @@ class ContractRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class ContractRequest extends FormRequest
         case 'POST':{
           return [
           'customer_id'=>'required|exists:customer,id',
-          'users_id'=>'required|exists:employee,id',
+          'users_id'=>'required|exists:users,id',
           'product_id'=>'required|exists:product,id',
           'decription'=>'required',
           'startdate'=>'required|date',
