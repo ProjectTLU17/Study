@@ -8323,3 +8323,15 @@ a > img.fh5co-align-center {
   max-width: 100%;
   height: 200px;
 }
+/*contract Form*/
+.contract-form {
+  border-bottom: 1.5px solid #dddbdb;
+}
+.contract-row {
+  padding: 0px 20px 0px 20px;
+  border-left: 1.5px solid #dddbdb;
+  border-right: 1.5px solid #dddbdb;
+}
+.contract-end {
+  border-bottom: 2px solid #dddbdb;
+}
