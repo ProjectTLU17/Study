@@ -2,7 +2,7 @@
 @section('title','Thêm mới hợp đồng')
 @section('main')
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#contract-buy">Thu hồi bất động sản</a></li>
+    <li class="active"><a data-toggle="tab" href="#contract-buy">Mua bất động sản</a></li>
     <li><a data-toggle="tab" href="#contract-rent">Thuê bất động sản</a></li>
     <li><a data-toggle="tab" href="#contract-sell">Bán bất động sản</a></li>
   </ul>
@@ -18,7 +18,7 @@
           <div class="col-md-4">
 
             <label class="control-label" for="id">Mã hợp đồng: </label>
-            <input class="form-control" name="id" disabled>
+            <input class="form-control" name="id" disabled placeholder="Auto generate">
           </div>
           <div class="col-md-4">
             <label class="control-label" for="name">Tên hợp đồng: </label>
