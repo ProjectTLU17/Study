@@ -18,7 +18,7 @@
           <div class="col-md-4">
 
             <label class="control-label" for="id">Mã hợp đồng: </label>
-            <input class="form-control" name="id" disabled>
+            <input class="form-control" name="id" disabled placeholder="Auto generate">
           </div>
           <div class="col-md-4">
             <label class="control-label" for="name">Tên hợp đồng: </label>
