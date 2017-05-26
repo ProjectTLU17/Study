@@ -2,11 +2,11 @@
 @section('title','Quản lý hợp đồng')
 @section('main')
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#contract-index">Danh sách tất cả hợp đồng</a></li>
-    <li><a data-toggle="tab" href="#contract-buyrent">Hợp đồng mua thuê</a></li>
+    <li class="active"><a data-toggle="tab" href="#contract-index">Danh sách hợp đồng</a></li>
+    <li><a data-toggle="tab" href="#contract-buyrent">Hợp đồng thuê</a></li>
     <li><a data-toggle="tab" href="#contract-sell">Hợp đồng bán</a></li>
     <li><a data-toggle="tab" href="#contract-restore">Hợp đồng thu hồi</a></li>
-    <li><a type="button" class="btn btn-info" href="{!!route('contract.create')!!}">Thêm mới</a>  </li>
+    <li><a type="button" class="btn btn-info" href="{!!route('contract.create')!!}">Làm hợp đồng</a>  </li>
   </ul>
 
   <div class="tab-content" style="padding-top:50px;">
@@ -14,29 +14,19 @@
       <table class="table">
         <thead>
           <tr>
-            <th style="text-align:center;">STT</th>
             <th style="text-align:center;">Mã hợp đồng</th>
             <th style="text-align:center;">Loại hợp đồng</th>
             <th style="text-align:center;">Tên hợp đồng</th>
-            <th style="text-align:center;">Nhân viên làm hợp đồng</th>
             <th style="text-align:center;">Mô Tả</th>
             <th style="text-align:center;">Trạng thái</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            @php
-              $stt=0;
-            @endphp
             @foreach ($contract as $item)
-            @php
-              $stt++;
-            @endphp
-            <th style="text-align:center;" scope="row"><h6>{{$stt}}</h6></th>
-            <th style="text-align:center;"><h6>{!!$item->id!!}</h6></th>
-            <th></th>
-            <th></th>
-            <th style="text-align:center;"><h6></h6></th>
+            <th style="text-align:center;" scope="row"><h6>{!!$item->id!!}</h6></th>
+            <th style="text-align:center;"><h6>{!!$item->type!!}</h6></th>
+            <th style="text-align:center;"><h6>{!!$item->name!!}</h6></th>
             <th style="text-align:center;"><h6>{!!$item->decription!!}</h6></th>
             <th style="text-align:center;"><h6>{!!$item->status!!}</h6></th>
             <th>

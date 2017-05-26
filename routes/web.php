@@ -44,6 +44,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('contract','ContractController');
     Route::resource('category','CategoryController');
     //route restful Controller end
+    Route::get('CreateContract',['as'=>'CreateContract','ContractController@CreateFromProduct']);
   });
   //endgroup
   ////////////////////////////////////////////////////////////////////////////
