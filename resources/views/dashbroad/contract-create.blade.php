@@ -2,7 +2,7 @@
 @section('title','Thêm mới hợp đồng')
 @section('main')
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#contract-buy">Thu hồi bất động sản</a></li>
+    <li class="active"><a data-toggle="tab" href="#contract-buy">Mua bất động sản</a></li>
     <li><a data-toggle="tab" href="#contract-rent">Thuê bất động sản</a></li>
     <li><a data-toggle="tab" href="#contract-sell">Bán bất động sản</a></li>
   </ul>
