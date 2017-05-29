@@ -15,7 +15,8 @@
                 <div class="col-lg-3 col-md-3 col-xs-6 thumb text-center">
                   <div class="row">
                     <a href="{!!route('product.show',$prodt->id)!!}"><img class="thumbnails" src="/upload/images/{!!$prodt->images->first()->name or '#'!!}" alt="404"></a>
-                    <a style="text-decoration:none;" href="{!!route('product.show',$prodt->id)!!}"><h3>{!!$prodt->name!!}</h3></a>
+                    <a style="text-decoration:none;" href="{!!route('product.show',$prodt->id)!!}"><h4>{!!$prodt->name!!}</h4></a>
+                    <h5>{!!$prodt->price!!}$</h5><h5>-------{!!$prodt->status!!}-------</h5>
                   </div>
                 </div>
               @endforeach

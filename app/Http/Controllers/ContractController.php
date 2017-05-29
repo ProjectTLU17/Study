@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContractRequest;
 use App\Contract;
+use App\customer;
+use App\product;
 class ContractController extends Controller
 {
   public function index(){
@@ -12,43 +14,43 @@ class ContractController extends Controller
     return view('dashbroad.contract-index',compact('contract'));
   }
   public function store(ContractRequest $Request){
-    $contract=new Contract;
-    $contract->cus_id=$Request->cus_id;
-    $contract->emp_id=$Request->emp_id;
-    $contract->prodt_id=$Request->prodt_id;
-    $contract->details=$Request->details;
-    $contract->startdate=$Request->startdate;
-    $contract->expdate=$Request->expdate;
-    $contract->status=$Request->status;
-    $contract->save();
+    Contract::create($Request->all());
+    Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'pending']);
     return redirect()->route('contract.index');
   }
   public function create(){
-    return view('dashbroad.contract-create');
+    $customer=Customer::all();
+    $product=Product::all();
+    return view('dashbroad.contract-create',compact(['customer','product']));
+  }
+  public function CreateFromProduct($id){
+    $customer=Customer::all();
+    $product=Product::find($id);
+    return view('dashbroad.contract-create',compact(['customer','product']));
   }
   public function show($id){
     $contract=Contract::find($id);
     return view('dashbroad.contract-details',compact('contract'));
   }
   public function update($id,ContractRequest $Request){
-      $contract=Contract::find($id);
-      $contract->cus_id=$Request->cus_id;
-      $contract->emp_id=$Request->emp_id;
-      $contract->prodt_id=$Request->prodt_id;
-      $contract->details=$Request->details;
-      $contract->startdate=$Request->startdate;
-      $contract->expdate=$Request->expdate;
-      $contract->status=$Request->status;
-      $contract->save();
+      Contract::updateOrCreate(['id'=>$id],$Request->all());
+      if ($Request->type=='rent' && $Request->status=='active') {
+        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'rent']);
+      }elseif ($Request->type=='sell' && $Request->status=='done') {
+        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'sold']);
+      }elseif ($Request->type=='restore' && $Request->status=='done') {
+        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'available']);
+      }
       return redirect()->route('contract.index');
   }
   public function destroy($id){
-    $contract=Contract::findorFail($id);
-    $contract->delete();
+    $contract=Contract::find($id);
+    Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'avaliable']);
+    $contract=Contract::destroy($id);
     return redirect()->route('contract.index');
   }
   public function edit($id){
-    $contract=Contract::find($id);
+    $contract=Contract::with(['product','user','customer'])->where('id',$id)->first();
     return view('dashbroad.contract-edit',compact('contract'));
   }
 }
