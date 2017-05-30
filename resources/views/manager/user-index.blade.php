@@ -1,8 +1,20 @@
 @extends('template.menubar-employee')
 @section('title','Quản Lý Tài Khoản')
 @section('main')
+ <div class="row">
+   <div class="col-md-12">
+     @include('template.notice')
+   </div>
+
+ </div>
+ <div class="row">
+
+
   <table class="table">
     <thead>
+      <tr>
+
+      </tr>
       <tr>
         <th>STT</th>
         <th>Họ Tên</th>
@@ -10,6 +22,7 @@
         <th>Chức vụ</th>
         <th><a type="button" class="btn-link" style="color:blue;" href="{!!route('user.create')!!}">Thêm</a></th>
       </tr>
+
     </thead>
     <tbody>
       <tr>
@@ -36,4 +49,5 @@
       @endforeach
     </tbody>
   </table>
+  </div>
 @stop

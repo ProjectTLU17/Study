@@ -10,6 +10,7 @@
 
   <div class="tab-content" style="padding-top:50px;">
     <div id="project-index" class="tab-pane fade in active">
+      @include('template.notice')
       <table class="table">
         <thead>
           <tr>

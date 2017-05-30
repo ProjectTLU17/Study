@@ -4,9 +4,7 @@
 
   {!!Form::open(array('route'=>['product.update',$product->id], 'class'=>'form-horizontal','method'=>'PUT'))!!}
   {!!Form::token()!!}
-  @foreach ($errors->all() as $error)
-    <p>{{$error}}</p>
-  @endforeach
+  @include('template.notice')
   <div class="row" style="padding-bottom:20px;">
     <div class="col-md-6 item-photo">
         <img class="img-thumbnail" style="max-width:100%;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/>

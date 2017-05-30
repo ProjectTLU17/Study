@@ -1,6 +1,7 @@
 @extends('template.menubar-employee')
 @section('title','Thông tin chi tiết sản phẩm')
 @section('main')
+  @include('template.notice')
   <div class="col-md-12">
     {!!Form::open(array('route'=>array('product.destroy',$product->id),'method'=>'DELETE'))!!}
       <button type="submit" class="btn btn-danger pull-right" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>

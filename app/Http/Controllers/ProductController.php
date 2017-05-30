@@ -36,6 +36,7 @@ class ProductController extends Controller
       }
     }
     //kết thúc xử lý thêm ảnh
+    session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('product.show',$product_id);
   }
   public function create(){
@@ -64,6 +65,7 @@ class ProductController extends Controller
         }
       }
       //kết thúc xử lý thêm ảnh
+      session()->flash('alert-success', 'Cập nhật thành công!');
       return redirect()->route('product.show',$product_id);
   }
   public function destroy($id){
@@ -73,6 +75,7 @@ class ProductController extends Controller
     }
     $images=Images::where('product_id',$product->id)->delete();
     $product->delete();
+    session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('product.index');
   }
   public function edit($id){

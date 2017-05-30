@@ -6,7 +6,7 @@
       <div class="col-lg-12">
           <a href="{!!route('product.create')!!}" type="button" class="btn btn-warning pull-right">Thêm mới</a>
       </div>
-
+      @include('template.notice')
         @foreach ($category as $item_cate)
           <div class="row">
             @if (!$item_cate->product->isEmpty())

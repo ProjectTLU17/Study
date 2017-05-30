@@ -4,6 +4,9 @@
 <div class="container">
   <h2 class="text-center">Thông tin cá nhân</h2>
   <form class="form-horizontal" action="/action_page.php">
+    <div class="col-md-12">
+      @include('template.notice')
+    </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Họ và tên: </label>
       <div class="col-sm-10">
