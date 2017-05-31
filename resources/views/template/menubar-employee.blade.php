@@ -43,7 +43,6 @@
           <li><a href="{!!route('suplier.index')!!}">Nhà cung cấp</a></li>
           <li><a href="{!!route('contract.index')!!}">Hợp đồng</a></li>
           <li><a href="{!!route('statistic')!!}">Thống kê dữ liệu</a></li>
-          <li><a href="#">Thông báo</a></li>
           <li><a href="{!!route('logout')!!}">Đăng xuất</a></li>
         </ul>
       @else
