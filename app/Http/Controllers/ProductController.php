@@ -8,6 +8,7 @@ use App\Category;
 use App\Project;
 use App\Suplier;
 use App\Images;
+use Response;
 class ProductController extends Controller
 {
   public function uploadimg(ImagesController $img){
@@ -35,6 +36,7 @@ class ProductController extends Controller
       }
     }
     //kết thúc xử lý thêm ảnh
+    session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('product.show',$product_id);
   }
   public function create(){
@@ -44,22 +46,13 @@ class ProductController extends Controller
     return view('dashbroad.product-create',compact(['category','project','suplier']));
   }
   public function show($id){
-    $product=Product::with(['images','land','suplier'])->find($id)->first();
+    $product=Product::with(['images','land','suplier'])->where('id',$id)->first();
     return view('dashbroad.product-details',compact('product'));
   }
-  public function update($id,ProductRequest $Request){
-      $product=Product::find($id);
-      $product->suplier_id=$Request->suplier_id;
-      $product->category_id=$Request->category_id;
-      $product->land_id=$Request->land_id;
-      $product->name=$Request->name;
-      $product->address=$Request->address;
-      $product->decription=$Request->decription;
-      $product->price=$Request->price;
-      $product->status=$Request->status;
-      $product->save();
+  public function update(ProductRequest $Request,$id){
+      Product::updateOrCreate(['id'=>$id],$Request->all());
       //xử lý thêm ảnh
-      $product_id=$product->id;
+      $product_id=$id;
       if (count($Request->fimages)>0) {
         $des='upload/images';
         foreach ($Request->fimages as $image) {
@@ -72,7 +65,8 @@ class ProductController extends Controller
         }
       }
       //kết thúc xử lý thêm ảnh
-      return redirect()->route('product.show',$product_id);
+      session()->flash('alert-success', 'Cập nhật thành công!');
+      return redirect()->route('product.show',$id);
   }
   public function destroy($id){
     $product=Product::findorFail($id);
@@ -81,10 +75,13 @@ class ProductController extends Controller
     }
     $images=Images::where('product_id',$product->id)->delete();
     $product->delete();
+    session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('product.index');
   }
   public function edit($id){
-    $product=Product::find($id);
-    return view('dashbroad.product-edit',compact('product'));
+    $project=Project::with('land')->get();
+    $suplier=Suplier::all();
+    $product=Product::with(['images','land','suplier','category'])->where('id',$id)->first();
+    return view('dashbroad.product-edit',compact(['category','project','suplier','product']));
   }
 }

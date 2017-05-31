@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'password','role','birthday','address','phone','email',
+        'name', 'username', 'password','role','birthday','phone','email',
     ];
 
     /**
@@ -27,6 +27,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function contract(){
-      return $this->hasMany('App/Contract');
+      return $this->hasMany('App\Contract');
     }
 }

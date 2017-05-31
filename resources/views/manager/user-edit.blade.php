@@ -1,8 +1,12 @@
 @extends('template.menubar-employee')
 @section('title','Sửa thông tin thành viên')
 @section('main')
+
   {!!Form::open(array('route'=>['user.update',$user->id], 'class'=>'form-horizontal','method'=>'PUT'))!!}
   {!!Form::token()!!}
+    <div class="col-md-12">
+      @include('template.notice')
+    </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="name">Họ và tên: </label>
         <div class="col-sm-10">
@@ -35,12 +39,6 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="address">Address: </label>
-        <div class="col-sm-10">
-          <input class="form-control" name="address" value="{!!$user->address!!}" >
-        </div>
-      </div>
-      <div class="form-group">
         <label class="control-label col-sm-2" for="phone">Telephone: </label>
         <div class="col-sm-10">
           <input class="form-control" name="phone" value="{!!$user->phone!!}" >
@@ -53,8 +51,13 @@
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-12">
-          <button class="btn pull-right" type="submit">Cập nhật</button>
+        <div class="row">
+          <div class="col-md-12">
+            {!!Form::open(array('route'=>array('user.destroy',$user->id),'method'=>'DELETE'))!!}
+              <button class="btn btn-danger pull-right " onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit">Xóa</button>
+            {!!Form::close()!!}
+            <button class="btn btn-info pull-right" type="submit">Cập nhật</button>
+          </div>
         </div>
       </div>
   {!!Form::close() !!}

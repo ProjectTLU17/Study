@@ -5,10 +5,12 @@
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#customer-index">Danh sách khách hàng</a></li>
     <li><a data-toggle="tab" href="#customer-create">Thêm mới khách hàng</a></li>
+
   </ul>
 
   <div class="tab-content" style="padding-top:50px;">
     <div id="customer-index" class="tab-pane fade in active">
+      @include('template.notice')
       <table class="table">
         <thead>
           <tr>
@@ -16,7 +18,6 @@
             <th>Tên Khách Hàng</th>
             <th>Số Điện Thoại</th>
             <th>Email</th>
-            <!--<th><a type="button" class="btn-link" style="color:blue;" href="{!!route('customer.create')!!}">Thêm</a></th>-->
           </tr>
         </thead>
         <tbody>
@@ -38,17 +39,23 @@
               {!!Form::close()!!}
             </th>
             <th>
-              <a class="btn-link" style="color:black;" href="{!!route('customer.edit',$person->id)!!}">Sửa</a>
+              <a class="btn-link" style="color:black;"  href="{!!route('customer.edit',$person->id)!!}">Sửa</a>
             </th>
           </tr>
           @endforeach
         </tbody>
       </table>
     </div>
+
     <div id="customer-create" class="tab-pane fade">
       {!!Form::open(array('route'=>['customer.store'], 'class'=>'form-horizontal'))!!}
       {!!Form::token()!!}
           <div class="form-group">
+            <div class="alert text-center">
+              @foreach ($errors->all() as $error)
+                <p style="color:red">{!!$error!!}</p>
+              @endforeach
+            </div>
             <label class="control-label col-md-3" for="name">Họ và tên: </label>
             <div class="col-md-9">
               <input class="form-control" name="name">

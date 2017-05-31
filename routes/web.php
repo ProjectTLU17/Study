@@ -23,6 +23,7 @@ Route::group(['middleware'=>'auth'],function(){
           return view('template.manager');
     }]);
     Route::resource('user/api','UserRAController');
+    Route::resource('product/api','ProductRAController');
     Route::resource('user','UserController');
   });
   //endgroup
@@ -43,6 +44,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('contract','ContractController');
     Route::resource('category','CategoryController');
     //route restful Controller end
+    Route::get('CreateContract',['as'=>'CreateContract','ContractController@CreateFromProduct']);
   });
   //endgroup
   ////////////////////////////////////////////////////////////////////////////

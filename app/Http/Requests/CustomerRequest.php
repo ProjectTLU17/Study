@@ -13,7 +13,7 @@ class CustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,14 +26,14 @@ class CustomerRequest extends FormRequest
       switch ($this->method()) {
         case 'POST':{
           return [
-            'name'=>'required|alpha',
+            'name'=>'required',
             'phone'=>'required|numeric',
             'email'=>'email|nullable',
           ];
         }
         case 'PUT':{
           return [
-            'name'=>'required|alpha',
+            'name'=>'required',
             'phone'=>'required|numeric',
             'email'=>'email|nullable',
           ];
@@ -46,7 +46,6 @@ class CustomerRequest extends FormRequest
     public function messages(){
       return [
         'name.required'=>'Vui lòng nhập họ và tên',
-        'name.alpha'=>'Tên chỉ bao gồm các kí tự alphabelt',
         'phone.required'=>'Vui lòng nhập số điện thoại',
         'phone.numeric'=>'Số điện thoại sai định dạng',
         'email.email'=>'Đây không phải là email',

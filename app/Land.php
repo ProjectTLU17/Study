@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Land extends Model
 {
   protected $table='land';
-  protected $fillable=['project_id','name','stock'];
+  protected $fillable=['project_id','name','decription'];
   public $timestamps=false;
   public function product(){
     return $this->hasMany('App\Product');

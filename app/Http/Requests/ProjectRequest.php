@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
 class ProjectRequest extends FormRequest
 {
     /**
@@ -13,7 +13,7 @@ class ProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -34,7 +34,7 @@ class ProjectRequest extends FormRequest
          }
          case 'PUT':{
            return [
-             'name'=>'required|unique:project,name',
+             'name'=>'required',
              'decription'=>'nullable',
              'startdate'=>'date|nullable',
              'expdate'=>'date|nullable',

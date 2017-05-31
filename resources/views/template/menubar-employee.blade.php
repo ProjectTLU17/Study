@@ -36,24 +36,25 @@
           <li><a href="#">Cấu hình hệ thống</a></li>
           <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
           <li><a href="{!!route('user.index')!!}">Tài khoản</a></li>
-          <li><a href="#">Dự án</a></li>
-          <li><a href="#">Lô sản phẩm</a></li>
+          <li><a href="{!!route('project.index')!!}">Dự án</a></li>
+          <li><a href="{!!route('land.index')!!}">Lô sản phẩm</a></li>
           <li><a href="{!!route('product.index')!!}">Sản phẩm</a></li>
           <li><a href="{!!route('customer.index')!!}">Khách hàng</a></li>
-          <li><a href="#">Hợp đồng</a></li>
+          <li><a href="{!!route('suplier.index')!!}">Nhà cung cấp</a></li>
+          <li><a href="{!!route('contract.index')!!}">Hợp đồng</a></li>
           <li><a href="{!!route('statistic')!!}">Thống kê dữ liệu</a></li>
-          <li><a href="#">Thông báo</a></li>
           <li><a href="{!!route('logout')!!}">Đăng xuất</a></li>
         </ul>
       @else
         <ul>
           <li class="active"><a href="/">Trang chủ</a></li>
           <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
-          <li><a href="#">Dự án</a></li>
-          <li><a href="#">Lô sản phẩm</a></li>
+          <li><a href="{!!route('project.index')!!}">Dự án</a></li>
+          <li><a href="{!!route('land.index')!!}">Lô sản phẩm</a></li>
           <li><a href="{!!route('product.index')!!}">Sản phẩm</a></li>
-          <li><a href="#">Khách hàng</a></li>
-          <li><a href="#">Hợp đồng</a></li>
+          <li><a href="{!!route('customer.index')!!}">Khách hàng</a></li>
+          <li><a href="{!!route('suplier.index')!!}">Nhà cung cấp</a></li>
+          <li><a href="{!!route('contract.index')!!}">Hợp đồng</a></li>
           <li><a href="#">Báo cáo thống kê</a></li>
           <li><a href="{!!route('logout')!!}">Đăng xuất</a></li>
         </ul>

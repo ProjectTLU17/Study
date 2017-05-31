@@ -8310,3 +8310,28 @@ a > img.fh5co-align-center {
 }
 
 /*# sourceMappingURL=style.css.map */
+.thumbnails{
+  padding: 4px;
+  line-height: 1.42857;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: 200px;
+}
+/*contract Form*/
+.contract-form {
+  border-bottom: 1.5px solid #dddbdb;
+}
+.contract-row {
+  padding: 0px 20px 0px 20px;
+  border-left: 1.5px solid #dddbdb;
+  border-right: 1.5px solid #dddbdb;
+}
+.contract-end {
+  border-bottom: 2px solid #dddbdb;
+}

@@ -33,8 +33,7 @@ class CategoryController extends Controller
       return redirect()->route('category.index');
   }
   public function destroy($id){
-    $category=Category::findorFail($id);
-    $category->delete();
+    Category::destroy($id);
     return redirect()->route('category.index');
   }
   public function edit($id){
