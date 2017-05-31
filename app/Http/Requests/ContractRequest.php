@@ -26,6 +26,7 @@ class ContractRequest extends FormRequest
       switch ($this->method()) {
         case 'POST':{
           return [
+          'name'=>'required',
           'customer_id'=>'required|exists:customer,id',
           'users_id'=>'required|exists:users,id',
           'product_id'=>'required|exists:product,id',
@@ -37,8 +38,9 @@ class ContractRequest extends FormRequest
         }
         case 'PUT':{
           return [
+            'name'=>'required',
             'customer_id'=>'required|exists:customer,id',
-            'users_id'=>'required|exists:employee,id',
+            'users_id'=>'required|exists:users,id',
             'product_id'=>'required|exists:product,id',
             'decription'=>'required',
             'startdate'=>'required|date',
@@ -53,6 +55,7 @@ class ContractRequest extends FormRequest
     }
     public function messages(){
       return [
+        'name.required'=>'Tên không được để trống',
         'customer_id.required'=>'Chưa chọn khách hàng',
         'customer_id.exists'=>'ID không có trong Cơ sở dữ liệu',
         'users_id.required'=>'Chưa chọn nhân viên xử lí',

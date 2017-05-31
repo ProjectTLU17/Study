@@ -15,7 +15,7 @@ class LandController extends Controller
   }
   public function store(LandRequest $Request){
       $land=Land::create($Request->all());
-      $land->save();
+      session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('land.index');
   }
   public function create(){
@@ -27,10 +27,12 @@ class LandController extends Controller
   }
   public function update($id,LandRequest $Request){
         Land::updateOrCreate(['id' => $id],$Request->all());
-      return redirect()->route('land.index');
+        session()->flash('alert-success', 'Cập nhật thành công!');
+      return redirect()->route('land.edit',$id);
   }
   public function destroy($id){
       Land::destroy($id);
+      session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('land.index');
   }
   public function edit($id){

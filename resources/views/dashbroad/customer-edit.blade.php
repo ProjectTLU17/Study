@@ -11,11 +11,7 @@
       {!!Form::open(array('route'=>['customer.update',$customer->id], 'class'=>'form-horizontal','method'=>'PUT'))!!}
       {!!Form::token()!!}
           <div class="form-group">
-            <div class="alert text-center">
-              @foreach ($errors->all() as $error)
-                <p style="color:red">{!!$error!!}</p>
-              @endforeach
-            </div>
+            @include('template.notice')
             <label class="control-label col-md-3" for="name">Họ và tên: </label>
             <div class="col-md-9">
               <input class="form-control" name="name" value="{!!$customer->name!!}">

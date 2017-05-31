@@ -11,6 +11,7 @@ class SuplierController extends Controller
     }
     public function store(SuplierRequest $Request){
       Suplier::create($Request->all());
+      session()->flash('alert-success', 'Thêm mới thành công!');
       return redirect()->route('suplier.index');
     }
     public function create(){
@@ -22,10 +23,12 @@ class SuplierController extends Controller
     }
     public function update($id,SuplierRequest $Request){
           Suplier::updateOrCreate(['id'=>$id],$Request->all());
-        return redirect()->route('suplier.index');
+          session()->flash('alert-success', 'Cập nhật thành công!');
+        return redirect()->route('suplier.edit',$id);
     }
     public function destroy($id){
         Suplier::destroy($id);
+        session()->flash('alert-danger', 'Xóa thành công!');
       return redirect()->route('suplier.index');
     }
     public function edit($id){
