@@ -33,7 +33,6 @@
       @if (Auth::user()->role=='manager')
         <ul>
           <li class="active"><a href="/">Trang chủ</a></li>
-          {{-- <li><a href="#">Cấu hình hệ thống</a></li> --}}
           <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
           <li><a href="{!!route('user.index')!!}">Tài khoản</a></li>
           <li><a href="{!!route('project.index')!!}">Dự án</a></li>
@@ -55,7 +54,6 @@
           <li><a href="{!!route('customer.index')!!}">Khách hàng</a></li>
           <li><a href="{!!route('suplier.index')!!}">Nhà cung cấp</a></li>
           <li><a href="{!!route('contract.index')!!}">Hợp đồng</a></li>
-          <li><a href="#">Báo cáo thống kê</a></li>
           <li><a href="{!!route('logout')!!}">Đăng xuất</a></li>
         </ul>
       @endif
@@ -141,10 +139,7 @@
                           $('.panel.panel-chat > .panel-body').hide();
                           $('.panel.panel-chat > .panel-footer').hide();
                       }, 500);
-
-
                   }
-
               });
               $(".panel.panel-chat > .panel-heading > .chatClose").click(function(){
                   $(this).parent().parent().remove();
