@@ -71,7 +71,7 @@
         <div class="row">
           <div class="col-md-12">
             <a href=# class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-            <a class="navbar-brand">HomeLand Coperation</a>
+            <a class="navbar-brand" href="/dashbroad">HomeLand Coperation</a>
           </div>
         </div>
       </div>
