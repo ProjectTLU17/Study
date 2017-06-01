@@ -39,12 +39,13 @@ class ContractController extends Controller
   }
   public function update(ContractRequest $Request,$id){
       Contract::updateOrCreate(['id'=>$id],$Request->all());
-      if ($Request->type=='rent' && $Request->status=='active') {
-        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'rent']);
-      }elseif ($Request->type=='sell' && $Request->status=='done') {
-        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'sold']);
-      }elseif ($Request->type=='restore' && $Request->status=='done') {
-        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'available']);
+      $contract=Contract::find($id);
+      if ($contract->type=='rent' && $contract->status=='active') {
+        Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'rent']);
+      }elseif ($contract->type=='sell' && $contract->status=='done') {
+        Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'sold']);
+      }elseif ($contract->type=='restore' && $contract->status=='done') {
+        Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'available']);
       }
       session()->flash('alert-success', 'Cập nhật thành công!');
       return redirect()->route('contract.edit',$id);

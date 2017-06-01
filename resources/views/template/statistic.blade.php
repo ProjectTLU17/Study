@@ -17,21 +17,13 @@
               <img src="{{asset('images/all.png')}}" style="width:100%;">
             </div>
             <div class="col-xs-8 text-right">
-                <h1>26</h1>
-                <div>Tổng số sản phẩm có</div>
+              <div>Tổng số sản phẩm trong hệ thống</div>
+                <h1>{!!$totalproduct!!}</h1>
             </div>
           </div>
         </div>
-        <a href="#">
-            <div class="panel-footer">
-                <span class="pull-left">Xem chi tiết</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-shopping-cart"></i></span>
-                <div class="clearfix"></div>
-            </div>
-          </a>
         </div>
       </div>
-
       <div class="col-lg-3 col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading" style="background-color:#d1d1d1;">
@@ -40,18 +32,11 @@
                 <img src="{{asset('images/available.png')}}" style="width:100%;">
               </div>
               <div class="col-xs-8 text-right">
-                  <h1>12</h1>
-                  <div>Số sản phẩm đang có</div>
+                <div>Số sản phẩm đang có</div>
+                  <h1>{!!$availproduct!!}</h1>
               </div>
             </div>
           </div>
-              <a href="#">
-                  <div class="panel-footer">
-                      <span class="pull-left">Xem chi tiết</span>
-                      <span class="pull-right"><i class="glyphicon glyphicon-shopping-cart"></i></span>
-                      <div class="clearfix"></div>
-                  </div>
-              </a>
           </div>
       </div>
 
@@ -63,18 +48,11 @@
                         <img src="{{asset('images/rent.png')}}" style="width:100%;">
                       </div>
                       <div class="col-xs-8 text-right">
-                          <h1>124</h1>
-                          <div>Số sản phẩm đã thuê</div>
+                        <div>Số sản phẩm đang cho thuê</div>
+                          <h1>{!!$rentproduct!!}</h1>
                       </div>
                   </div>
               </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Xem chi tiết</span>
-                                <span class="pull-right"><i class="glyphicon glyphicon-shopping-cart"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -85,18 +63,11 @@
                                   <img src="{{asset('images/sold.png')}}" style="width:100%;">
                                 </div>
                                 <div class="col-xs-8 text-right">
-                                    <h1>13</h1>
                                     <div>Số sản phẩm đã được bán</div>
+                                    <h1>{!!$soldproduct!!}</h1>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Xem chi tiết</span>
-                                <span class="pull-right"><i class="glyphicon glyphicon-shopping-cart"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div>
