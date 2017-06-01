@@ -13,6 +13,7 @@ class ProjectController extends Controller
   }
   public function store(ProjectRequest $Request){
       Project::create($Request->all());
+      session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('project.index');
   }
   public function create(){
@@ -24,10 +25,12 @@ class ProjectController extends Controller
   }
   public function update($id,ProjectRequest $Request){
       Project::updateOrCreate(['id' => $id],$Request->all());
-    return redirect()->route('project.index');
+      session()->flash('alert-success', 'Cập nhật thành công!');
+    return redirect()->route('project.edit',$id);
   }
   public function destroy($id){
       Project::destroy($id);
+      session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('project.index');
   }
   public function edit($id){

@@ -17,10 +17,10 @@ class UserController extends Controller
     $user->password=Hash::make($Request->password);
     $user->role=$Request->role;
     $user->birthday=$Request->birthday;
-    $user->address=$Request->address;
     $user->phone=$Request->phone;
     $user->email=$Request->email;
     $user->save();
+    session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('user.index');
   }
   public function create(){
@@ -36,15 +36,15 @@ class UserController extends Controller
       $user->password=Hash::make($Request->password);
       $user->role=$Request->role;
       $user->birthday=$Request->birthday;
-      $user->address=$Request->address;
       $user->phone=$Request->phone;
       $user->email=$Request->email;
       $user->save();
-      return redirect()->route('user.index');
+      session()->flash('alert-success', 'Cập nhật thành công!');
+    return redirect()->route('user.edit',$id);
   }
   public function destroy($id){
-    $user=User::findorFail($id);
-    $user->delete();
+    User::destroy($id);
+    session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('user.index');
   }
   public function edit($id){

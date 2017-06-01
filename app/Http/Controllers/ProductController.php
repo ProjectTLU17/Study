@@ -36,6 +36,7 @@ class ProductController extends Controller
       }
     }
     //kết thúc xử lý thêm ảnh
+    session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('product.show',$product_id);
   }
   public function create(){
@@ -51,7 +52,7 @@ class ProductController extends Controller
   public function update(ProductRequest $Request,$id){
       Product::updateOrCreate(['id'=>$id],$Request->all());
       //xử lý thêm ảnh
-      $product_id=$product->id;
+      $product_id=$id;
       if (count($Request->fimages)>0) {
         $des='upload/images';
         foreach ($Request->fimages as $image) {
@@ -64,7 +65,8 @@ class ProductController extends Controller
         }
       }
       //kết thúc xử lý thêm ảnh
-      return redirect()->route('product.show',$product_id);
+      session()->flash('alert-success', 'Cập nhật thành công!');
+      return redirect()->route('product.show',$id);
   }
   public function destroy($id){
     $product=Product::findorFail($id);
@@ -73,6 +75,7 @@ class ProductController extends Controller
     }
     $images=Images::where('product_id',$product->id)->delete();
     $product->delete();
+    session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('product.index');
   }
   public function edit($id){

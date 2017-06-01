@@ -1,21 +1,26 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests\ContractRequest;
 use App\Contract;
 use App\customer;
 use App\product;
+use App\user;
 class ContractController extends Controller
 {
   public function index(){
     $contract=Contract::all();
+    foreach ($contract as $item) {
+      if ($item->type=='rent' && $item->expdate<date("Y-m-d")) {
+        Contract::updateOrCreate(['id'=>$item->id],['type'=>'restore','status'=>'pending']);
+      }
+    }
     return view('dashbroad.contract-index',compact('contract'));
   }
   public function store(ContractRequest $Request){
     Contract::create($Request->all());
     Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'pending']);
+    session()->flash('alert-success', 'Thêm mới thành công!');
     return redirect()->route('contract.index');
   }
   public function create(){
@@ -32,7 +37,7 @@ class ContractController extends Controller
     $contract=Contract::find($id);
     return view('dashbroad.contract-details',compact('contract'));
   }
-  public function update($id,ContractRequest $Request){
+  public function update(ContractRequest $Request,$id){
       Contract::updateOrCreate(['id'=>$id],$Request->all());
       if ($Request->type=='rent' && $Request->status=='active') {
         Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'rent']);
@@ -41,16 +46,20 @@ class ContractController extends Controller
       }elseif ($Request->type=='restore' && $Request->status=='done') {
         Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'available']);
       }
-      return redirect()->route('contract.index');
+      session()->flash('alert-success', 'Cập nhật thành công!');
+      return redirect()->route('contract.edit',$id);
   }
   public function destroy($id){
     $contract=Contract::find($id);
     Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'avaliable']);
     $contract=Contract::destroy($id);
+    session()->flash('alert-danger', 'Xóa thành công!');
     return redirect()->route('contract.index');
   }
   public function edit($id){
+    $customer=customer::all();
+    $user=User::all();
     $contract=Contract::with(['product','user','customer'])->where('id',$id)->first();
-    return view('dashbroad.contract-edit',compact('contract'));
+    return view('dashbroad.contract-edit',compact(['contract','user','customer']));
   }
 }

@@ -2,6 +2,9 @@
 @section('title','Thông tin chi tiết sản phẩm')
 @section('main')
   <div class="col-md-12">
+    @include('template.notice')
+  </div>
+  <div class="col-md-12">
     {!!Form::open(array('route'=>array('product.destroy',$product->id),'method'=>'DELETE'))!!}
       <button type="submit" class="btn btn-danger pull-right" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
     {!!Form::close()!!}
