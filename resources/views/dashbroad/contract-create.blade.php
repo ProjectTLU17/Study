@@ -49,11 +49,16 @@
             <label class="control-label" for="product">Sản phẩm: </label>
             <select class="form-control" name="product_id">
               <optgroup label="Sản phẩm">
-                @foreach ($product as $element)
-                  @if ($element->status=='available')
-                    <option value={!!$element->id!!}>{!!$element->name!!}</option>
-                  @endif
-                @endforeach
+                @if (isset($thisproduct))
+                  <option value={!!$thisproduct->id!!}>{!!$thisproduct->name!!}</option>
+                  @else
+                    @foreach ($product as $element)
+                      @if ($element->status=='available')
+                        <option value={!!$element->id!!}>{!!$element->name!!}</option>
+                      @endif
+                    @endforeach
+                @endif
+
               </optgroup>
             </select>
           </div>

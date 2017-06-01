@@ -29,9 +29,10 @@ class ContractController extends Controller
     return view('dashbroad.contract-create',compact(['customer','product']));
   }
   public function CreateFromProduct($id){
+    $thisproduct=Product::find($id);
     $customer=Customer::all();
-    $product=Product::find($id);
-    return view('dashbroad.contract-create',compact(['customer','product']));
+    $product=Product::all();
+    return view('dashbroad.contract-create',compact(['customer','product','thisproduct']));
   }
   public function show($id){
     $contract=Contract::find($id);
