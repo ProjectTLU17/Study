@@ -56,6 +56,7 @@
             {!!Form::open(array('route'=>array('user.destroy',$user->id),'method'=>'DELETE'))!!}
               <button class="btn btn-danger pull-right " onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')" type="submit">Xóa</button>
             {!!Form::close()!!}
+            <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
             <button class="btn btn-info pull-right" type="submit">Cập nhật</button>
           </div>
         </div>

@@ -33,7 +33,7 @@
       @if (Auth::user()->role=='manager')
         <ul>
           <li class="active"><a href="/">Trang chủ</a></li>
-          <li><a href="#">Cấu hình hệ thống</a></li>
+          {{-- <li><a href="#">Cấu hình hệ thống</a></li> --}}
           <li><a href="{!!route('user.show', Auth::user()->id)!!}">Thông tin cá nhân</a></li>
           <li><a href="{!!route('user.index')!!}">Tài khoản</a></li>
           <li><a href="{!!route('project.index')!!}">Dự án</a></li>
@@ -62,11 +62,8 @@
 
       <h3 class="fh5co-lead">Mạng xã hội</h3>
       <p class="fh5co-social-icons">
-        <a href="#"><i class="icon-twitter"></i></a>
-        <a href="#"><i class="icon-facebook"></i></a>
-        <a href="#"><i class="icon-instagram"></i></a>
-        <a href="#"><i class="icon-dribbble"></i></a>
-        <a href="#"><i class="icon-youtube"></i></a>
+        <a href="https://www.facebook.com/groups/267252223707135/"><i class="icon-facebook"></i></a>
+        <a href="https://github.com/ProjectTLU17/Study"><i class="icon-github"></i></a>
       </p>
     </div>
     <header id="fh5co-header" role="banner">
@@ -74,12 +71,15 @@
         <div class="row">
           <div class="col-md-12">
             <a href=# class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-            <a class="navbar-brand">HomeLand Coperation</a>
+            <a class="navbar-brand" href="/dashbroad">HomeLand Coperation</a>
           </div>
         </div>
       </div>
     </header>
     <!-- END .header -->
+
+
+
     <div class="container">
       @yield('main')
     </div>
@@ -88,11 +88,8 @@
         <div class="row row-padded">
           <div class="col-md-12 text-center">
             <p class="fh5co-social-icons">
-              <a href="#"><i class="icon-twitter"></i></a>
-              <a href="#"><i class="icon-facebook"></i></a>
-              <a href="#"><i class="icon-instagram"></i></a>
-              <a href="#"><i class="icon-dribbble"></i></a>
-              <a href="#"><i class="icon-youtube"></i></a>
+              <a href="https://www.facebook.com/groups/267252223707135/"><i class="icon-facebook"></i></a>
+              <a href="https://github.com/ProjectTLU17/Study"><i class="icon-github"></i></a>
             </p>
           </div>
         </div>
@@ -120,6 +117,39 @@
                   }
                   return false;
               }
+          </script>
+          <script>
+            $(function(){
+              $(".panel.panel-chat > .panel-heading > .chatMinimize").click(function(){
+                  if($(this).parent().parent().hasClass('mini'))
+                  {
+                      $(this).parent().parent().removeClass('mini').addClass('normal');
+
+                      $('.panel.panel-chat > .panel-body').animate({height: "250px"}, 500).show();
+
+                      $('.panel.panel-chat > .panel-footer').animate({height: "75px"}, 500).show();
+                  }
+                  else
+                  {
+                      $(this).parent().parent().removeClass('normal').addClass('mini');
+
+                      $('.panel.panel-chat > .panel-body').animate({height: "0"}, 500);
+
+                      $('.panel.panel-chat > .panel-footer').animate({height: "0"}, 500);
+
+                      setTimeout(function() {
+                          $('.panel.panel-chat > .panel-body').hide();
+                          $('.panel.panel-chat > .panel-footer').hide();
+                      }, 500);
+
+
+                  }
+
+              });
+              $(".panel.panel-chat > .panel-heading > .chatClose").click(function(){
+                  $(this).parent().parent().remove();
+              });
+          })
           </script>
   </body>
 </html>

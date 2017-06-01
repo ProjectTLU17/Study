@@ -111,7 +111,8 @@
       <div class="row" style="padding-top:20px;">
         <div class="form-group">
           <div class="col-md-12">
-            <button class="btn pull-right" type="submit">Cập Nhật</button>
+            <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+            <button class="btn btn-info pull-right" type="submit">Cập Nhật</button>
           </div>
         </div>
       </div>

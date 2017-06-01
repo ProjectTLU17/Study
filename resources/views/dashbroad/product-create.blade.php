@@ -4,10 +4,8 @@
   {!!Form::open(array('route'=>['product.store'], 'class'=>'form-horizontal','enctype'=>'multipart/form-data'))!!}
   {!!Form::token()!!}
     <div class="form-group">
-      <div class="alert text-center">
-        @foreach ($errors->all() as $error)
-          <p style="color:red">{!!$error!!}</p>
-        @endforeach
+      <div class="col-md-12">
+        @include('template.notice')
       </div>
       <label class="control-label col-md-2" for="typecategory">Loại sản phẩm: </label>
       <div class="col-md-2">
@@ -88,7 +86,8 @@
 
       <div class="form-group">
         <div class="col-sm-12">
-          <button class="btn pull-right" type="submit">Thêm mới</button>
+          <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+          <button class="btn btn-info pull-right" type="submit">Thêm mới</button>
         </div>
       </div>
   {!!Form::close() !!}

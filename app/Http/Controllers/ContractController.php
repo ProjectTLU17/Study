@@ -29,9 +29,10 @@ class ContractController extends Controller
     return view('dashbroad.contract-create',compact(['customer','product']));
   }
   public function CreateFromProduct($id){
+    $thisproduct=Product::find($id);
     $customer=Customer::all();
-    $product=Product::find($id);
-    return view('dashbroad.contract-create',compact(['customer','product']));
+    $product=Product::all();
+    return view('dashbroad.contract-create',compact(['customer','product','thisproduct']));
   }
   public function show($id){
     $contract=Contract::find($id);
@@ -39,12 +40,13 @@ class ContractController extends Controller
   }
   public function update(ContractRequest $Request,$id){
       Contract::updateOrCreate(['id'=>$id],$Request->all());
-      if ($Request->type=='rent' && $Request->status=='active') {
-        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'rent']);
-      }elseif ($Request->type=='sell' && $Request->status=='done') {
-        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'sold']);
-      }elseif ($Request->type=='restore' && $Request->status=='done') {
-        Product::updateOrCreate(['id'=>$Request->product_id],['status'=>'available']);
+      $contract=Contract::find($id);
+      if ($contract->type=='rent' && $contract->status=='active') {
+        Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'rent']);
+      }elseif ($contract->type=='sell' && $contract->status=='done') {
+        Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'sold']);
+      }elseif ($contract->type=='restore' && $contract->status=='done') {
+        Product::updateOrCreate(['id'=>$contract->product_id],['status'=>'available']);
       }
       session()->flash('alert-success', 'Cập nhật thành công!');
       return redirect()->route('contract.edit',$id);
