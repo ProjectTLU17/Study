@@ -14,6 +14,10 @@
       <div class="row contract-form">
         <h2 style="text-align:center;">HỢP ĐỒNG THUÊ BẤT ĐỘNG SẢN</h2>
       </div>
+      <div class="col-md-12">
+        @include('template.notice')
+      </div>
+
       <div class="row contract-row">
         <div class="form-group">
           <div class="col-md-4">
@@ -98,6 +102,9 @@
       {!!Form::token()!!}
       <div class="row contract-form">
         <h2 style="text-align:center;">HỢP ĐỒNG BÁN BẤT ĐỘNG SẢN</h2>
+      </div>
+      <div class="col-md-12">
+        @include('template.notice')
       </div>
       <div class="row contract-row">
         <div class="form-group">
