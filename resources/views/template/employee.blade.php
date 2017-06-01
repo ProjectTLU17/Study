@@ -11,20 +11,20 @@
               <div class="clearFix"></div>
           </div>
           <div class="panel-body">
-              <div class="messageHer">
+              <div class="messageMe">
                   <img src="#" alt="404"/>
-                  <span>M là con chó phải không?</span>
+                  <span>Con chó Duy phải không?</span>
                   <div class="clearFix"></div>
               </div>
-              <div class="messageMe">
+              <div class="messageHer">
                   <img src="#" alt="403"/>
-                  <span>ờ t là chó mà ;(</span>
+                  <span>ờ t đây ;(</span>
                   <div class="clearFix"></div>
               </div>
               <div class="clearFix"></div>
           </div>
           <div class="panel-footer">
-              <textarea name="textMessage" cols="0" rows="0"></textarea>
+              <textarea name="textMessage" cols="0" rows="0" placeholder="Nhập tin nhắn @name"></textarea>
           </div>
       </div>
     </div>
