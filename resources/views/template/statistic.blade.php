@@ -80,7 +80,7 @@
                             <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Biểu đồ doanh thu</h3>
                         </div>
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
+                            <div id="morris-bar-chart"></div>
                         </div>
                     </div>
                 </div>
@@ -92,133 +92,47 @@
                   <div class="col-lg-4">
                       <div class="panel panel-default">
                           <div class="panel-heading">
-                              <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Biểu đồ sản phẩm</h3>
+                              <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Biểu đồ tỉ lệ sản phẩm</h3>
                           </div>
                           <div class="panel-body">
                               <div id="morris-donut-chart"></div>
-                              <div class="text-right">
-                                  <a href="#">Xem chi tiết <i class="fa fa-arrow-circle-right"></i></a>
-                              </div>
                           </div>
                       </div>
                   </div>
                   <!-- hết biểu đồ tròn -->
-                  <div class="col-lg-4">
+                  <div class="col-lg-8">
                       <div class="panel panel-default">
                           <div class="panel-heading">
-                              <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i>Bảng cập nhật trạng thái</h3>
-                          </div>
-                          <div class="panel-body">
-                              <div class="list-group">
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">just now</span>
-                                      <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">4 minutes ago</span>
-                                      <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">23 minutes ago</span>
-                                      <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">46 minutes ago</span>
-                                      <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">1 hour ago</span>
-                                      <i class="fa fa-fw fa-user"></i> A new user has been added
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">2 hours ago</span>
-                                      <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">yesterday</span>
-                                      <i class="fa fa-fw fa-globe"></i> Saved the world
-                                  </a>
-                                  <a href="#" class="list-group-item">
-                                      <span class="badge">two days ago</span>
-                                      <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                  </a>
-                              </div>
-                              <div class="text-right">
-                                  <a href="#">Xem tất cả <i class="fa fa-arrow-circle-right"></i></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4">
-                      <div class="panel panel-default">
-                          <div class="panel-heading">
-                              <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Bảng giao dịch</h3>
+                              <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Bảng Trạng Thái</h3>
                           </div>
                           <div class="panel-body">
                               <div class="table-responsive">
                                   <table class="table table-bordered table-hover table-striped">
                                       <thead>
                                           <tr>
-                                              <th>Order #</th>
-                                              <th>Order Date</th>
-                                              <th>Order Time</th>
-                                              <th>Amount (USD)</th>
+                                              <th>Mã Hợp đồng</th>
+                                              <th>Tên Hợp Đồng</th>
+                                              <th>Giá Trị</th>
+                                              <th>Trạng thái</th>
+                                              <th>Chi tiết</th>
                                           </tr>
                                       </thead>
                                       <tbody>
+                                        @foreach ($contract as $element)
                                           <tr>
-                                              <td>3326</td>
-                                              <td>10/21/2013</td>
-                                              <td>3:29 PM</td>
-                                              <td>$321.33</td>
+                                              <td>{!!$element->id!!}</td>
+                                              <td>{!!$element->name!!}</td>
+                                              @if ($element->type=='sell')
+                                                  <td>{!!$element->product->price!!}</td>
+                                                @else
+                                                  <td>{!!$element->product->price*30/100!!}</td>
+                                              @endif
+                                              <td>{!!$element->status!!}</td>
+                                              <td><a href="{!!route('contract.edit',$element->id)!!}">Duyệt</a></td>
                                           </tr>
-                                          <tr>
-                                              <td>3325</td>
-                                              <td>10/21/2013</td>
-                                              <td>3:20 PM</td>
-                                              <td>$234.34</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3324</td>
-                                              <td>10/21/2013</td>
-                                              <td>3:03 PM</td>
-                                              <td>$724.17</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3323</td>
-                                              <td>10/21/2013</td>
-                                              <td>3:00 PM</td>
-                                              <td>$23.71</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3322</td>
-                                              <td>10/21/2013</td>
-                                              <td>2:49 PM</td>
-                                              <td>$8345.23</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3321</td>
-                                              <td>10/21/2013</td>
-                                              <td>2:23 PM</td>
-                                              <td>$245.12</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3320</td>
-                                              <td>10/21/2013</td>
-                                              <td>2:15 PM</td>
-                                              <td>$5663.54</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3319</td>
-                                              <td>10/21/2013</td>
-                                              <td>2:13 PM</td>
-                                              <td>$943.45</td>
-                                          </tr>
+                                        @endforeach
                                       </tbody>
                                   </table>
-                              </div>
-                              <div class="text-right">
-                                  <a href="#">Xem chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                               </div>
                           </div>
                       </div>
@@ -233,5 +147,53 @@
   <!-- gzris Charts JavaScript -->
   <script src="{{asset('js/plugins/morris/raphael.min.js')}}"></script>
   <script src="{{asset('js/plugins/morris/morris.min.js')}}"></script>
-  <script src="{{asset('js/plugins/morris/morris-data.js')}}"></script>
+  <script type="text/javascript">
+      $(function() {
+      Morris.Donut({
+          element: 'morris-donut-chart',
+          data: [{
+              label: "Available Product",
+              value: "{!!$availproduct!!}"
+          }, {
+              label: "Sold Product",
+              value: "{!!$soldproduct!!}"
+          }, {
+              label: "Rent Product",
+              value: "{!!$rentproduct!!}"
+          },{
+              label: "Pending Product",
+              value: "{!!$pendingproduct!!}"
+            }
+          ],
+          resize: true
+      });
+      Morris.Bar({
+          element: 'morris-bar-chart',
+          data: [{
+              category:'Biệt thự',
+              value1: "{!!$valuesold[0]!!}",
+              value2: "{!!$valuerent[0]!!}"
+          }, {
+              category: 'Căn hộ',
+              value1: "{!!$valuesold[1]!!}",
+              value2: "{!!$valuerent[1]!!}"
+          },{
+              category: 'Villa',
+              value1: "{!!$valuesold[2]!!}",
+              value2: "{!!$valuerent[2]!!}"
+          },{
+              category: 'Mảnh Đất',
+              value1: "{!!$valuesold[3]!!}",
+              value2: "{!!$valuerent[3]!!}"
+          }],
+          xkey: 'category',
+          ykeys: ['value1','value2'],
+          labels: ['Bán','Cho Thuê'],
+          barRatio: 0.4,
+          xLabelAngle: 35,
+          hideHover: 'auto',
+          resize: true
+      });
+    });
+  </script>
 @stop
