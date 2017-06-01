@@ -9,6 +9,7 @@
       <button type="submit" class="btn btn-danger pull-right" onclick="return xacnhanxoa('Bạn Có Chắc Muốn Xóa Không')">Xóa</button>
     {!!Form::close()!!}
       <a type="button" href="{!!route('product.edit',$product->id)!!}" class="btn btn-info pull-right">Sửa</a>
+      <a type="button" href="{!!route('CreateContract',$product->id)!!}" class="btn btn-info pull-right">Tạo hợp đồng</a>
   </div>
 
   <div class="row" style="padding-bottom:20px;">
@@ -75,10 +76,6 @@
 
       <h6 class="title-price"><small>Trạng thái: </small></h6>
       <h3 style="margin-top:0px;">{!!$product->status!!}</h3>
-
-      <div class="section" style="padding-bottom:20px;">
-          <h6><a style="text-decoration:none;" href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Yêu thích</a></h6>
-      </div>
     </div>
   </div>
   <div class="row" style="padding:10px;">

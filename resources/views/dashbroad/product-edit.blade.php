@@ -7,7 +7,7 @@
   @include('template.notice')
   <div class="row" style="padding-bottom:20px;">
     <div class="col-md-6 item-photo">
-        <img class="img-thumbnail" style="max-width:100%;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/>
+        <img class="img-thumbnail" style="width:auto;height:500px;" src="/upload/images/{!!$product->images->first()->name or '#'!!}" alt="404"/>
     </div>
     <div class="col-md-6" style="padding-left:50px;">
       <h6 class="title-price"><small>Tên sản phẩm: </small></h6>
@@ -67,13 +67,13 @@
       <h6 class="title-price"><small>Mô tả: </small></h6>
       <input class="form-control" name="decription" type="text" value="{!!$product->decription!!}">
 
-      <div class="section" style="padding-bottom:20px;">
-          <h6><a style="text-decoration:none;" href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Yêu thích</a></h6>
-      </div>
+
     </div>
     <div class="form-group">
       <div class="col-sm-12">
-        <button class="btn pull-right" type="submit">Cập nhật</button>
+
+        <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+        <button class="btn btn-info pull-right" type="submit">Cập Nhật</button>
       </div>
     </div>
   </div>

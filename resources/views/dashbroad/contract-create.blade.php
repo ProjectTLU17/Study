@@ -49,11 +49,16 @@
             <label class="control-label" for="product">Sản phẩm: </label>
             <select class="form-control" name="product_id">
               <optgroup label="Sản phẩm">
-                @foreach ($product as $element)
-                  @if ($element->status=='available')
-                    <option value={!!$element->id!!}>{!!$element->name!!}</option>
-                  @endif
-                @endforeach
+                @if (isset($thisproduct))
+                  <option value={!!$thisproduct->id!!}>{!!$thisproduct->name!!}</option>
+                  @else
+                    @foreach ($product as $element)
+                      @if ($element->status=='available')
+                        <option value={!!$element->id!!}>{!!$element->name!!}</option>
+                      @endif
+                    @endforeach
+                @endif
+
               </optgroup>
             </select>
           </div>
@@ -90,7 +95,8 @@
       <div class="row" style="padding-top:20px;">
         <div class="form-group">
           <div class="col-md-12">
-            <button class="btn pull-right" type="submit">Thêm mới</button>
+            <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+            <button class="btn btn-info pull-right" type="submit">Thêm mới</button>
           </div>
         </div>
       </div>
@@ -172,7 +178,8 @@
       <div class="row" style="padding-top:20px;">
         <div class="form-group">
           <div class="col-md-12">
-            <button class="btn pull-right" type="submit">Thêm mới</button>
+            <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+            <button class="btn btn-info pull-right" type="submit">Thêm mới</button>
           </div>
         </div>
       </div>
