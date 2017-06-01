@@ -19,9 +19,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('',function(){
           return redirect('/dashbroad');;
     });
-    Route::get('statistic',['as'=>'statistic',function(){
-          return view('template.manager');
-    }]);
+    //Route statistic
+    Route::get('statistic',['as'=>'statistic','uses'=>'StatisticController@index']);
+    //end
     Route::resource('user/api','UserRAController');
     Route::resource('product/api','ProductRAController');
     Route::resource('user','UserController');
