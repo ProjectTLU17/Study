@@ -3,7 +3,7 @@
 @section('main')
   <img src="images/0.jpg" style="width:100%;"/>
 
-    <div class="row">
+    <!--<div class="row">
         <div class="panel panel-chat">
           <div class="panel-heading">
               <a href="#" class="chatMinimize" onclick="return false"><span>Duy Đức Lương</span></a>
@@ -24,8 +24,8 @@
               <div class="clearFix"></div>
           </div>
           <div class="panel-footer">
-              <textarea name="textMessage" cols="0" rows="0" placeholder="Nhập tin nhắn @name"></textarea>
+              <textarea name="textMessage" cols="0" rows="0" placeholder="Nhập tin nhắn@name"></textarea>
           </div>
       </div>
-    </div>
+    </div>-->
 @stop

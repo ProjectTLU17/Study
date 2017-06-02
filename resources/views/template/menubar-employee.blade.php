@@ -69,6 +69,7 @@
         <div class="row">
           <div class="col-md-12">
             <a href=# class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
+            <a style="padding-right:20px;" href=# class="fh5co-menu-btn">Chat <span class="badge">5</span></a>
             <a class="navbar-brand" href="/dashbroad">HomeLand Coperation</a>
           </div>
         </div>
@@ -116,7 +117,7 @@
                   return false;
               }
           </script>
-          <script>
+          <!--<script>
             $(function(){
               $(".panel.panel-chat > .panel-heading > .chatMinimize").click(function(){
                   if($(this).parent().parent().hasClass('mini'))
@@ -145,6 +146,6 @@
                   $(this).parent().parent().remove();
               });
           })
-          </script>
+        </script>-->
   </body>
 </html>
