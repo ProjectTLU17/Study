@@ -56,25 +56,22 @@
       </div>
     </div>
     <div class="col-md-6" style="padding-left:50px;">
-      <h6 class="title-price"><small>Tên sản phẩm: </small></h6>
+      <h5 style="color:#636363;">Tên sản phẩm: </h5>
       <h3 style="margin-top:0px;">{!!$product->name!!}</h3>
 
-      <h6 class="title-price"><small>Nhà cung cấp: </small></h6>
+      <h5 style="color:#636363;">Nhà cung cấp: </h5>
       <h3 style="margin-top:0px;">{!!$product->suplier->name!!}</h3>
 
-      <h6 class="title-price"><small>Thuộc lô sản phẩm: </small></h6>
+      <h5 style="color:#636363;">Thuộc lô sản phẩm: </h5>
       <h3 style="margin-top:0px;">{!!$product->land->name!!}</h3>
 
-<!--    <h6 class="title-price"><small>Thuộc dự án: </small></h6>
-      <h3 style="margin-top:0px;"></h3>-->
-
-      <h6 class="title-price"><small>Địa chỉ: </small></h6>
+      <h5 style="color:#636363;">Địa chỉ: </h5>
       <h3 style="margin-top:0px;">{!!$product->address!!}</h3>
 
-      <h6 class="title-price"><small>Giá: </small></h6>
+      <h5 style="color:#636363;">Giá: </h5>
       <h3 style="margin-top:0px;">{!!$product->price!!}$</h3>
 
-      <h6 class="title-price"><small>Trạng thái: </small></h6>
+      <h5 style="color:#636363;">Trạng thái: </h5>
       <h3 style="margin-top:0px;">{!!$product->status!!}</h3>
     </div>
   </div>
