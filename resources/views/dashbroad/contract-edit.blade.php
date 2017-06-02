@@ -86,15 +86,22 @@
             <label class="control-label" for="status">Trạng thái: </label>
             <select class="form-control" name="status">
               <optgroup>
-                <option value="pending" @if ($contract->status=="pending")
-                  selected
-                @endif >Chờ duyệt</option>
-                <option value="active"@if ($contract->status=="active")
-                  selected
-                @endif>Hoạt động</option>
-                <option value="done"@if ($contract->status=="done")
-                  selected
-                @endif>Hoàn thành</option>
+                @if ($contract->type=='rent')
+                  <option value="pending" @if ($contract->status=="pending")
+                    selected
+                  @endif >Chờ duyệt</option>
+                  <option value="active"@if ($contract->status=="active")
+                    selected
+                  @endif>Hoạt động</option>
+                  @else
+                    <option value="pending" @if ($contract->status=="pending")
+                      selected
+                    @endif >Chờ duyệt</option>
+                    <option value="done"@if ($contract->status=="done")
+                      selected
+                    @endif>Hoàn thành</option>
+                @endif
+
               </optgroup>
             </select>
           </div>
