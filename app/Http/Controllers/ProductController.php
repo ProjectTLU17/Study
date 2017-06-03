@@ -71,7 +71,9 @@ class ProductController extends Controller
   public function destroy($id){
     $product=Product::findorFail($id);
     foreach ($product->images as $img) {
-      unlink('upload/images/'.$img->name);
+      if (file_exists('upload/images/'.$img->name)) {
+        unlink('upload/images/'.$img->name);
+      }
     }
     $images=Images::where('product_id',$product->id)->delete();
     $product->delete();
