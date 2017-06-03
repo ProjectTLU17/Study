@@ -48,7 +48,7 @@ class UserController extends Controller
     return redirect()->route('user.index');
   }
   public function edit($id){
-    $user=User::find($id);
+    $user=User::findOrFail($id);
     return view('manager.user-edit',compact('user'));
   }
 }

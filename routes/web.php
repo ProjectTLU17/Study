@@ -44,10 +44,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('contract','ContractController');
     Route::resource('category','CategoryController');
     //route restful Controller end
-    Route::get('CreateContract',['as'=>'CreateContract','ContractController@CreateFromProduct']);
+    Route::get('CreateContract/{id}',['as'=>'CreateContract','uses'=>'ContractController@CreateFromProduct']);
   });
   //endgroup
   ////////////////////////////////////////////////////////////////////////////
+  Route::get('back',['as'=>'back',function(){
+    return redirect()->back();
+  }]);
   //logout route
   Route::get('logout',['as'=>'logout',function(){
     Auth::logout();

@@ -54,7 +54,8 @@
       </div>
       <div class="form-group">
         <div class="col-sm-12">
-          <button class="btn pull-right" type="submit">Thêm mới</button>
+          <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+          <button class="btn btn-info pull-right" type="submit">Thêm mới</button>
         </div>
       </div>
   {!!Form::close() !!}

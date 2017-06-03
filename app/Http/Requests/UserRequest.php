@@ -44,6 +44,10 @@ class UserRequest extends FormRequest
                 'name'=>'required',
                 'password'=>'required',
                 'role'=>'required',
+                'birthday'=>'date|nullable',
+                'phone'=>'nullable',
+                'phone'=>'numeric|nullable',
+                'email'=>'email|nullable',
            ];
          }
          default:break;

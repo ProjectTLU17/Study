@@ -1,11 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContractRequest;
 use App\Contract;
-use App\customer;
-use App\product;
-use App\user;
+use App\Customer;
+use App\Product;
+use App\User;
 class ContractController extends Controller
 {
   public function index(){
@@ -29,9 +30,10 @@ class ContractController extends Controller
     return view('dashbroad.contract-create',compact(['customer','product']));
   }
   public function CreateFromProduct($id){
+    $thisproduct=Product::find($id);
     $customer=Customer::all();
-    $product=Product::find($id);
-    return view('dashbroad.contract-create',compact(['customer','product']));
+    $product=Product::all();
+    return view('dashbroad.contract-create',compact(['customer','product','thisproduct']));
   }
   public function show($id){
     $contract=Contract::find($id);

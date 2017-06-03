@@ -86,15 +86,22 @@
             <label class="control-label" for="status">Trạng thái: </label>
             <select class="form-control" name="status">
               <optgroup>
-                <option value="pending" @if ($contract->status=="pending")
-                  selected
-                @endif >Chờ duyệt</option>
-                <option value="active"@if ($contract->status=="active")
-                  selected
-                @endif>Hoạt động</option>
-                <option value="done"@if ($contract->status=="done")
-                  selected
-                @endif>Hoàn thành</option>
+                @if ($contract->type=='rent')
+                  <option value="pending" @if ($contract->status=="pending")
+                    selected
+                  @endif >Chờ duyệt</option>
+                  <option value="active"@if ($contract->status=="active")
+                    selected
+                  @endif>Hoạt động</option>
+                  @else
+                    <option value="pending" @if ($contract->status=="pending")
+                      selected
+                    @endif >Chờ duyệt</option>
+                    <option value="done"@if ($contract->status=="done")
+                      selected
+                    @endif>Hoàn thành</option>
+                @endif
+
               </optgroup>
             </select>
           </div>
@@ -111,7 +118,8 @@
       <div class="row" style="padding-top:20px;">
         <div class="form-group">
           <div class="col-md-12">
-            <button class="btn pull-right" type="submit">Cập Nhật</button>
+            <a type="button" class="btn btn-warning pull-right" href="{{ URL::previous() }}">Hủy bỏ</a>
+            <button class="btn btn-info pull-right" type="submit">Cập Nhật</button>
           </div>
         </div>
       </div>
