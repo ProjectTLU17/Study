@@ -11,7 +11,6 @@ class CustomerController extends Controller
       $customer=Customer::all();
       return view('dashbroad.customer-index',compact('customer'));
     }
-    //hehahahs
     public function store(CustomerRequest $Request){
         Customer::create($Request->all());
         session()->flash('alert-success', 'Thêm mới thành công!');
