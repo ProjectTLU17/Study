@@ -6,7 +6,7 @@
     <li><a data-toggle="tab" href="#contract-rent">Hợp đồng thuê</a></li>
     <li><a data-toggle="tab" href="#contract-sell">Hợp đồng bán</a></li>
     <li><a data-toggle="tab" href="#contract-restore">Hợp đồng đến hạn thu hồi</a></li>
-    <li><a type="button" class="btn btn-info" href="{!!route('contract.create')!!}">Tạo hợp đồng</a>  </li>
+    <li><a type="button" class="btn btn-info" href="{!!route('contract.create')!!}">Tạo hợp đồng</a></li>
   </ul>
   <div class="tab-content" style="padding-top:50px;">
     <div id="contract-index" class="tab-pane fade in active" >
