@@ -103,7 +103,7 @@
       {!!Form::close() !!}
     </div>
 
-    <div id="contract-sell" class="tab-pane fade in active">
+    <div id="contract-sell" class="tab-pane fade in">
       {!!Form::open(array('route'=>['contract.store'], 'class'=>'form-horizontal'))!!}
       {!!Form::token()!!}
       <div class="row contract-form">

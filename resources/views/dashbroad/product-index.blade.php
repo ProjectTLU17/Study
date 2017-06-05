@@ -18,7 +18,11 @@
                   <div class="row">
                     <a href="{!!route('product.show',$prodt->id)!!}"><img class="img-thumbnail" src="/upload/images/{!!$prodt->images->first()->name or '#'!!}" alt="404"></a>
                     <a style="text-decoration:none;" href="{!!route('product.show',$prodt->id)!!}"><h4>{!!$prodt->name!!}</h4></a>
-                    <h5>{!!$prodt->price!!}$</h5><h5>-------{!!$prodt->status!!}-------</h5>
+                    <h5><?php
+                    echo number_format($prodt->price);
+                    ?>$</h5>
+
+                    <h5>-------{!!$prodt->status!!}-------</h5>
                   </div>
                 </div>
               @endforeach

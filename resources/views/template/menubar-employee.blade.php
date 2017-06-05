@@ -96,6 +96,7 @@
 
       <!-- jQuery -->
       <script src="{{asset('js/jquery.min.js')}}"></script>
+      <script src="{{asset('js/autoNumeric.min.js')}}"></script>
       <!-- jQuery Easing -->
       <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
       <!-- Bootstrap -->
@@ -116,5 +117,15 @@
                   return false;
               }
           </script>
+      <script type="text/javascript">
+    		$(document).ready(function() {
+    			$("input[type=text].int").autoNumeric("init", {
+    				aSep: ',',
+    		        aDec: '.',
+    		        vMin: '-999999999999',
+    	        	vMax: '999999999999'
+    			});
+    		});
+    	</script>
   </body>
 </html>
