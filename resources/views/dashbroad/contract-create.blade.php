@@ -7,7 +7,6 @@
     <li class="active"><a data-toggle="tab" href="#contract-rent">Thuê bất động sản</a></li>
     <li><a data-toggle="tab" href="#contract-sell">Bán bất động sản</a></li>
   </ul>
-
   <div class="tab-content" style="padding-top:50px;">
     <div id="contract-rent" class="tab-pane fade in active">
       {!!Form::open(array('route'=>['contract.store'], 'class'=>'form-horizontal'))!!}
@@ -18,6 +17,7 @@
       <div class="col-md-12">
         @include('template.notice')
       </div>
+
       <div class="row contract-row">
         <div class="form-group">
           <div class="col-md-4">
@@ -58,6 +58,7 @@
                       @endif
                     @endforeach
                 @endif
+
               </optgroup>
             </select>
           </div>
@@ -102,7 +103,7 @@
       {!!Form::close() !!}
     </div>
 
-    <div id="contract-sell" class="tab-pane fade in">
+    <div id="contract-sell" class="tab-pane fade in active">
       {!!Form::open(array('route'=>['contract.store'], 'class'=>'form-horizontal'))!!}
       {!!Form::token()!!}
       <div class="row contract-form">
