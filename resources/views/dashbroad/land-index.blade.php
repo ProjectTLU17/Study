@@ -58,13 +58,13 @@
             </div>
             <label class="control-label col-md-3" for="name">Tên Lô: </label>
             <div class="col-md-9">
-              <input class="form-control" name="name">
+              <input class="form-control" name="name" placeholder="Nhập vào tên lô sản phẩm ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="decription">Mô Tả: </label>
             <div class="col-md-9">
-              <input class="form-control" name="decription" >
+              <input class="form-control" name="decription" placeholder="Mô tả một chút về lô sản phẩm này ...">
             </div>
           </div>
           <div class="form-group">
@@ -81,7 +81,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-              
+
               <button class="btn btn-info pull-right" type="submit">Thêm mới</button>
             </div>
           </div>

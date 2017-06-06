@@ -56,25 +56,25 @@
             </div>
             <label class="control-label col-md-3" for="name">Họ và tên: </label>
             <div class="col-md-9">
-              <input class="form-control" name="name">
+              <input class="form-control" name="name" placeholder="Nhập vào tên nhà cung cấp ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="phone">Telephone: </label>
             <div class="col-md-9">
-              <input class="form-control" name="phone" >
+              <input class="form-control" name="phone" placeholder="Nhập vào số điện thoại liên lạc ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="address">Address: </label>
             <div class="col-md-9">
-              <input class="form-control" name="address" >
+              <input class="form-control" name="address" placeholder="Nhập vào địa chỉ liên lạc ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="email">Email: </label>
             <div class="col-md-9">
-              <input class="form-control" name="email" >
+              <input class="form-control" name="email" placeholder="Nhập vào email liên lạc ...">
             </div>
           </div>
           <div class="form-group">

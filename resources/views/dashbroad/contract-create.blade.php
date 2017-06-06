@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-4">
             <label class="control-label" for="name">Tên hợp đồng: </label>
-            <input class="form-control" name="name">
+            <input class="form-control" name="name" placeholder="Nhập vào tên hợp đồng ...">
           </div>
           <div class="col-md-4" hidden>
             <input class="form-control" name="type" value="rent">
@@ -64,11 +64,11 @@
           </div>
           <div class="col-md-4">
             <label class="control-label" for="startdate">Ngày bắt đầu: </label>
-            <input type="date" class="form-control" name="startdate" >
+            <input type="date" class="form-control" name="startdate" placeholder="Lựa chọn giá trị thời hạn hợp đồng bắt đầu từ ngày ...">
           </div>
           <div class="col-md-4">
             <label class="control-label" for="enddate">Ngày kết thúc: </label>
-            <input type="date" class="form-control" name="expdate">
+            <input type="date" class="form-control" name="expdate" placeholder="Lựa chọn ngày giá trị hợp đồng kết thúc ...">
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@
         <div class="form-group">
           <div class="col-md-12">
             <label class="control-label" for="decription">Mô tả thêm về hợp đồng: </label>
-            <textarea name="decription" class="form-control" cols="100" rows="5"></textarea>
+            <textarea name="decription" class="form-control" cols="100" rows="5" placeholder="Mô tả về hợp đồng"></textarea>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@
           </div>
           <div class="col-md-4">
             <label class="control-label" for="name">Tên hợp đồng: </label>
-            <input class="form-control" name="name">
+            <input class="form-control" name="name" placeholder="Nhập vào tên hợp đồng bán ra">
           </div>
           <div class="col-md-4">
             <label class="control-label" for="type">Tên sản phẩm: </label>
@@ -163,7 +163,7 @@
         <div class="form-group">
           <div class="col-md-6">
             <label class="control-label" for="startdate">Ngày làm hợp đồng: </label>
-            <input type="date" class="form-control" name="startdate">
+            <input type="date" class="form-control" name="startdate" placeholder="Lựa chọn ngày bắt đầu hợp đồng có giá trị ...">
           </div>
         </div>
       </div>
@@ -171,7 +171,7 @@
         <div class="form-group">
           <div class="col-md-12">
             <label class="control-label" for="decription">Mô tả thêm về hợp đồng: </label>
-            <textarea name="decription" class="form-control" cols="100" rows="5"></textarea>
+            <textarea name="decription" class="form-control" cols="100" rows="5" placeholder="Mô tả thêm về hợp đồng"></textarea>
           </div>
         </div>
       </div>

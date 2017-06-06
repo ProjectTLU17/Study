@@ -56,25 +56,25 @@
             </div>
             <label class="control-label col-md-3" for="name">Tên Dự Án: </label>
             <div class="col-md-9">
-              <input class="form-control" name="name">
+              <input class="form-control" name="name" placeholder="Nhập vào tên dự án ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="decription">Mô Tả: </label>
             <div class="col-md-9">
-              <input class="form-control" name="decription" >
+              <input class="form-control" name="decription" placeholder="Mô tả một chút về dự án ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="startdate">Ngày Bắt Đầu: </label>
             <div class="col-md-9">
-              <input class="form-control" type="date" name="startdate" >
+              <input class="form-control" type="date" name="startdate" placeholder="Lựa chọn ngày bắt đầu dự án ...">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3" for="expdate">Ngày Kết Thúc: </label>
             <div class="col-md-9">
-              <input class="form-control" type="date" name="expdate" >
+              <input class="form-control" type="date" name="expdate" placeholder="Lựa chọn ngày kết thúc dự án ...">
             </div>
           </div>
           <div class="form-group">
