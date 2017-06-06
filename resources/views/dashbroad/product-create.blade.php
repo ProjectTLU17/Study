@@ -7,8 +7,9 @@
       <div class="col-md-12">
         @include('template.notice')
       </div>
-      <label class="control-label col-md-2" for="typecategory">Loại sản phẩm: </label>
-      <div class="col-md-2">
+
+      <div class="col-md-4">
+        <label class="control-label" for="typecategory">Loại sản phẩm: </label>
         <select class="form-control" name="category_id">
           <optgroup label="Loại sản phẩm" >
             @foreach ($category as $item_cate)
@@ -17,8 +18,9 @@
           </optgroup>
         </select>
       </div>
-      <label class="control-label col-md-2">Nhà cung cấp:</label>
-      <div class="col-md-2">
+
+      <div class="col-md-4">
+        <label class="control-label">Nhà cung cấp:</label>
         <select class="form-control" name="suplier_id">
           <optgroup label="Chọn dự án" >
             @foreach ($suplier as $isuplier)
@@ -27,8 +29,9 @@
           </optgroup>
         </select>
       </div>
-      <label class="control-label col-md-2">Lô:</label>
-      <div class="col-md-2">
+
+      <div class="col-md-4">
+        <label class="control-label">Lô:</label>
         <select class="form-control" name="land_id">
           @foreach ($project as $item_proj)
             <optgroup label="{!!$item_proj->name!!}">
@@ -42,45 +45,52 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label col-md-3" for="name">Tên sản phẩm: </label>
-      <div class="col-md-9">
-        <input class="form-control" name="name">
+      <label class="control-label col-md-2" for="name">Tên sản phẩm: </label>
+      <div class="col-md-10">
+        <input class="form-control" name="name" placeholder="Nhập vào tên sản phẩm ...">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-md-3" for="address">Địa chỉ: </label>
-      <div class="col-md-9">
-        <input class="form-control" name="address">
+      <label class="control-label col-md-2" for="address">Địa chỉ: </label>
+      <div class="col-md-10">
+        <input class="form-control" name="address" placeholder="Nhập vào địa chỉ của sản phẩm ...">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-md-3" for="decription">Mô tả: </label>
-      <div class="col-md-9">
-        <input class="form-control" name="decription">
+      <label class="control-label col-md-2" for="decription">Mô tả: </label>
+      <div class="col-md-10">
+        <textarea class="form-control" name="decription" rows="5" cols="0" placeholder="Mô tả một chút về sản phẩm ..."></textarea>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="col-md-2"></div>
-      <label class="control-label col-md-1 " for="price">Giá: </label>
-      <div class="col-sm-4">
-        <input class="form-control int" type="text" name="price">
-      </div>
-      <label class="control-label col-md-1" for="status">Status:</label>
       <div class="col-md-4">
+        <label class="control-label" for="price">Giá: </label>
+        <input class="form-control int" type="text" name="price" placeholder="0 $">
+      </div>
+
+      <div class="col-md-4">
+        <label class="control-label" for="status">Trạng thái sản phẩm:</label>
         <select class="form-control" name="status">
-          <option value="rent">Rent</option>
-          <option value="buy">Buy</option>
-          <option value="sold">Sold</option>
+          <optgroup label="Trạng thái sản phẩm">
+            <option value="rent">Thuê</option>
+            <option value="buy">Mua</option>
+            <option value="sold">Bán</option>
+          </optgroup>
         </select>
       </div>
+      <div class="col-md-4">
+        <label class="control-label" for="price">Ảnh Sản phẩm: </label>
+        <input class="btn" type="file" name="fimages[]" multiple>
+      </div>
     </div>
+
     <div class="form-group">
-        <label class="control-label col-md-3" for="price">Ảnh Sản phẩm: </label>
+
         <div class="col-md-9">
-          <input class="btn" type="file" name="fimages[]" multiple>
+
         </div>
     </div>
 
