@@ -271,3 +271,7 @@ Route::get('Response/macro/cap',function(){
 Route::get('authen/login',['as'=>'getLogin','uses'=>'Auth\LoginController@getLogin']);
 Route::post('authen/login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
 Route::resource('restful','HocSinhController');
+// Javascript ES6
+Route::get('es6',function(){
+  return view('es6');
+});
