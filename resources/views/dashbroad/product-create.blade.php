@@ -64,9 +64,9 @@
 
     <div class="form-group">
       <div class="col-md-2"></div>
-      <label class="control-label col-md-1" for="price">Giá: </label>
+      <label class="control-label col-md-1 " for="price">Giá: </label>
       <div class="col-sm-4">
-        <input class="form-control" type="numberic" name="price">
+        <input class="form-control int" type="text" name="price">
       </div>
       <label class="control-label col-md-1" for="status">Status:</label>
       <div class="col-md-4">
