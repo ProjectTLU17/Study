@@ -59,6 +59,9 @@ Route::group(['middleware'=>'auth'],function(){
 });
 //out middleware
 //////////////////////////////////////////////////////////////////////////////////
+Route::get('',['as'=>'cv',function(){
+  return view('template.cv');
+}]);
 //route login
 Route::get('login',['as'=>'login','middleware'=>'AlreadyLogin','uses'=>'Auth\LoginController@getLogin']);
 Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
