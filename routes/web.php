@@ -273,5 +273,5 @@ Route::post('authen/login',['as'=>'postLogin','uses'=>'Auth\LoginController@post
 Route::resource('restful','HocSinhController');
 // Javascript ES6
 Route::get('es6',function(){
-  return view('es6');
+  return view('es6.es6');
 });
