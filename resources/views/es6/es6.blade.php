@@ -16,6 +16,11 @@
       const students = new Set(['Wes', 'Kara', 'Tony']);
       const dogs = ['Snickers', 'Sunny'];
       const dogSet = new Set(dogs);
+      //
+      var num = 5;
+      for (let i = 0; i < num; i++){
+        console.log(i);
+    }
     </script>
   </body>
 </html>

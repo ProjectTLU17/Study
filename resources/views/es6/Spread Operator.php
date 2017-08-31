@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <h2 class="jump">SPREADS!</h2>
+    <h2 class="jump">LINH LINH!</h2>
     <script type="text/javascript">
     const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
     const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
