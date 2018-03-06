@@ -66,6 +66,8 @@ Route::get('',['as'=>'cv',function(){
 Route::get('login',['as'=>'login','middleware'=>'AlreadyLogin','uses'=>'Auth\LoginController@getLogin']);
 Route::post('login',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
 //route redirect any non-define route to login route
+//api for hltv
+Route::resource('api/hltv','CrawlHltvController');
 Route::any('{all?}',function(){
   return redirect('login');
 })->where('all','(.*)');

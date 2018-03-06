@@ -177,6 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Sukohi\SearchBot\SearchBotServiceProvider::class,
+        Sukohi\LaravelAbsoluteUrl\LaravelAbsoluteUrlServiceProvider::class, 
 
     ],
 
@@ -228,6 +230,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'LaravelAbsoluteUrl' => Sukohi\LaravelAbsoluteUrl\Facades\LaravelAbsoluteUrl::class,
+        'SearchBot' => Sukohi\SearchBot\Facades\SearchBot::class,
     ],
 
 ];

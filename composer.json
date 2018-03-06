@@ -15,7 +15,8 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.3.0",
-        "monolog/monolog": "^1.22"
+        "monolog/monolog": "^1.22",
+        "sukohi/search-bot": "1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "dev-master",
